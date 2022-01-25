@@ -30,7 +30,6 @@ public class TowerSelection : MonoBehaviour
         }
     }
 
-    //some text
     public void CloseMenuSelectionTowers()
     {
         controller.SetBool("isActive", false);
