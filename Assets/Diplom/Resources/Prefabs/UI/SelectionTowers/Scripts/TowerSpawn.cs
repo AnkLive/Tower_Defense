@@ -1,9 +1,12 @@
+using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class spawnTowers : MonoBehaviour
+public class TowerSpawn : MonoBehaviour
 {
     [SerializeField]
     private GameObject _spawnTowersPrefab;
+
     public void SpawnRailgun()
     {
         GameObject obj = Instantiate(Resources.Load<GameObject>("Railgun"));
@@ -11,13 +14,15 @@ public class spawnTowers : MonoBehaviour
         obj.transform.localPosition = Vector3.zero;
         CloseMenuSelectionTowers();
     }
+    
     public void SpawnCannon()
     {
-        GameObject obj = Instantiate(Resources.Load<GameObject>("Canon"));
+        GameObject obj = Instantiate(Resources.Load<GameObject>("Cannon"));
         obj.transform.SetParent(_spawnTowersPrefab.transform);
         obj.transform.localPosition = Vector3.zero;
         CloseMenuSelectionTowers();
     }
+
     public void SpawnMashinegun()
     {
         GameObject obj = Instantiate(Resources.Load<GameObject>("Mashinegun"));

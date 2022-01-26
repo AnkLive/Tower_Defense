@@ -17,7 +17,7 @@ public class TowerSelection : MonoBehaviour
             {
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.CompareTag("TowerSpawn"))
+                    if (hit.collider.CompareTag("TowerSpawnPoint"))
                     {
                         controller.SetBool("isActive", true);
                     } 
