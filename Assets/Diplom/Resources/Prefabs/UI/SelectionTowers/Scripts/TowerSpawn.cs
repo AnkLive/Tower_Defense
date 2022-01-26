@@ -19,7 +19,11 @@ public class TowerSpawn : MonoBehaviour
     {
         GameObject obj = Instantiate(Resources.Load<GameObject>("Cannon"));
         obj.transform.SetParent(_spawnTowersPrefab.transform);
-        obj.transform.localPosition = Vector3.zero;
+        obj.transform.localPosition = new Vector3(
+            Vector3.zero.x,
+            Vector3.zero.y + 0.15f,
+            Vector3.zero.z
+        );
         CloseMenuSelectionTowers();
     }
 
