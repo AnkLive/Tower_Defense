@@ -7,9 +7,9 @@ TagManager:
   - Tower
   - HealthBar
   - Enemy
-  - SpawnTowers
   - Platform
   - Boss
+  - TowerSpawnPoint
   layers:
   - Default
   - TransparentFX
