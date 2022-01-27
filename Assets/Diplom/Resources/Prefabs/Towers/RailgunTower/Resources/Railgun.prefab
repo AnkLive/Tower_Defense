@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8351345707479849394}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257467800386624399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.115, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2093, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4411748847304965231}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 887439159706099493}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: obj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3735847083378216}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: fixedPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8537130358708753525}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: obj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4411748847304965231}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: obj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,8 +147,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7239980656863040047}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.11, z: 0}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.1995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2061216812406891907}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 8690209494509518225}
   - component: {fileID: 2328231699670274672}
   - component: {fileID: 7666178240938501230}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Railgun
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7460457778355417693}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 7
@@ -272,7 +272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 802829193858214714}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DefaultAngle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4641003539298120773}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,10 +386,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1218522076963029389, guid: 27355803a0ed9f947af7dce91b44716b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 27355803a0ed9f947af7dce91b44716b,
         type: 3}
       propertyPath: m_Name
       value: railgun_gun_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27355803a0ed9f947af7dce91b44716b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009697938357420951, guid: 27355803a0ed9f947af7dce91b44716b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233112405309087440, guid: 27355803a0ed9f947af7dce91b44716b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27355803a0ed9f947af7dce91b44716b, type: 3}
@@ -466,6 +486,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: railgun_gun_1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 57f778fafa0a4ac47a3c4861b191a6fa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57f778fafa0a4ac47a3c4861b191a6fa, type: 3}
 --- !u!4 &2061216812406891907 stripped
@@ -536,10 +561,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6733177361254619370, guid: fb7da70712fbf3e498aea3b64026b8bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fb7da70712fbf3e498aea3b64026b8bd,
         type: 3}
       propertyPath: m_Name
       value: railgun_static_platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fb7da70712fbf3e498aea3b64026b8bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb7da70712fbf3e498aea3b64026b8bd, type: 3}
@@ -611,10 +646,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: af84874b894edf94095ffaa142c49702,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: af84874b894edf94095ffaa142c49702,
         type: 3}
       propertyPath: m_Name
       value: railgun_platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: af84874b894edf94095ffaa142c49702,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af84874b894edf94095ffaa142c49702, type: 3}
@@ -686,10 +731,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8543189673729070398, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -6803003736548849574, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -6763858364670572316, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -5387568139381021704, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -4926122518136910690, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -3477458294799913631, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -1727348531506677991, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1afa70824d1aa9b4292323a62894a16a,
         type: 3}
       propertyPath: m_Name
       value: railgun_gun_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222569948219448188, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905725592733190209, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833249854982934595, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106433909863148308, guid: 1afa70824d1aa9b4292323a62894a16a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1afa70824d1aa9b4292323a62894a16a, type: 3}
