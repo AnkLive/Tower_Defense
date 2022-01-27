@@ -8,19 +8,18 @@ TagManager:
   - HealthBar
   - Enemy
   - Platform
-  - Boss
   - TowerSpawnPoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - Enemies
   - Water
   - UI
   - StaticObject
   - Destroyer
-  - 
-  - 
+  - Terrain
+  - Towers
   - 
   - 
   - 

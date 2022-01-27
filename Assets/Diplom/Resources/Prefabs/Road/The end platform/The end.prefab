@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6404979996354132017}
   - component: {fileID: 6404979996354132018}
   - component: {fileID: 6404979996354132019}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Destroyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 6404979996426209863}
   - component: {fileID: 6404979996426209862}
   - component: {fileID: 6404979996426209861}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: The end
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -182,6 +182,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: enemies_spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1e482a459aca0e94c978036712aec1cd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e482a459aca0e94c978036712aec1cd, type: 3}

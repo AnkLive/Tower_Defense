@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Options : MonoBehaviour
 {
-    public bool _dizmosIsVisible { get; set; }         
+    public bool _dizmosIsVisible { get; set; } = true;
     public void RotateObjLeft()
     {
 

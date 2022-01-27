@@ -10,6 +10,7 @@ public class FireRadiusGizmos : MonoBehaviour
     void Start()
     {
         _sphereCollider = gameObject.GetComponent<SphereCollider>();
+        _radius = _sphereCollider.radius;
     }
 
     private void OnDrawGizmos() 
