@@ -1,28 +1,30 @@
 using System;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class objRotation
+public class ObjRotation
 {
-    [field: SerializeField, Header("Объект")]
-    public GameObject _obj { get; private set; }
-    [field: SerializeField, Header("Поворот по умолчанию")]
-    public GameObject _defaultObjRotation { get; private set; }
-    [field: SerializeField, Header("Поворот по оси Х")]
-    public bool _TrackingX { get; private set; }
-    [field: SerializeField, Header("Поворот по оси У")]
-    public bool _TrackingY { get; private set; }
-    [field: SerializeField, Header("Поворот по оси Z")]
-    public bool _TrackingZ { get; private set; }
+    [field: SerializeField, HideInInspector]
+    public GameObject _obj;
+    [field: SerializeField, HideInInspector]
+    public GameObject _defaultObjRotation { get; set; }
+    [field: SerializeField, HideInInspector]
+    public bool _trackingX { get; set; }
+    [field: SerializeField, HideInInspector]
+    public bool _trackingY { get; set; }
+    [field: SerializeField, HideInInspector]
+    public bool _trackingZ { get; set; }
 }
 
 public class Tracking : MonoBehaviour
 {
-    [field: SerializeField, Header("Скорость поворота")]
-    public float _speedRotation { get; private set; }
+    [field: SerializeField, HideInInspector]
+    public float _speedRotation { get; set; }
     [field: SerializeField, Header("Список объектов")]
-    public List<objRotation> _objList { get; private set; } = new List<objRotation>();
+    public List<ObjRotation> _objList = new List<ObjRotation>();
     [field: SerializeField, Header("Таргет объекты")]
     public List<string> _objectTracking { get; private set; } = new List<string>();
     [field: SerializeField]
@@ -106,23 +108,50 @@ public class Tracking : MonoBehaviour
         }
     }
 
-    private Quaternion TrackingRotation(Vector3 Direction, objRotation boolean)
+    private Quaternion TrackingRotation(Vector3 Direction, ObjRotation boolean)
     {
-        if (boolean._TrackingX && !boolean._TrackingY && !boolean._TrackingZ)       
+        if (boolean._trackingX && !boolean._trackingY && !boolean._trackingZ)       
             return Quaternion.LookRotation(new Vector3(0f, Direction.y, Direction.z));
-        else if (boolean._TrackingY && !boolean._TrackingX && !boolean._TrackingZ)  
+        else if (boolean._trackingY && !boolean._trackingX && !boolean._trackingZ)  
             return Quaternion.LookRotation(new Vector3(Direction.x, 0f, Direction.z));
-        else if (boolean._TrackingZ && !boolean._TrackingX && !boolean._TrackingY)  
+        else if (boolean._trackingZ && !boolean._trackingX && !boolean._trackingY)  
             return Quaternion.LookRotation(new Vector3(Direction.x, Direction.y, 0f));
-        else if (boolean._TrackingX && boolean._TrackingY && !boolean._TrackingZ)   
+        else if (boolean._trackingX && boolean._trackingY && !boolean._trackingZ)   
             return Quaternion.LookRotation(new Vector3(0f, 0f, Direction.z));
-        else if (boolean._TrackingX && boolean._TrackingZ && !boolean._TrackingY)   
+        else if (boolean._trackingX && boolean._trackingZ && !boolean._trackingY)   
             return Quaternion.LookRotation(new Vector3(0f, Direction.y, 0f));
-        else if (boolean._TrackingY && boolean._TrackingZ && !boolean._TrackingX)   
+        else if (boolean._trackingY && boolean._trackingZ && !boolean._trackingX)   
             return Quaternion.LookRotation(new Vector3(Direction.x, 0f, 0f));
-        else if (boolean._TrackingX && boolean._TrackingY && boolean._TrackingZ)    
+        else if (boolean._trackingX && boolean._trackingY && boolean._trackingZ)    
             return Quaternion.LookRotation(new Vector3(Direction.x, Direction.y, Direction.z));
         else                                                                        
             return Quaternion.LookRotation(new Vector3(0f, 0f, 0f));
+    }
+}
+
+[CustomEditor(typeof(Tracking))]
+[CanEditMultipleObjects]
+public class TrackingCustomEditor : Editor
+{
+
+    public override void OnInspectorGUI()
+    {
+        Tracking tracking = (Tracking)target;
+        base.OnInspectorGUI();
+        EditorGUILayout.LabelField("Характеристики", EditorStyles.boldLabel);
+        EditorGUILayout.Space();
+        tracking._speedRotation = EditorGUILayout.FloatField("Скорость поворота", tracking._speedRotation);
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("_objList"), new GUIContent("Список доступных объектов"), true);
+        /*tracking._isShields = EditorGUILayout.Toggle("Щиты", tracking._isShields);
+
+        if  (tracking._isShields) tracking._amountOfShields = EditorGUILayout.FloatField(" ", tracking._amountOfShields);
+        else tracking._amountOfShields = 0; */
+
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(tracking);
+            EditorSceneManager.MarkSceneDirty(tracking.gameObject.scene);
+        }
     }
 }

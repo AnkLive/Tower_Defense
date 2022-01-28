@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4942618769304331116}
   - component: {fileID: 1383310362607271273}
   - component: {fileID: 6922200627153886438}
-  - component: {fileID: 8939994283113391248}
   m_Layer: 3
   m_Name: Bot
   m_TagString: Enemy
@@ -78,8 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b0fb7cbd6a5d84199f44983543a970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <_isAdditionalSettings>k__BackingField: 0
   <_amountOfHealth>k__BackingField: 100
   <_currentHealth>k__BackingField: 0
+  <_amountOfShields>k__BackingField: 0
+  <_currentShields>k__BackingField: 0
   _healthSlider: {fileID: 8623032260318145514}
   <_isDied>k__BackingField: 0
 --- !u!114 &6922200627153886438
@@ -99,18 +101,6 @@ MonoBehaviour:
   _speedDirection: 4
   _isBoss: 0
   _isMove: 0
---- !u!114 &8939994283113391248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3535233437151173006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9483ce509c2d0194f8535a79b14d47ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5450311484143720781
 PrefabInstance:
   m_ObjectHideFlags: 0

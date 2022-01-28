@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 1092158843688159521}
   - component: {fileID: 1092158843688159522}
   - component: {fileID: 1092158843688159523}
-  - component: {fileID: 1092158843688159524}
   m_Layer: 3
   m_Name: Tank
   m_TagString: Enemy
@@ -97,8 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b0fb7cbd6a5d84199f44983543a970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <_isAdditionalSettings>k__BackingField: 0
   <_amountOfHealth>k__BackingField: 1000
   <_currentHealth>k__BackingField: 0
+  <_amountOfShields>k__BackingField: 0
+  <_currentShields>k__BackingField: 0
   _healthSlider: {fileID: 3590290191369919417}
   <_isDied>k__BackingField: 0
 --- !u!114 &1092158843688159521
@@ -114,17 +116,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <_speedRotation>k__BackingField: 5
-  <_objList>k__BackingField:
-  - <_obj>k__BackingField: {fileID: 1092158843959342890}
-    <_defaultObjRotation>k__BackingField: {fileID: 4637918161756896899}
-    <_TrackingX>k__BackingField: 0
-    <_TrackingY>k__BackingField: 1
-    <_TrackingZ>k__BackingField: 0
-  - <_obj>k__BackingField: {fileID: 1092158844347172850}
-    <_defaultObjRotation>k__BackingField: {fileID: 4637918161756896899}
-    <_TrackingX>k__BackingField: 1
-    <_TrackingY>k__BackingField: 1
-    <_TrackingZ>k__BackingField: 1
+  _objList:
+  - <_obj>k__BackingField: {fileID: 0}
+    <_defaultObjRotation>k__BackingField: {fileID: 0}
+    <_trackingX>k__BackingField: 0
+    <_trackingY>k__BackingField: 0
+    <_trackingZ>k__BackingField: 0
   <_objectTracking>k__BackingField:
   - Tower
   <_objTrackingID>k__BackingField: []
@@ -160,18 +157,6 @@ MonoBehaviour:
   <_ref>k__BackingField: {fileID: 0}
   <_countDamage>k__BackingField: 0
   <_cooldown>k__BackingField: 0
---- !u!114 &1092158843688159524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092158843688159525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9483ce509c2d0194f8535a79b14d47ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1092158843959342890
 GameObject:
   m_ObjectHideFlags: 0

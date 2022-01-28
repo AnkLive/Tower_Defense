@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 1691201317518687611}
   - component: {fileID: 1691201317518687612}
   - component: {fileID: 1691201317518687606}
-  - component: {fileID: 1691201317518687609}
   - component: {fileID: 1691201317518687607}
   - component: {fileID: 1341598575216665221}
   m_Layer: 3
@@ -162,22 +161,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b0fb7cbd6a5d84199f44983543a970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <_isAdditionalSettings>k__BackingField: 0
   <_amountOfHealth>k__BackingField: 1000
   <_currentHealth>k__BackingField: 0
+  <_amountOfShields>k__BackingField: 0
+  <_currentShields>k__BackingField: 0
   _healthSlider: {fileID: 634413476975235344}
   <_isDied>k__BackingField: 0
---- !u!114 &1691201317518687609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691201317518687614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9483ce509c2d0194f8535a79b14d47ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1691201317518687607
 MonoBehaviour:
   m_ObjectHideFlags: 0
