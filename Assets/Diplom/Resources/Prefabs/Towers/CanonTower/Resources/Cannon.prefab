@@ -94,17 +94,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <_speedRotation>k__BackingField: 5
-  <_objList>k__BackingField:
-  - <_obj>k__BackingField: {fileID: 7892725669416584306}
-    <_defaultObjRotation>k__BackingField: {fileID: 9110217230182741818}
-    <_TrackingX>k__BackingField: 0
-    <_TrackingY>k__BackingField: 1
-    <_TrackingZ>k__BackingField: 0
-  - <_obj>k__BackingField: {fileID: 7892725669785852167}
-    <_defaultObjRotation>k__BackingField: {fileID: 9110217230182741818}
-    <_TrackingX>k__BackingField: 1
-    <_TrackingY>k__BackingField: 1
-    <_TrackingZ>k__BackingField: 1
+  _objList:
+  - _obj: {fileID: 7892725669416584306}
+    _defaultObjRotation: {fileID: 9110217230182741818}
+    _trackingX: 0
+    _trackingY: 1
+    _trackingZ: 0
+  - _obj: {fileID: 7892725669785852167}
+    _defaultObjRotation: {fileID: 9110217230182741818}
+    _trackingX: 1
+    _trackingY: 1
+    _trackingZ: 1
   <_objectTracking>k__BackingField:
   - Enemy
   <_objTrackingID>k__BackingField: []

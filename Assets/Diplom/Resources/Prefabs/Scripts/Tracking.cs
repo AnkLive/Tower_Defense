@@ -7,24 +7,19 @@ using UnityEngine;
 [Serializable]
 public class ObjRotation
 {
-    [field: SerializeField, HideInInspector]
     public GameObject _obj;
-    [field: SerializeField, HideInInspector]
-    public GameObject _defaultObjRotation { get; set; }
-    [field: SerializeField, HideInInspector]
-    public bool _trackingX { get; set; }
-    [field: SerializeField, HideInInspector]
-    public bool _trackingY { get; set; }
-    [field: SerializeField, HideInInspector]
-    public bool _trackingZ { get; set; }
+    public GameObject _defaultObjRotation;
+    public bool _trackingX;
+    public bool _trackingY;
+    public bool _trackingZ;
 }
 
 public class Tracking : MonoBehaviour
 {
     [field: SerializeField, HideInInspector]
     public float _speedRotation { get; set; }
-    [field: SerializeField, Header("Список объектов")]
-    public List<ObjRotation> _objList = new List<ObjRotation>();
+    [field: SerializeField, HideInInspector]
+    private List<ObjRotation> _objList = new List<ObjRotation>();
     [field: SerializeField, Header("Таргет объекты")]
     public List<string> _objectTracking { get; private set; } = new List<string>();
     [field: SerializeField]
@@ -129,11 +124,9 @@ public class Tracking : MonoBehaviour
     }
 }
 
-[CustomEditor(typeof(Tracking))]
-[CanEditMultipleObjects]
+[CustomEditor(typeof(Tracking)), CanEditMultipleObjects]
 public class TrackingCustomEditor : Editor
 {
-
     public override void OnInspectorGUI()
     {
         Tracking tracking = (Tracking)target;
@@ -141,6 +134,7 @@ public class TrackingCustomEditor : Editor
         EditorGUILayout.LabelField("Характеристики", EditorStyles.boldLabel);
         EditorGUILayout.Space();
         tracking._speedRotation = EditorGUILayout.FloatField("Скорость поворота", tracking._speedRotation);
+
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("_objList"), new GUIContent("Список доступных объектов"), true);
         /*tracking._isShields = EditorGUILayout.Toggle("Щиты", tracking._isShields);
@@ -153,5 +147,52 @@ public class TrackingCustomEditor : Editor
             EditorUtility.SetDirty(tracking);
             EditorSceneManager.MarkSceneDirty(tracking.gameObject.scene);
         }
+    }
+}
+
+[CustomPropertyDrawer(typeof(ObjRotation)), CanEditMultipleObjects]
+public class ObjRotationCustomEditor : PropertyDrawer
+{
+    
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {
+        EditorGUI.BeginProperty(position, label, property);
+        Rect labelPosition = new Rect(position.xMin, position.y, position.width, position.height);
+        position = EditorGUI.PrefixLabel(labelPosition,  GUIUtility.GetControlID(FocusType.Passive), label);
+
+        var indent = EditorGUI.indentLevel;
+        EditorGUI.indentLevel = 0;
+
+        var objLabelRect = new Rect(labelPosition.x, position.y - 30f, position.width, position.height);
+        var defaultObjRotationLabelRect = new Rect(labelPosition.x, position.y - 10f, position.width, position.height);
+        var trackingXLabelRect = new Rect(labelPosition.x, position.y + 10f, position.width, position.height);
+        var trackingYLabelRect = new Rect(labelPosition.x, position.y + 30f, position.width, position.height);
+        var trackingZLabelRect = new Rect(labelPosition.x, position.y + 50f, position.width, position.height);
+        
+        var objRect = new Rect(position.x, position.y + 20f, position.width, position.height);
+        var defaultObjRotationRect = new Rect(position.x, position.y + 40f, position.width, position.height);
+        var trackingXRect = new Rect(position.x, position.y + 60f, position.width, position.height);
+        var trackingYRect = new Rect(position.x, position.y + 80f, position.width, position.height);
+        var trackingZRect = new Rect(position.x, position.y + 100f, position.width, position.height);
+
+        EditorGUI.LabelField(objLabelRect, "Объект");
+        EditorGUI.PropertyField(objRect, property.FindPropertyRelative("_obj"), GUIContent.none, true);
+        EditorGUI.LabelField(defaultObjRotationLabelRect, "Угол поворота по умолчанию");
+        EditorGUI.PropertyField(defaultObjRotationRect, property.FindPropertyRelative("_defaultObjRotation"), GUIContent.none, true);
+        EditorGUI.LabelField(trackingXLabelRect, "Поворот по оси X");
+        EditorGUI.PropertyField(trackingXRect, property.FindPropertyRelative("_trackingX"), GUIContent.none, true);
+        EditorGUI.LabelField(trackingYLabelRect, "Поворот по оси Y");
+        EditorGUI.PropertyField(trackingYRect, property.FindPropertyRelative("_trackingY"), GUIContent.none, true);
+        EditorGUI.LabelField(trackingZLabelRect, "Поворот по оси Z");
+        EditorGUI.PropertyField(trackingZRect, property.FindPropertyRelative("_trackingZ"), GUIContent.none, true);
+
+        EditorGUI.indentLevel = indent;
+        EditorGUI.EndProperty();
+        property.serializedObject.ApplyModifiedProperties();
+    }
+
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    {
+        return base.GetPropertyHeight(property, label) + 100f;
     }
 }

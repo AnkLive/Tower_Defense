@@ -1,8 +1,7 @@
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
-[CustomEditor(typeof(ObjRotation)), CanEditMultipleObjects]
+[CustomEditor(typeof(ObjRotation))]
 public class ObjRotationCustomEditor : Editor
 {
     private SerializedProperty obj, defaultObjRotation, trackingX, trackingY, trackingZ;
@@ -17,15 +16,16 @@ public class ObjRotationCustomEditor : Editor
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        EditorGUILayout.LabelField("Характеристики", EditorStyles.boldLabel);
-        EditorGUILayout.Space();
+        //EditorGUILayout.LabelField("Характеристики", EditorStyles.boldLabel);
+        //EditorGUILayout.Space();
         //obj = (GameObject)EditorGUILayout.ObjectField("Объект", obj, typeof(GameObject), true);
-        EditorGUILayout.PropertyField(obj);
+        EditorGUILayout.PropertyField(obj, new GUIContent("Ссылка на объект"), true);
         /*tracking._isShields = EditorGUILayout.Toggle("Щиты", tracking._isShields);
 
         if  (tracking._isShields) tracking._amountOfShields = EditorGUILayout.FloatField(" ", tracking._amountOfShields);
         else tracking._amountOfShields = 0; */
-        serializedObject.Update();
         serializedObject.ApplyModifiedProperties();
     }
+
+    
 }
