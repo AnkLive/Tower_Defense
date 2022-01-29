@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1092158843688159520}
   - component: {fileID: 1092158843688159521}
   - component: {fileID: 1092158843688159522}
-  - component: {fileID: 1092158843688159523}
+  - component: {fileID: 6456653160075418948}
   m_Layer: 3
   m_Name: Tank
   m_TagString: Enemy
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907d414b04095d54593b7083562f788e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <_isAdditionalSettings>k__BackingField: 0
   <_speedRotation>k__BackingField: 5
   _objList:
   - _obj: {fileID: 1092158843959342890}
@@ -127,9 +128,9 @@ MonoBehaviour:
     _trackingX: 1
     _trackingY: 1
     _trackingZ: 1
-  <_objectTracking>k__BackingField:
+  _objectTrackingTag:
   - Tower
-  <_objTrackingID>k__BackingField: []
+  _objTracking: []
 --- !u!114 &1092158843688159522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,14 +148,14 @@ MonoBehaviour:
   _speedDirection: 1
   _isBoss: 0
   _isMove: 0
---- !u!114 &1092158843688159523
+--- !u!114 &6456653160075418948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092158843688159525}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 214963d9f2f7d6144ad0d631da1456c8, type: 3}
   m_Name: 

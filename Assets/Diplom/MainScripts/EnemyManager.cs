@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
         {
             if (item.GetComponent<Health>()._isDied)
             {
-                obj.GetComponent<Tracking>().RemoveListObj();
+                obj.GetComponent<Tracking>().RemoveTrackingListObj();
                 DestroyObj(item);
             }
         }

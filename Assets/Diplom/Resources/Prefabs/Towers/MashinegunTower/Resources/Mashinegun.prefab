@@ -189,21 +189,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907d414b04095d54593b7083562f788e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <_isAdditionalSettings>k__BackingField: 0
   <_speedRotation>k__BackingField: 5
-  <_objList>k__BackingField:
-  - <_obj>k__BackingField: {fileID: 9066987857216519416}
-    <_defaultObjRotation>k__BackingField: {fileID: 840208900023065061}
-    <_TrackingX>k__BackingField: 0
-    <_TrackingY>k__BackingField: 1
-    <_TrackingZ>k__BackingField: 0
-  - <_obj>k__BackingField: {fileID: 9066987858054932122}
-    <_defaultObjRotation>k__BackingField: {fileID: 840208900023065061}
-    <_TrackingX>k__BackingField: 1
-    <_TrackingY>k__BackingField: 1
-    <_TrackingZ>k__BackingField: 1
-  <_objectTracking>k__BackingField:
-  - Enemy
-  <_objTrackingID>k__BackingField: []
+  _objList: []
+  _objectTrackingTag: []
+  _objTracking: []
 --- !u!114 &9066987857240419891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <_sphereCollider>k__BackingField: {fileID: 1051351706382314345}
+  <_radius>k__BackingField: 5
 --- !u!1 &9066987858054932122
 GameObject:
   m_ObjectHideFlags: 0

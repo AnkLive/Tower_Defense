@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7645738264576971235}
   - component: {fileID: 7726195596616418194}
   - component: {fileID: 4802192336698248166}
+  - component: {fileID: -4583546635434574656}
+  - component: {fileID: 5970403830368278679}
   m_Layer: 3
   m_Name: Car
   m_TagString: Enemy
@@ -77,11 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7bada071c864d449c99c4444bf948a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyMovement: {fileID: 7645738264576971235}
-  _speed: 5
-  _speedDirection: 4
-  _isBoss: 0
-  _isMove: 0
+  <_enemyMovement>k__BackingField: {fileID: 0}
+  <_speed>k__BackingField: 0
+  <_speedDirection>k__BackingField: 0
+  <_isBoss>k__BackingField: 0
+  <_isMove>k__BackingField: 0
 --- !u!114 &4802192336698248166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,10 +96,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b0fb7cbd6a5d84199f44983543a970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <_isAdditionalSettings>k__BackingField: 0
   <_amountOfHealth>k__BackingField: 100
   <_currentHealth>k__BackingField: 0
+  <_amountOfShields>k__BackingField: 0
+  <_currentShields>k__BackingField: 0
   _healthSlider: {fileID: 7778549755938136443}
   <_isDied>k__BackingField: 0
+--- !u!114 &-4583546635434574656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340747922278533150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 907d414b04095d54593b7083562f788e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <_isAdditionalSettings>k__BackingField: 0
+  <_speedRotation>k__BackingField: 0
+  _objList: []
+  _objectTrackingTag: []
+  _objTracking: []
+--- !u!114 &5970403830368278679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340747922278533150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214963d9f2f7d6144ad0d631da1456c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <_ref>k__BackingField: {fileID: 0}
+  <_countDamage>k__BackingField: 0
+  <_cooldown>k__BackingField: 0
 --- !u!1001 &761130986795333913
 PrefabInstance:
   m_ObjectHideFlags: 0

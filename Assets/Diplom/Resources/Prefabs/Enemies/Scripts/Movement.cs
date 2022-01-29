@@ -2,16 +2,19 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField]
-    private Rigidbody _enemyMovement;
-    [SerializeField]
-    private float _speed;
-    [SerializeField]
-    private float _speedDirection;
-    [SerializeField]
-    private bool _isBoss;
-    [SerializeField]
-    private bool _isMove;
+    [field: SerializeField, HideInInspector]
+    public Rigidbody _enemyMovement { get; set; }
+    [field: SerializeField, HideInInspector]
+    public float _speed { get; set; }
+    [field: SerializeField, HideInInspector]
+    public float _speedDirection { get; set; }
+    [field: SerializeField, HideInInspector]
+    public bool _isBoss { get; set; }
+    [field: SerializeField, HideInInspector]    
+    public bool _isMove { get; private set; }
+
+    private void Start() => _enemyMovement = gameObject.GetComponent<Rigidbody>();
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Platform")
@@ -19,10 +22,13 @@ public class Movement : MonoBehaviour
             Rotation(collision);
         }
     }
+
     private void OnCollisionStay(Collision collision)
     {
+
         if (collision.gameObject.tag == "Platform")
         {
+            
             switch (_isBoss)
             {
                 case false:
@@ -38,18 +44,22 @@ public class Movement : MonoBehaviour
 
     private void Rotation(Collision collision)
     {
+
         if (transform.rotation != collision.gameObject.transform.rotation)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, collision.gameObject.transform.rotation, Time.deltaTime * _speedDirection);
         }
     }
+
     private void BossMovement()
     {
+
         if (_isMove) 
         {
             MovementObj();
         }
     }
+
     private void MovementObj()
     {
         _enemyMovement.MovePosition(transform.position + transform.forward * _speed * Time.deltaTime);

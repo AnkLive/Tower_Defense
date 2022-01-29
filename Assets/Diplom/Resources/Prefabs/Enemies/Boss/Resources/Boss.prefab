@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1691201317518687612}
   - component: {fileID: 1691201317518687606}
   - component: {fileID: 1691201317518687607}
-  - component: {fileID: 1341598575216665221}
+  - component: {fileID: -6191577352426532589}
   m_Layer: 3
   m_Name: Boss
   m_TagString: Enemy
@@ -144,11 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7bada071c864d449c99c4444bf948a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyMovement: {fileID: 1691201317518687613}
-  _speed: 1
-  _speedDirection: 1
-  _isBoss: 1
-  _isMove: 1
+  <_enemyMovement>k__BackingField: {fileID: 0}
+  <_speed>k__BackingField: 0
+  <_speedDirection>k__BackingField: 0
+  <_isBoss>k__BackingField: 0
+  <_isMove>k__BackingField: 0
 --- !u!114 &1691201317518687606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,36 +180,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907d414b04095d54593b7083562f788e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <_isAdditionalSettings>k__BackingField: 0
   <_speedRotation>k__BackingField: 5
-  <_objList>k__BackingField:
-  - <_obj>k__BackingField: {fileID: 8531554152635920235}
-    <_defaultObjRotation>k__BackingField: {fileID: 1603861522857121174}
-    <_TrackingX>k__BackingField: 0
-    <_TrackingY>k__BackingField: 1
-    <_TrackingZ>k__BackingField: 0
-  - <_obj>k__BackingField: {fileID: 7099333388157490630}
-    <_defaultObjRotation>k__BackingField: {fileID: 1603861522857121174}
-    <_TrackingX>k__BackingField: 1
-    <_TrackingY>k__BackingField: 1
-    <_TrackingZ>k__BackingField: 1
-  <_objectTracking>k__BackingField:
-  - Tower
-  <_objTrackingID>k__BackingField: []
---- !u!114 &1341598575216665221
+  _objList: []
+  _objectTrackingTag: []
+  _objTracking: []
+--- !u!114 &-6191577352426532589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691201317518687614}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 214963d9f2f7d6144ad0d631da1456c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <_ref>k__BackingField: {fileID: 0}
-  <_countDamage>k__BackingField: 1
-  <_cooldown>k__BackingField: 100
+  <_countDamage>k__BackingField: 0
+  <_cooldown>k__BackingField: 0
 --- !u!1 &1691201318066683054
 GameObject:
   m_ObjectHideFlags: 0
