@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [field: SerializeField, Header("Список всех врагов на карте")]
-    public List<GameObject> _allEnemyList = new List<GameObject>();
+    [field: SerializeField, HideInInspector]
+
+    private List<GameObject> _allEnemyList = new List<GameObject>();
 
     public void AddListObj(GameObject obj) => _allEnemyList.Add(obj);
 
@@ -14,8 +15,10 @@ public class EnemyManager : MonoBehaviour
     public void HealthCheck(GameObject obj)
     {
         RemoveListObj();
+
         foreach (var item in _allEnemyList)
         {
+
             if (item.GetComponent<Health>()._isDied)
             {
                 obj.GetComponent<Tracking>().RemoveTrackingListObj();
