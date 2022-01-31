@@ -12,7 +12,6 @@ public class EnemyManagerCustomEditor : Editor
         EditorGUILayout.LabelField("Параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(serializedObject.FindProperty("_allEnemyList"), new GUIContent("Список врагов на сцене"), true);
-
         serializedObject.ApplyModifiedProperties();
 
         if (GUI.changed) EditorUtility.SetDirty(enemyManager);

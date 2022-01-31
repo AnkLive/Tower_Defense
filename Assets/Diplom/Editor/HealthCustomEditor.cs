@@ -36,7 +36,6 @@ public class HealthCustomEditor : Editor
             health._currentHealth = EditorGUILayout.FloatField("Здоровье", health._currentHealth);
 
             if  (health._isShields) health._currentShields = EditorGUILayout.FloatField("Щиты", health._currentShields);
-
             health._isDied = EditorGUILayout.Toggle("Враг уничтожен", health._isDied);
         }
         serializedObject.ApplyModifiedProperties();

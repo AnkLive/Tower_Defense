@@ -11,6 +11,7 @@ public class Damage : MonoBehaviour
     public float _cooldown { get; set; }
     public float _timeStamp { get; private set; }
     public List<GameObject> _objList { get; set; } = new List<GameObject>();
+    
     private void Start() => _timeStamp = _cooldown;
 
     private void Update() => IsDamage(gameObject.GetComponent<Tracking>()._objTracking);

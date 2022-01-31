@@ -8,6 +8,8 @@ public class ObjReferenceListPropertyDrawer : PropertyDrawer
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         EditorGUI.BeginProperty(position, label, property);
+        property.serializedObject.Update();
+        
         Rect labelPosition = new Rect(position.xMin, position.y, position.width, position.height);
         position = EditorGUI.PrefixLabel(labelPosition,  GUIUtility.GetControlID(FocusType.Passive), label);
 

@@ -12,10 +12,7 @@ public class FireRadiusGizmosCustomEditor : Editor
         EditorGUI.BeginChangeCheck();
         fireRadiusGizmos._radius = EditorGUILayout.FloatField("Радиус стрельбы башни", fireRadiusGizmos._radius);
 
-        if (EditorGUI.EndChangeCheck())
-        {
-            fireRadiusGizmos._sphereCollider.radius = fireRadiusGizmos._radius;
-        }
+        if (EditorGUI.EndChangeCheck()) fireRadiusGizmos._sphereCollider.radius = fireRadiusGizmos._radius;
         serializedObject.ApplyModifiedProperties();
         
         if (GUI.changed) EditorUtility.SetDirty(fireRadiusGizmos);

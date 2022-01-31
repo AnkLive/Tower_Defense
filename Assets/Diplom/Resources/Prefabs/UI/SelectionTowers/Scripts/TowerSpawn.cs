@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class TowerSpawn : MonoBehaviour
 {
-    [SerializeField]
     private GameObject _spawnTowersPrefab;
 
-    public void SpawnRailgun()
+    private void SpawnRailgun()
     {
         GameObject obj = Instantiate(Resources.Load<GameObject>("Railgun"));
         obj.transform.SetParent(_spawnTowersPrefab.transform);
@@ -17,7 +16,7 @@ public class TowerSpawn : MonoBehaviour
         CloseMenuSelectionTowers();
     }
     
-    public void SpawnCannon()
+    private void SpawnCannon()
     {
         GameObject obj = Instantiate(Resources.Load<GameObject>("Cannon"));
         obj.transform.SetParent(_spawnTowersPrefab.transform);
@@ -29,7 +28,7 @@ public class TowerSpawn : MonoBehaviour
         CloseMenuSelectionTowers();
     }
 
-    public void SpawnMashinegun()
+    private void SpawnMashinegun()
     {
         GameObject obj = Instantiate(Resources.Load<GameObject>("Mashinegun"));
         obj.transform.SetParent(_spawnTowersPrefab.transform);
@@ -41,8 +40,5 @@ public class TowerSpawn : MonoBehaviour
         CloseMenuSelectionTowers();
     }
 
-    public void CloseMenuSelectionTowers()
-    {
-        gameObject.GetComponent<TowerSelection>().CloseMenuSelectionTowers();
-    }
+    private void CloseMenuSelectionTowers() => gameObject.GetComponent<TowerSelection>().CloseMenuSelectionTowers();
 }

@@ -2,13 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EEnemyName
-{
-    Bot,
-    Car,
-    Tank,
-    Boss,
-}
+public enum EEnemyName { Bot, Car, Tank, Boss }
 
 [Serializable]
 public class Wave

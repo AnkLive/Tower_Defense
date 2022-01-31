@@ -18,6 +18,7 @@ public class EnemySpawn : MonoBehaviour
 
     private void Awake()
     {
+        
         for (int i = 0; i < _waveManager._wavesList.Count; i++)
         {
             _enemyListName.Add(_waveManager._wavesList[i]._enemyName.ToString());

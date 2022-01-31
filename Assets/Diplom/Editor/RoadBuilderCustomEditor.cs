@@ -1,8 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(RoadBuilder))]
-[CanEditMultipleObjects]
+[CustomEditor(typeof(RoadBuilder)), CanEditMultipleObjects]
 public class RoadBuilderCustomEditor : Editor
 {
     private bool _isCreated = false;

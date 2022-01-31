@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ESide {Left, Right, Top, Bottom}
+public enum ESide { Left, Right, Top, Bottom }
 
 [Serializable]
 public class ObjReferenceList
@@ -46,6 +46,7 @@ public class RoadBuilder : MonoBehaviour
     public void CheckListName()
     {
         _NameObjReferenceList.Clear();
+
         for (int i = 0; i < _objReferenceList.Count; i++)
         {
             _NameObjReferenceList.Insert(i, _objReferenceList[i].objName);
@@ -55,6 +56,7 @@ public class RoadBuilder : MonoBehaviour
     public void Spawn()
     {
         _currentObj = SetCurrentObj();
+
         if (_isFirstObj) SpawnFirstObj();
         else SpawnNextObj();
     }
@@ -63,11 +65,13 @@ public class RoadBuilder : MonoBehaviour
     {
         _objList.RemoveAt(_objList.Count - 1);
         DestroyImmediate(transform.GetChild(transform.childCount - 1).gameObject);
+
         if (_objList.Count == 0) _isFirstObj = true;
     }
 
     public void DestroyAllObj()
     {
+        
         foreach (GameObject item in _objList)
         {
             DestroyImmediate(item);
