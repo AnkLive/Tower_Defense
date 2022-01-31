@@ -17,10 +17,12 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.tag == "Platform")
         {
             Rotation(collision);
         }
+            
     }
 
     private void OnCollisionStay(Collision collision)
@@ -60,8 +62,5 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void MovementObj()
-    {
-        _enemyMovement.MovePosition(transform.position + transform.forward * _speed * Time.deltaTime);
-    }
+    private void MovementObj() => _enemyMovement.MovePosition(transform.position + transform.forward * _speed * Time.deltaTime);
 }

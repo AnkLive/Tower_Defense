@@ -8,15 +8,20 @@ public class TowerSelection : MonoBehaviour
     private Camera Camera;
     [SerializeField]
     private Animator controller;
+
     void Update()
     {
+
         if (Application.platform == RuntimePlatform.WindowsEditor)
         {
             ray = Camera.ScreenPointToRay(Input.mousePosition);
+            
             if (Input.GetMouseButtonDown(0))
             {
+
                 if (Physics.Raycast(ray, out hit))
                 {
+
                     if (hit.collider.CompareTag("TowerSpawnPoint"))
                     {
                         controller.SetBool("isActive", true);
@@ -30,8 +35,5 @@ public class TowerSelection : MonoBehaviour
         }
     }
 
-    public void CloseMenuSelectionTowers()
-    {
-        controller.SetBool("isActive", false);
-    }
+    public void CloseMenuSelectionTowers() => controller.SetBool("isActive", false);
 }

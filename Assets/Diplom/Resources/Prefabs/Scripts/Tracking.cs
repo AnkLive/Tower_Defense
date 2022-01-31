@@ -71,23 +71,15 @@ public class Tracking : MonoBehaviour
         }
     }
 
-    public void RemoveTrackingListObj(Collider collider)
-    {
-        _objTracking.Remove(collider.gameObject);
-    }
+    public void RemoveTrackingListObj(Collider collider) => _objTracking.Remove(collider.gameObject);
 
-    public void RemoveTrackingListObj()
-    {
-        _objTracking.Remove(_objTracking[0]);
-    }
+    public void RemoveTrackingListObj() => _objTracking.Remove(_objTracking[0]);
 
-    private void AddTrackingListObj(Collider collider)
-    {
-        _objTracking.Add(collider.gameObject);
-    }
+    private void AddTrackingListObj(Collider collider) => _objTracking.Add(collider.gameObject);
 
     private void DefaultRotation()
     { 
+        
         for (int i = 0; i < _objList.Count; i++)
         {
             _objList[i]._obj.transform.rotation = Quaternion.Lerp(_objList[i]._obj.transform.rotation,
@@ -97,8 +89,10 @@ public class Tracking : MonoBehaviour
 
     private void TrackingObj()
     {
+
         if (_isTracking)
         {
+
             for (int i = 0; i < _objList.Count; i++)
             {
                 Vector3 direction = (_objTracking[0].transform.position - _objList[i]._obj.transform.position).normalized;
