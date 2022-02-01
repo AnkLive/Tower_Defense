@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     [field: SerializeField, HideInInspector]
     public bool _isBoss { get; set; }
     [field: SerializeField, HideInInspector]    
-    public bool _isMove { get; private set; }
+    public bool _isMove { get; set; }
 
     private void Start() => _enemyMovement = gameObject.GetComponent<Rigidbody>();
 
@@ -55,7 +55,7 @@ public class Movement : MonoBehaviour
 
     private void BossMovement()
     {
-
+        Debug.Log(_isMove);
         if (_isMove) 
         {
             MovementObj();

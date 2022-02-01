@@ -31,26 +31,17 @@ public class HealthCustomEditor : Editor
             }
             EditorGUI.BeginChangeCheck();
             health._isShields = EditorGUILayout.Toggle("ўиты", health._isShields);
-
-            if (EditorGUI.EndChangeCheck()) 
+            if  (health._isShields) 
             {
-
-                if (health._slider != null && health._sliderFillImage != null && health._sliderBottomImage != null) 
-                {
-
-                    if  (health._isShields) 
-                    {
-
-                        health.SetParemeters(health._currentShields, health._amountOfShields, health._slider, Color.green, Color.blue);
-                    }
-                    else 
-                    {
-                        health.SetParemeters(health._currentHealth, health._amountOfHealth, health._slider, Color.red, Color.green);
-                        health._amountOfShields = 0;
-                        health._currentShields = 0;
-                    }
-                }
-            } 
+                health._amountOfShields = EditorGUILayout.FloatField(health._amountOfShields);
+                health.SetParemeters(health._currentShields, health._amountOfShields, health._slider, Color.green, Color.blue);
+            }
+            else 
+            {
+                health.SetParemeters(health._currentHealth, health._amountOfHealth, health._slider, Color.red, Color.green);
+                health._amountOfShields = 0;
+                health._currentShields = 0;
+            }
         }
         else 
         {   

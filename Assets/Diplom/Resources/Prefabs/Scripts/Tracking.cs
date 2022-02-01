@@ -28,7 +28,7 @@ public class Tracking : MonoBehaviour
     public List<GameObject> _objTracking = new List<GameObject>();
     public bool _isTracking { get; private set; } = false;
 
-    private void Awake() => EnemyManager.isRemoveObjAction += RemoveTrackingListObj;
+    private void Awake() => ObjectManager.isRemoveObjAction += RemoveTrackingListObj;
 
     private void Update()
     {
@@ -99,6 +99,7 @@ public class Tracking : MonoBehaviour
         if (_isTracking)
         {
             isDamageAction?.Invoke(_objTracking[0]);
+            
             for (int i = 0; i < _objList.Count; i++)
             {
                 Vector3 direction = (_objTracking[0].transform.position - _objList[i]._obj.transform.position).normalized;

@@ -68,7 +68,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: _isMove
+    attribute: <_isMove>k__BackingField
     path: 
     classID: 114
     script: {fileID: 11500000, guid: ac7bada071c864d449c99c4444bf948a, type: 3}
@@ -82,7 +82,7 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
-      attribute: 3073426935
+      attribute: 1498987770
       script: {fileID: 11500000, guid: ac7bada071c864d449c99c4444bf948a, type: 3}
       typeID: 114
       customType: 0
@@ -160,7 +160,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: _isMove
+    attribute: <_isMove>k__BackingField
     path: 
     classID: 114
     script: {fileID: 11500000, guid: ac7bada071c864d449c99c4444bf948a, type: 3}

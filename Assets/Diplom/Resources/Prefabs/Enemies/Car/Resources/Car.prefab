@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5654321053426291072}
   - component: {fileID: 5778020496399410057}
+  - component: {fileID: 4455478289172307396}
   - component: {fileID: 7645738264576971235}
   - component: {fileID: 7726195596616418194}
   - component: {fileID: 4802192336698248166}
@@ -47,8 +48,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.11, y: 0.65, z: 1.77}
-  m_Center: {x: 0, y: -0.05, z: -0.035}
+  m_Size: {x: 1.11, y: 0.24, z: 1.77}
+  m_Center: {x: 0, y: 0.18, z: -0.035}
+--- !u!65 &4455478289172307396
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340747922278533150}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.42785588, z: 0.3}
+  m_Center: {x: 0, y: -0.15607207, z: -0.034999996}
 --- !u!54 &7645738264576971235
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -78,8 +92,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <_enemyMovement>k__BackingField: {fileID: 0}
-  <_speed>k__BackingField: 1
-  <_speedDirection>k__BackingField: 2
+  <_speed>k__BackingField: 3
+  <_speedDirection>k__BackingField: 5
   <_isBoss>k__BackingField: 0
   <_isMove>k__BackingField: 0
 --- !u!114 &4802192336698248166
@@ -95,8 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <_isShields>k__BackingField: 1
-  <_isAdditionalSettings>k__BackingField: 1
-  <_amountOfHealth>k__BackingField: 100
+  <_isAdditionalSettings>k__BackingField: 0
+  <_amountOfHealth>k__BackingField: 250
   <_currentHealth>k__BackingField: 0
   <_amountOfShields>k__BackingField: 250
   <_currentShields>k__BackingField: 0

@@ -56,7 +56,7 @@ public class EnemySpawn : MonoBehaviour
         while (_numberOfEnemy < _enemyListCount[_numberOWave])
         {
             GameObject obj = Instantiate(Resources.Load<GameObject>(_enemyListName[_numberOWave]));
-            gameObject.GetComponent<EnemyManager>().AddListObj(obj);
+            gameObject.GetComponent<ObjectManager>().AddListObj(obj);
             obj.transform.position = new Vector3(
                 _spawn.transform.position.x,
                 _spawn.transform.position.y + 1f,

@@ -4,27 +4,17 @@ public class Options : MonoBehaviour
 {
     public bool _dizmosIsVisible { get; set; } = true;
 
-    public void RotateObjLeft()
+    public void RotateObj(float angle)
     {
-
-        if (gameObject.transform.rotation.y > 360f) {
+        if (gameObject.transform.rotation.y > 360f) 
+        {
             gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-            gameObject.transform.rotation = Quaternion.Euler(
-                transform.rotation.eulerAngles.x, 
-                transform.rotation.eulerAngles.y - 90f, 
-                transform.rotation.eulerAngles.z
-            );
         }
-    }
-    
-    public void RotateObjRight()
-    {
-
-        if (gameObject.transform.rotation.y > 360f) {
-            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        else 
+        {
             gameObject.transform.rotation = Quaternion.Euler(
                 transform.rotation.eulerAngles.x, 
-                transform.rotation.eulerAngles.y + 90f, 
+                transform.rotation.eulerAngles.y + angle, 
                 transform.rotation.eulerAngles.z
             );
         }

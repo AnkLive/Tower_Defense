@@ -8,6 +8,7 @@ public class Damage : MonoBehaviour
     [field: SerializeField, HideInInspector]
     public float _cooldown { get; set; }
     private float _timeStamp;
+    
     private void Awake() => gameObject.GetComponent<Tracking>().isDamageAction += IsDamage;
     
     private void Start() => _timeStamp = _cooldown;

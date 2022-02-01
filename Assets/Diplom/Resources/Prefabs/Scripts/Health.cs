@@ -1,10 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public delegate void isDiedDelegate(GameObject obj);
-    public static isDiedDelegate isDiedAction;
+    public static event Action<GameObject> isDiedAction;
     [field: SerializeField, HideInInspector]
     public bool _isShields { get; set; } = false;
     [field: SerializeField, HideInInspector]

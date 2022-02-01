@@ -14,10 +14,10 @@ public class OptionsCustomEditor : Editor
         options._dizmosIsVisible = EditorGUILayout.Toggle("Видимость Gizmos ", options._dizmosIsVisible);
         EditorGUILayout.Space();
 
-        if (GUILayout.Button("Повернуть влево на 90 градусов")) options.RotateObjLeft();
+        if (GUILayout.Button("Повернуть влево на 90 градусов")) options.RotateObj(-90);
         EditorGUILayout.Space();
 
-        if (GUILayout.Button("Повернуть вправо на 90 градусов")) options.RotateObjRight();
+        if (GUILayout.Button("Повернуть вправо на 90 градусов")) options.RotateObj(90f);
         serializedObject.ApplyModifiedProperties();
 
         if (GUI.changed) EditorUtility.SetDirty(options);
