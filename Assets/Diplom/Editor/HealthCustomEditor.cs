@@ -5,42 +5,56 @@ using UnityEngine.UI;
 [CustomEditor(typeof(Health)), CanEditMultipleObjects]
 public class HealthCustomEditor : Editor
 {
+    private Health health;
+    public void Awake()
+    {
+        health = (Health)target;
+    }
 
     public override void OnInspectorGUI()
     {
         var style = new GUIStyle(GUI.skin.button);
         style = EditorStyles.wordWrappedLabel;
         style.normal.textColor = Color.red;
-        Health health = (Health)target;
         base.OnInspectorGUI();
         EditorGUILayout.LabelField("Параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
         
         if (health._slider != null && health._sliderFillImage != null && health._sliderBottomImage != null) 
         {
+            EditorGUI.BeginChangeCheck();
             health._amountOfHealth = EditorGUILayout.FloatField("Здоровье", health._amountOfHealth);
+
+            if (EditorGUI.EndChangeCheck()) 
+            {
+                health.SetParemeters(health._currentHealth, health._amountOfHealth, health._slider, Color.red, Color.green);
+            }
+            EditorGUI.BeginChangeCheck();
             health._isShields = EditorGUILayout.Toggle("Щиты", health._isShields);
+
+            if (EditorGUI.EndChangeCheck()) 
+            {
+
+                if (health._slider != null && health._sliderFillImage != null && health._sliderBottomImage != null) 
+                {
+
+                    if  (health._isShields) 
+                    {
+
+                        health.SetParemeters(health._currentShields, health._amountOfShields, health._slider, Color.green, Color.blue);
+                    }
+                    else 
+                    {
+                        health.SetParemeters(health._currentHealth, health._amountOfHealth, health._slider, Color.red, Color.green);
+                        health._amountOfShields = 0;
+                        health._currentShields = 0;
+                    }
+                }
+            } 
         }
         else 
-        {
-            
+        {   
             EditorGUILayout.LabelField("Ошибка: требуется указать все необходимые ссылки в дополнительных параметрах",style);
-        }
-
-        if  (health._isShields)
-        {
-            
-            if (health._slider != null && health._sliderFillImage != null && health._sliderBottomImage != null) 
-            {
-                health.SetParemeters(health._currentShields, health._amountOfShields, health._slider, Color.green, Color.blue);
-            }
-            health._amountOfShields = EditorGUILayout.FloatField(" ", health._amountOfShields);
-        }
-        else if (health._slider != null && health._sliderFillImage != null && health._sliderBottomImage != null)
-        {
-            health.SetParemeters(health._currentHealth, health._amountOfHealth, health._slider, Color.red, Color.green);
-            health._amountOfShields = 0;
-            health._currentShields = 0;
         }
 
         EditorGUILayout.Space();

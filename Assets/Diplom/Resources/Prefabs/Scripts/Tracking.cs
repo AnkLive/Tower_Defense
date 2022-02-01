@@ -14,6 +14,8 @@ public class ObjRotation
 
 public class Tracking : MonoBehaviour
 {
+    public delegate void isDamageDelegate(GameObject obj);
+    public isDamageDelegate isDamageAction;
     [field: SerializeField, HideInInspector]
     public bool _isAdditionalSettings { get; set; } = false;
     [field: SerializeField, HideInInspector]
@@ -25,6 +27,8 @@ public class Tracking : MonoBehaviour
     [field: SerializeField, HideInInspector]
     public List<GameObject> _objTracking = new List<GameObject>();
     public bool _isTracking { get; private set; } = false;
+
+    private void Awake() => EnemyManager.isRemoveObjAction += RemoveTrackingListObj;
 
     private void Update()
     {
@@ -75,6 +79,8 @@ public class Tracking : MonoBehaviour
 
     public void RemoveTrackingListObj() => _objTracking.Remove(_objTracking[0]);
 
+    public void RemoveTrackingListObj(GameObject obj) => _objTracking.Remove(obj);
+
     private void AddTrackingListObj(Collider collider) => _objTracking.Add(collider.gameObject);
 
     private void DefaultRotation()
@@ -92,7 +98,7 @@ public class Tracking : MonoBehaviour
 
         if (_isTracking)
         {
-
+            isDamageAction?.Invoke(_objTracking[0]);
             for (int i = 0; i < _objList.Count; i++)
             {
                 Vector3 direction = (_objTracking[0].transform.position - _objList[i]._obj.transform.position).normalized;

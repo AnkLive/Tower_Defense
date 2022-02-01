@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public delegate void isRemoveObjDelegate(GameObject obj);
+    public static isRemoveObjDelegate isRemoveObjAction;
     [field: SerializeField, HideInInspector]
-
     private List<GameObject> _allEnemyList = new List<GameObject>();
+
+    private void Awake() => Health.isDiedAction += HealthCheck;
 
     public void AddListObj(GameObject obj) => _allEnemyList.Add(obj);
 
@@ -15,15 +18,10 @@ public class EnemyManager : MonoBehaviour
     public void HealthCheck(GameObject obj)
     {
         RemoveListObj();
-
-        foreach (var item in _allEnemyList)
+        if (obj.GetComponent<Health>()._isDied)
         {
-
-            if (item.GetComponent<Health>()._isDied)
-            {
-                obj.GetComponent<Tracking>().RemoveTrackingListObj();
-                DestroyObj(item);
-            }
+            isRemoveObjAction?.Invoke(obj);
+            DestroyObj(obj);
         }
     }
 

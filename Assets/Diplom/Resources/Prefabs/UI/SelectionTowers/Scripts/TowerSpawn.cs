@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TowerSpawn : MonoBehaviour
 {
+    [field: SerializeField]
     private GameObject _spawnTowersPrefab;
 
     private void SpawnRailgun()

@@ -106,7 +106,8 @@ MonoBehaviour:
     _trackingX: 1
     _trackingY: 1
     _trackingZ: 1
-  _objectTrackingTag: []
+  _objectTrackingTag:
+  - Enemy
   _objTracking: []
 --- !u!114 &7892725669599824902
 MonoBehaviour:
@@ -120,8 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214963d9f2f7d6144ad0d631da1456c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_ref>k__BackingField: {fileID: 0}
-  <_countDamage>k__BackingField: 1
+  <_countDamage>k__BackingField: 100
   <_cooldown>k__BackingField: 1
 --- !u!114 &4642830436730677932
 MonoBehaviour:

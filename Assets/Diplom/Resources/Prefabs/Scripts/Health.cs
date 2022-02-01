@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    public delegate void isDiedDelegate(GameObject obj);
+    public static isDiedDelegate isDiedAction;
+    [field: SerializeField, HideInInspector]
     public bool _isShields { get; set; } = false;
     [field: SerializeField, HideInInspector]
     public bool _isAdditionalSettings { get; set; } = false;
@@ -25,41 +28,48 @@ public class Health : MonoBehaviour
  
     private void Awake()
     {
-        if (_isShields) SetParemeters(_currentShields, _amountOfShields, _slider, Color.green, Color.blue);
-        else SetParemeters(_currentHealth, _amountOfHealth, _slider, Color.red, Color.green);
+        if (_isShields) 
+        {
+            _currentHealth = _amountOfHealth;
+            _currentShields = SetParemeters(_currentShields, _amountOfShields, _slider, Color.green, Color.blue);
+        }
+        else _currentHealth = SetParemeters(_currentHealth, _amountOfHealth, _slider, Color.red, Color.green);
     }
 
     public void TakeDamage(float damage)
     {
 
-        if (_currentHealth <= 0)  _isDied = true;
+        if (_isShields) 
+        {
+             _currentShields -= damage;
+            _slider.value = _currentShields;
+
+            if (_currentShields <= 0) 
+            {
+                SetParemeters(_currentHealth, _amountOfHealth, _slider, Color.red, Color.green);
+                _isShields = false;
+            }
+        }
         else 
         {
+            _currentHealth -= damage;
+            _slider.value = _currentHealth;
+        }
 
-            if (_isShields) 
-            {
-                _currentShields -= damage;
-
-                if (_currentShields <= 0) 
-                {
-                    SetParemeters(_currentHealth, _amountOfHealth, _slider, Color.red, Color.green);
-                    _isShields = false;
-                }
-            }
-            else 
-            {
-                _currentHealth -= damage;
-                _slider.value = _currentHealth;
-            }
+        if (_currentHealth <= 0) 
+        {
+            _isDied = true;
+            isDiedAction?.Invoke(gameObject);
         }
     }
 
-    public void SetParemeters(float current, float amount, Slider slider, Color a, Color b) 
+    public float SetParemeters(float current, float amount, Slider slider, Color fill, Color bottom) 
     {
         current = amount;
         slider.maxValue = amount;
         slider.value = amount;
-        _sliderFillImage.color = a;
-        _sliderBottomImage.color = b;
+        _sliderFillImage.color = fill;
+        _sliderBottomImage.color = bottom;
+        return current;
     }
 }

@@ -1,30 +1,26 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    [field: SerializeField, HideInInspector]
-    public GameObject _ref { get; set; }
+    private GameObject _ref;
     [field: SerializeField, HideInInspector]
     public float _countDamage { get; set; }
     [field: SerializeField, HideInInspector]
     public float _cooldown { get; set; }
-    public float _timeStamp { get; private set; }
-    public List<GameObject> _objList { get; set; } = new List<GameObject>();
+    private float _timeStamp;
+    private void Awake() => gameObject.GetComponent<Tracking>().isDamageAction += IsDamage;
     
     private void Start() => _timeStamp = _cooldown;
 
-    private void Update() => IsDamage(gameObject.GetComponent<Tracking>()._objTracking);
-
-    private void IsDamage(List<GameObject> objList)
+    private void IsDamage(GameObject obj)
     {
-        _objList = objList;
+        _ref = obj;
 
         if (_timeStamp <= Time.time)
         {
-            _objList[0].GetComponent<Health>().TakeDamage(_countDamage);
-            _ref.GetComponent<EnemyManager>().HealthCheck(gameObject);
+            _ref.GetComponent<Health>().TakeDamage(_countDamage);
             _timeStamp = Time.time + _cooldown;
         }
+
     }
 }
