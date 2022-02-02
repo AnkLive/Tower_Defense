@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
+    public static event Action<GameObject> addHealthBar;
     public static event Action<GameObject> isRemoveObjAction;
     [field: SerializeField, HideInInspector]
     private List<GameObject> _allEnemiesList = new List<GameObject>();
@@ -25,6 +26,7 @@ public class ObjectManager : MonoBehaviour
         {
             isRemoveObjAction?.Invoke(obj);
             DestroyObj(obj);
+            addHealthBar?.Invoke(obj);
         }
     }
 

@@ -6,6 +6,8 @@ public class Damage : MonoBehaviour
     [field: SerializeField, HideInInspector]
     public float _countDamage { get; set; }
     [field: SerializeField, HideInInspector]
+    public ParticleSystem _shutEffect;
+    [field: SerializeField, HideInInspector]
     public float _cooldown { get; set; }
     private float _timeStamp;
     
@@ -19,6 +21,7 @@ public class Damage : MonoBehaviour
 
         if (_timeStamp <= Time.time)
         {
+            _shutEffect.Play();
             _ref.GetComponent<Health>().TakeDamage(_countDamage);
             _timeStamp = Time.time + _cooldown;
         }

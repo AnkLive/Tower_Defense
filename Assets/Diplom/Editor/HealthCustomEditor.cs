@@ -17,6 +17,7 @@ public class HealthCustomEditor : Editor
         style = EditorStyles.wordWrappedLabel;
         style.normal.textColor = Color.red;
         base.OnInspectorGUI();
+        serializedObject.Update();
         EditorGUILayout.LabelField("Параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
         

@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-
+    public ObjectManager objectManager;
     [field: SerializeField, HideInInspector]
     public GameObject _spawn { get; set; }
     [field: SerializeField, HideInInspector]
@@ -56,7 +57,8 @@ public class EnemySpawn : MonoBehaviour
         while (_numberOfEnemy < _enemyListCount[_numberOWave])
         {
             GameObject obj = Instantiate(Resources.Load<GameObject>(_enemyListName[_numberOWave]));
-            gameObject.GetComponent<ObjectManager>().AddListObj(obj);
+            //gameObject.GetComponent<ObjectManager>().AddListObj(obj);
+            objectManager.AddListObj(obj);
             obj.transform.position = new Vector3(
                 _spawn.transform.position.x,
                 _spawn.transform.position.y + 1f,

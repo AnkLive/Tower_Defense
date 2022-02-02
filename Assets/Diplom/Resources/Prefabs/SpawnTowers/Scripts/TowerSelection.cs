@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TowerSelection : MonoBehaviour
@@ -5,16 +6,16 @@ public class TowerSelection : MonoBehaviour
     private RaycastHit hit;
     private Ray ray;
     [SerializeField]
-    private Camera Camera;
+    private Camera _camera;
     [SerializeField]
-    private Animator controller;
+    private Animator _controller;
 
     void Update()
     {
 
         if (Application.platform == RuntimePlatform.WindowsEditor)
         {
-            ray = Camera.ScreenPointToRay(Input.mousePosition);
+            ray = _camera.ScreenPointToRay(Input.mousePosition);
             
             if (Input.GetMouseButtonDown(0))
             {
@@ -24,7 +25,7 @@ public class TowerSelection : MonoBehaviour
 
                     if (hit.collider.CompareTag("TowerSpawnPoint"))
                     {
-                        controller.SetBool("isActive", true);
+                        _controller.SetBool("isActive", true);
                     } 
                     else
                     {
@@ -35,5 +36,5 @@ public class TowerSelection : MonoBehaviour
         }
     }
 
-    public void CloseMenuSelectionTowers() => controller.SetBool("isActive", false);
+    public void CloseMenuSelectionTowers() => _controller.SetBool("isActive", false);
 }

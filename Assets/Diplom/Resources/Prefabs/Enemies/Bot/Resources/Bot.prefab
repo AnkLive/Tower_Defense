@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <_isShields>k__BackingField: 0
   <_isAdditionalSettings>k__BackingField: 0
-  <_amountOfHealth>k__BackingField: 100
+  <_amountOfHealth>k__BackingField: 250
   <_currentHealth>k__BackingField: 0
   <_amountOfShields>k__BackingField: 0
   <_currentShields>k__BackingField: 0
@@ -189,7 +189,12 @@ PrefabInstance:
     - target: {fileID: 2284935869274553949, guid: 6d0dd59a3050b0d46bc79cc69f0e0364,
         type: 3}
       propertyPath: m_Value
-      value: 100
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284935869274553949, guid: 6d0dd59a3050b0d46bc79cc69f0e0364,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2284935869274553949, guid: 6d0dd59a3050b0d46bc79cc69f0e0364,
         type: 3}
