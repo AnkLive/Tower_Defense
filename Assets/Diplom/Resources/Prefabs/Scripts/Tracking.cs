@@ -102,9 +102,13 @@ public class Tracking : MonoBehaviour
             
             for (int i = 0; i < _objList.Count; i++)
             {
-                Vector3 direction = (_objTracking[0].transform.position - _objList[i]._obj.transform.position).normalized;
-                _objList[i]._obj.transform.rotation = Quaternion.Lerp(_objList[i]._obj.transform.rotation,
-                    TrackingRotation(direction, _objList[i]), Time.deltaTime * _speedRotation);
+                
+                if (_objTracking.Count != 0) 
+                {
+                    Vector3 direction = (_objTracking[0].transform.position - _objList[i]._obj.transform.position).normalized;
+                    _objList[i]._obj.transform.rotation = Quaternion.Lerp(_objList[i]._obj.transform.rotation,
+                        TrackingRotation(direction, _objList[i]), Time.deltaTime * _speedRotation);
+                }
             }
         }
     }

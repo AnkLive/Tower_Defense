@@ -1,16 +1,29 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LookAtCamera : MonoBehaviour
 {
+    [field: SerializeField]
     public List<GameObject> _healthBarList { get; set; } = new List<GameObject>();
 
-    private void Awake() => ObjectManager.addHealthBar += AddObj;
+    private void Awake() => EnemySpawn.addHealthBar += AddListObj;
 
     private void LateUpdate()
     {
-        foreach (GameObject c in _healthBarList) c.transform.LookAt(transform.position + c.transform.forward);
+        RemoveListObj();
+
+        foreach (GameObject obj in _healthBarList) 
+        {
+
+            if (obj != null) 
+            {
+                obj.transform.LookAt(transform.position + obj.transform.forward);
+            }
+        }
     }
 
-    public void AddObj(GameObject obj) => _healthBarList.Add(obj);
+    public void RemoveListObj() => _healthBarList = _healthBarList.Where(item => item != null).ToList();
+
+    public void AddListObj(GameObject obj) => _healthBarList.Add(obj);
 }

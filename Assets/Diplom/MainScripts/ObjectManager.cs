@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
-    public static event Action<GameObject> addHealthBar;
     public static event Action<GameObject> isRemoveObjAction;
     [field: SerializeField, HideInInspector]
     private List<GameObject> _allEnemiesList = new List<GameObject>();
     [field: SerializeField, HideInInspector]
     private List<GameObject> _allTowersList = new List<GameObject>();
+    public ParticleSystem _explosion;
 
     private void Awake() => Health.isDiedAction += HealthCheck;
 
@@ -24,9 +24,12 @@ public class ObjectManager : MonoBehaviour
         
         if (obj.GetComponent<Health>()._isDied)
         {
+            Vector3 pos = new Vector3(obj.transform.position.x, obj.transform.position.y, obj.transform.position.z);
+            var exp = Instantiate(_explosion, pos, Quaternion.identity);
+            exp.Play();
+            Destroy(exp, 1f);
             isRemoveObjAction?.Invoke(obj);
             DestroyObj(obj);
-            addHealthBar?.Invoke(obj);
         }
     }
 

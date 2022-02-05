@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
+    public static event Action<GameObject> addHealthBar;
     public ObjectManager objectManager;
     [field: SerializeField, HideInInspector]
     public GameObject _spawn { get; set; }
@@ -57,8 +58,8 @@ public class EnemySpawn : MonoBehaviour
         while (_numberOfEnemy < _enemyListCount[_numberOWave])
         {
             GameObject obj = Instantiate(Resources.Load<GameObject>(_enemyListName[_numberOWave]));
-            //gameObject.GetComponent<ObjectManager>().AddListObj(obj);
-            objectManager.AddListObj(obj);
+            objectManager?.AddListObj(obj);
+            addHealthBar?.Invoke(obj.transform.Find("HealthBar").gameObject);
             obj.transform.position = new Vector3(
                 _spawn.transform.position.x,
                 _spawn.transform.position.y + 1f,
