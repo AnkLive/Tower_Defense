@@ -5,6 +5,8 @@ public class TowerSpawn : MonoBehaviour
     [field: SerializeField]
     private GameObject _spawnTowersPrefab;
 
+    private void Awake() => gameObject.GetComponent<TowerSelection>().getSpawnPointObj += SetSpawnObj;
+
     private void SpawnRailgun()
     {
         GameObject obj = Instantiate(Resources.Load<GameObject>("Railgun"));
@@ -40,6 +42,8 @@ public class TowerSpawn : MonoBehaviour
         );
         CloseMenuSelectionTowers();
     }
+
+    public void SetSpawnObj(GameObject obj) => _spawnTowersPrefab = obj;
 
     private void CloseMenuSelectionTowers() => gameObject.GetComponent<TowerSelection>().CloseMenuSelectionTowers();
 }

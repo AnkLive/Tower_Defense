@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 348837474129317636}
   m_Layer: 6
-  m_Name: spawnPoint
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,9 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3194619165380502029}
   - component: {fileID: 4531666990574831918}
-  - component: {fileID: 5388703394295979507}
   m_Layer: 6
-  m_Name: towerSelectionPoint 1
+  m_Name: TowerSelectionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3194619165380502031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19, y: 0.36, z: 30.42}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 0.18, z: 3}
   m_Children:
   - {fileID: 348837474129317636}
@@ -77,20 +76,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.55
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5388703394295979507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3194619165380502031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76b4108fd31973a4a916e22d2784d609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
-  _controller: {fileID: 0}
 --- !u!1001 &8137202839001122907
 PrefabInstance:
   m_ObjectHideFlags: 0

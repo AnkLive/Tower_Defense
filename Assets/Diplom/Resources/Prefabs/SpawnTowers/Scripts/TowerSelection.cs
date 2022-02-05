@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TowerSelection : MonoBehaviour
 {
+    public event Action<GameObject> getSpawnPointObj;
     private RaycastHit hit;
     private Ray ray;
     [SerializeField]
@@ -25,6 +26,7 @@ public class TowerSelection : MonoBehaviour
 
                     if (hit.collider.CompareTag("TowerSpawnPoint"))
                     {
+                        getSpawnPointObj?.Invoke(hit.collider.gameObject.transform.Find("SpawnPoint").gameObject);
                         _controller.SetBool("isActive", true);
                     } 
                     else
