@@ -28,12 +28,13 @@ public class Health : MonoBehaviour
  
     private void Awake()
     {
+        Damage.takeDamageAction += TakeDamage;
         if (_isShields) 
         {
             _currentHealth = _amountOfHealth;
-            _currentShields = SetParemeters(_currentShields, _amountOfShields, _slider, Color.green, Color.blue);
+            _currentShields = SetParemetersHealthBar(_amountOfShields, _slider, Color.green, Color.blue);
         }
-        else _currentHealth = SetParemeters(_currentHealth, _amountOfHealth, _slider, Color.red, Color.green);
+        else _currentHealth = SetParemetersHealthBar(_amountOfHealth, _slider, Color.red, Color.green);
     }
 
     public void TakeDamage(float damage)
@@ -46,7 +47,7 @@ public class Health : MonoBehaviour
 
             if (_currentShields <= 0) 
             {
-                SetParemeters(_currentHealth, _amountOfHealth, _slider, Color.red, Color.green);
+                SetParemetersHealthBar(_amountOfHealth, _slider, Color.red, Color.green);
                 _isShields = false;
             }
         }
@@ -63,13 +64,13 @@ public class Health : MonoBehaviour
         }
     }
 
-    public float SetParemeters(float current, float amount, Slider slider, Color fill, Color bottom) 
+    public float SetParemetersHealthBar(float amountHealth, Slider slider, Color fillColor, Color bottomColor) 
     {
-        current = amount;
-        slider.maxValue = amount;
-        slider.value = amount;
-        _sliderFillImage.color = fill;
-        _sliderBottomImage.color = bottom;
+        var current = amountHealth;
+        slider.maxValue = amountHealth;
+        slider.value = amountHealth;
+        _sliderFillImage.color = fillColor;
+        _sliderBottomImage.color = bottomColor;
         return current;
     }
 }

@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
+    public static event Action<float> takeDamageAction;
     private GameObject _ref;
     [field: SerializeField, HideInInspector]
     public float _countDamage { get; set; }
@@ -22,9 +24,12 @@ public class Damage : MonoBehaviour
         if (_timeStamp <= Time.time)
         {
             _shutEffect.Play();
-            _ref.GetComponent<Health>().TakeDamage(_countDamage);
+            takeDamageAction?.Invoke(_countDamage);
+            //_ref.GetComponent<Health>().TakeDamage(_countDamage);
             _timeStamp = Time.time + _cooldown;
         }
 
     }
+
+    private void OnDisable() => gameObject.GetComponent<Tracking>().isDamageAction -= IsDamage;
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -29,6 +30,8 @@ public class Tracking : MonoBehaviour
     public bool _isTracking { get; private set; } = false;
 
     private void Awake() => ObjectManager.isRemoveObjAction += RemoveTrackingListObj;
+
+    private void OnDisable() => ObjectManager.isRemoveObjAction -= RemoveTrackingListObj;
 
     private void Update()
     {
@@ -81,6 +84,8 @@ public class Tracking : MonoBehaviour
 
     public void RemoveTrackingListObj(GameObject obj) => _objTracking.Remove(obj);
 
+    private void CheckNullObjToList() => _objTracking = _objTracking.Where(item => item != null).ToList();
+
     private void AddTrackingListObj(Collider collider) => _objTracking.Add(collider.gameObject);
 
     private void DefaultRotation()
@@ -96,19 +101,23 @@ public class Tracking : MonoBehaviour
     private void TrackingObj()
     {
 
-        if (_isTracking)
+        if (_objTracking.Count != 0 && _isTracking) 
         {
-            isDamageAction?.Invoke(_objTracking[0]);
-            
-            for (int i = 0; i < _objList.Count; i++)
+
+            if (_objTracking[0] != null) 
             {
-                
-                if (_objTracking.Count != 0) 
+                isDamageAction?.Invoke(_objTracking[0]);
+            
+                for (int i = 0; i < _objList.Count; i++)
                 {
                     Vector3 direction = (_objTracking[0].transform.position - _objList[i]._obj.transform.position).normalized;
                     _objList[i]._obj.transform.rotation = Quaternion.Lerp(_objList[i]._obj.transform.rotation,
                         TrackingRotation(direction, _objList[i]), Time.deltaTime * _speedRotation);
-                }
+                }          
+            }
+            else 
+            {
+                CheckNullObjToList();
             }
         }
     }

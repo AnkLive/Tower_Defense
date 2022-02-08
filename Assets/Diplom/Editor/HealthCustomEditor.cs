@@ -28,18 +28,18 @@ public class HealthCustomEditor : Editor
 
             if (EditorGUI.EndChangeCheck()) 
             {
-                health.SetParemeters(health._currentHealth, health._amountOfHealth, health._slider, Color.red, Color.green);
+                health.SetParemeters(health._amountOfHealth, health._slider, Color.red, Color.green);
             }
             EditorGUI.BeginChangeCheck();
             health._isShields = EditorGUILayout.Toggle("ўиты", health._isShields);
             if  (health._isShields) 
             {
                 health._amountOfShields = EditorGUILayout.FloatField(health._amountOfShields);
-                health.SetParemeters(health._currentShields, health._amountOfShields, health._slider, Color.green, Color.blue);
+                health.SetParemeters(health._amountOfShields, health._slider, Color.green, Color.blue);
             }
             else 
             {
-                health.SetParemeters(health._currentHealth, health._amountOfHealth, health._slider, Color.red, Color.green);
+                health.SetParemeters(health._amountOfHealth, health._slider, Color.red, Color.green);
                 health._amountOfShields = 0;
                 health._currentShields = 0;
             }

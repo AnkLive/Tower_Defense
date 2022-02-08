@@ -7,7 +7,7 @@ public class FireRadiusGizmos : MonoBehaviour
     [field: SerializeField, HideInInspector]
     public float _radius {get; set; }
     
-    void Start()
+    void Awake()
     {
         _sphereCollider = gameObject.GetComponent<SphereCollider>();
         _radius = _sphereCollider.radius;

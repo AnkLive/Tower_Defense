@@ -55,7 +55,6 @@ public class Movement : MonoBehaviour
 
     private void BossMovement()
     {
-        Debug.Log(_isMove);
         if (_isMove) 
         {
             MovementObj();
