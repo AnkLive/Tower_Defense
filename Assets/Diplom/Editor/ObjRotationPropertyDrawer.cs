@@ -29,15 +29,15 @@ public class ObjRotationPropertyDrawer : PropertyDrawer
         var trackingZRect = new Rect(position.x, position.y + 100f, position.width, position.height);
 
         EditorGUI.LabelField(objLabelRect, "Объект");
-        EditorGUI.PropertyField(objRect, property.FindPropertyRelative("_obj"), GUIContent.none, true);
+        EditorGUI.PropertyField(objRect, property.FindPropertyRelative("obj"), GUIContent.none, true);
         EditorGUI.LabelField(defaultObjRotationLabelRect, "Угол поворота по умолчанию");
-        EditorGUI.PropertyField(defaultObjRotationRect, property.FindPropertyRelative("_defaultObjRotation"), GUIContent.none, true);
+        EditorGUI.PropertyField(defaultObjRotationRect, property.FindPropertyRelative("defaultObjRotation"), GUIContent.none, true);
         EditorGUI.LabelField(trackingXLabelRect, "Поворот по оси X");
-        EditorGUI.PropertyField(trackingXRect, property.FindPropertyRelative("_trackingX"), GUIContent.none, true);
+        EditorGUI.PropertyField(trackingXRect, property.FindPropertyRelative("trackingX"), GUIContent.none, true);
         EditorGUI.LabelField(trackingYLabelRect, "Поворот по оси Y");
-        EditorGUI.PropertyField(trackingYRect, property.FindPropertyRelative("_trackingY"), GUIContent.none, true);
+        EditorGUI.PropertyField(trackingYRect, property.FindPropertyRelative("trackingY"), GUIContent.none, true);
         EditorGUI.LabelField(trackingZLabelRect, "Поворот по оси Z");
-        EditorGUI.PropertyField(trackingZRect, property.FindPropertyRelative("_trackingZ"), GUIContent.none, true);
+        EditorGUI.PropertyField(trackingZRect, property.FindPropertyRelative("trackingZ"), GUIContent.none, true);
 
         EditorGUI.indentLevel = indent;
         EditorGUI.EndProperty();

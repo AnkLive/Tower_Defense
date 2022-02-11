@@ -4,6 +4,7 @@ using UnityEngine;
 [CustomEditor(typeof(Tracking)), CanEditMultipleObjects]
 public class TrackingCustomEditor : Editor
 {
+    private bool _isAdditionalSettings = false;
 
     public override void OnInspectorGUI()
     {
@@ -24,9 +25,9 @@ public class TrackingCustomEditor : Editor
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Показать дополнительные данные", EditorStyles.boldLabel);
         EditorGUILayout.Space();
-        tracking._isAdditionalSettings = EditorGUILayout.Toggle("", tracking._isAdditionalSettings);
+        _isAdditionalSettings = EditorGUILayout.Toggle("", _isAdditionalSettings);
 
-        if  (tracking._isAdditionalSettings) 
+        if  (_isAdditionalSettings) 
         EditorGUILayout.PropertyField(
             serializedObject.FindProperty("_objTracking"), 
             new GUIContent("Список текущих отслеживаемых объектов"), 
