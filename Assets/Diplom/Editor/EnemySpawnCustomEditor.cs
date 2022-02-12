@@ -11,6 +11,7 @@ public class EnemySpawnCustomEditor : Editor
         base.OnInspectorGUI();
         EditorGUILayout.LabelField("ѕараметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
+        enemySpawn._objectManager = (ObjectManager)EditorGUILayout.ObjectField("—сылка на список объектов", enemySpawn._objectManager, typeof(ObjectManager), true);
         enemySpawn._spawn = (GameObject)EditorGUILayout.ObjectField("—сылка на точку спавна", enemySpawn._spawn, typeof(GameObject), true);
         enemySpawn._waveManager = (WaveManager)EditorGUILayout.ObjectField("—сылка на менеджер волн", enemySpawn._waveManager, typeof(WaveManager), true);
         serializedObject.ApplyModifiedProperties();
