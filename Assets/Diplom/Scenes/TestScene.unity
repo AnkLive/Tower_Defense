@@ -205,7 +205,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1759187134}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: spawnTowers, Assembly-CSharp
         m_MethodName: SpawnCannon
         m_Mode: 1
@@ -2129,7 +2129,7 @@ PrefabInstance:
     - target: {fileID: 3194619165380502029, guid: 061bef732868ba447a53ab6801f15062,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3194619165380502029, guid: 061bef732868ba447a53ab6801f15062,
         type: 3}
@@ -5411,8 +5411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb6bac51caa6fe4b9cbed87ab8ec193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectManager: {fileID: 963194229}
-  <_spawn>k__BackingField: {fileID: 478906972}
+  <_objectManager>k__BackingField: {fileID: 963194229}
+  <_spawn>k__BackingField: {fileID: 549196701}
   <_waveManager>k__BackingField: {fileID: 549196704}
 --- !u!114 &549196704
 MonoBehaviour:
@@ -17589,7 +17589,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1759187134}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: spawnTowers, Assembly-CSharp
         m_MethodName: SpawnRailgun
         m_Mode: 1
@@ -22753,7 +22753,7 @@ Transform:
   - {fileID: 866090694}
   - {fileID: 853755485}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &976644433
 GameObject:
@@ -22897,7 +22897,7 @@ Transform:
   - {fileID: 242712996}
   - {fileID: 185783476}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &993159263
 GameObject:
@@ -23634,7 +23634,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1759187134}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: spawnTowers, Assembly-CSharp
         m_MethodName: SpawnMashinegun
         m_Mode: 1
@@ -24042,7 +24042,7 @@ PrefabInstance:
     - target: {fileID: 3194619165380502029, guid: 061bef732868ba447a53ab6801f15062,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3194619165380502029, guid: 061bef732868ba447a53ab6801f15062,
         type: 3}
@@ -25159,7 +25159,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bb27e9f2684d3b347a538a0a4698d919,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.71
+      value: 1.773
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb27e9f2684d3b347a538a0a4698d919,
         type: 3}
@@ -26004,7 +26004,7 @@ PrefabInstance:
     - target: {fileID: 3194619165380502029, guid: 061bef732868ba447a53ab6801f15062,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3194619165380502029, guid: 061bef732868ba447a53ab6801f15062,
         type: 3}
@@ -27557,8 +27557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb6bac51caa6fe4b9cbed87ab8ec193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectManager: {fileID: 963194229}
-  <_spawn>k__BackingField: {fileID: 789504883}
+  <_objectManager>k__BackingField: {fileID: 963194229}
+  <_spawn>k__BackingField: {fileID: 1615380976}
   <_waveManager>k__BackingField: {fileID: 1615380979}
 --- !u!114 &1615380979
 MonoBehaviour:
@@ -28189,7 +28189,7 @@ RectTransform:
   m_Children:
   - {fileID: 1759187130}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -28384,9 +28384,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1759187129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8ba40767481cb34d8bf883bd3774850, type: 3}
+  m_Script: {fileID: 11500000, guid: f1f109487f0ce2e4092f919a2f038383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <_objectManager>k__BackingField: {fileID: 963194229}
 --- !u!114 &1759187135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29053,7 +29054,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1820857194
 GameObject:

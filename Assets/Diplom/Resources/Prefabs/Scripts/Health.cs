@@ -28,7 +28,6 @@ public class Health : MonoBehaviour
  
     private void Awake()
     {
-        gameObject.GetComponent<Damage>().takeDamageAction += TakeDamage;
         if (_isShields) 
         {
             _currentHealth = _amountOfHealth;

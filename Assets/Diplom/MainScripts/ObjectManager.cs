@@ -6,8 +6,8 @@ using UnityEngine;
 public class ObjectManager : MonoBehaviour
 {
     public static event Action<GameObject> isRemoveObjAction;
-    [SerializeField] public List<GameObject> _allEnemiesList = new List<GameObject>();
-    [SerializeField] public List<GameObject> _allTowersList = new List<GameObject>();
+    [SerializeField, HideInInspector] public List<GameObject> _allEnemiesList = new List<GameObject>();
+    [SerializeField, HideInInspector] public List<GameObject> _allTowersList = new List<GameObject>();
     public ParticleSystem _explosion; //правильно отобразить
 
     private void Awake() => Health.isDiedAction += HealthCheck;
