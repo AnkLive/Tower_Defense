@@ -6,30 +6,34 @@ using UnityEngine;
 public class ObjectManager : MonoBehaviour
 {
     public static event Action<GameObject> isRemoveObjAction;
-    [field: SerializeField, HideInInspector] private List<GameObject> _allEnemiesList = new List<GameObject>();
-    [field: SerializeField, HideInInspector] private List<GameObject> _allTowersList = new List<GameObject>();
-    public ParticleSystem _explosion;
+    [SerializeField, HideInInspector] public List<GameObject> _allEnemiesList = new List<GameObject>();
+    [SerializeField, HideInInspector] public List<GameObject> _allTowersList = new List<GameObject>();
+    public ParticleSystem _explosion; //правильно отобразить
 
     private void Awake() => Health.isDiedAction += HealthCheck;
 
-    public void AddListObj(GameObject obj) => _allEnemiesList.Add(obj);
+    public void AddListObj(List<GameObject> list, GameObject obj) => list.Add(obj);
 
     private void DestroyObj(GameObject obj) => Destroy(obj.gameObject);
 
     public void HealthCheck(GameObject obj)
     {
-        RemoveListObj();
         
         if (obj.GetComponent<Health>()._isDied)
         {
             Vector3 pos = new Vector3(obj.transform.position.x, obj.transform.position.y, obj.transform.position.z);
             var exp = Instantiate(_explosion, pos, Quaternion.identity);
             exp.Play();
-            Destroy(exp, 1f);
+            Destroy(exp.gameObject, 1f);
             isRemoveObjAction?.Invoke(obj);
             DestroyObj(obj);
         }
+        CheckNullObjList();
     }
 
-    private void RemoveListObj() => _allEnemiesList = _allEnemiesList.Where(item => item != null).ToList();
+    private void CheckNullObjList() 
+    {
+        _allEnemiesList.RemoveAll(item => item == null);
+        _allTowersList.RemoveAll(item => item == null);
+    }
 }

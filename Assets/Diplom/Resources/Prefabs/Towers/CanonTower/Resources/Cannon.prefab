@@ -93,21 +93,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907d414b04095d54593b7083562f788e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_isAdditionalSettings>k__BackingField: 0
   <_speedRotation>k__BackingField: 5
+  <_objectTrackingTag>k__BackingField: Enemy
   _objList:
-  - _obj: {fileID: 7892725669416584306}
-    _defaultObjRotation: {fileID: 9110217230182741818}
-    _trackingX: 0
-    _trackingY: 1
-    _trackingZ: 0
-  - _obj: {fileID: 7892725669785852167}
-    _defaultObjRotation: {fileID: 9110217230182741818}
-    _trackingX: 1
-    _trackingY: 1
-    _trackingZ: 1
-  _objectTrackingTag:
-  - Enemy
+  - obj: {fileID: 7892725669416584306}
+    defaultObjRotation: {fileID: 9110217230182741818}
+    trackingX: 0
+    trackingY: 1
+    trackingZ: 0
+  - obj: {fileID: 7892725669785852167}
+    defaultObjRotation: {fileID: 9110217230182741818}
+    trackingX: 1
+    trackingY: 1
+    trackingZ: 1
   _objTracking: []
 --- !u!114 &7892725669599824902
 MonoBehaviour:

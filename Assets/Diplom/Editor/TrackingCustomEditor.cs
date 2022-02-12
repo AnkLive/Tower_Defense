@@ -17,11 +17,7 @@ public class TrackingCustomEditor : Editor
         EditorGUILayout.LabelField("Дополнительные параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(serializedObject.FindProperty("_objList"), new GUIContent("Список объектов"), true);
-        EditorGUILayout.PropertyField(
-            serializedObject.FindProperty("_objectTrackingTag"), 
-            new GUIContent("Список отслеживаемых объектов по тегам"), 
-            true
-            );
+        tracking._objectTrackingTag = EditorGUILayout.TextField("Тег отслеживаемого объекта", tracking._objectTrackingTag);
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Показать дополнительные данные", EditorStyles.boldLabel);
         EditorGUILayout.Space();

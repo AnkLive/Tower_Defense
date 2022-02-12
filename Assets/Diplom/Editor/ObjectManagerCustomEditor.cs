@@ -7,7 +7,7 @@ public class EnemyManagerCustomEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        ObjectManager enemyManager = (ObjectManager)target;
+        ObjectManager objectManager = (ObjectManager)target;
         base.OnInspectorGUI();
         EditorGUILayout.LabelField("Параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
@@ -16,6 +16,6 @@ public class EnemyManagerCustomEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("_allTowersList"), new GUIContent("Список башен на сцене"), true);
         serializedObject.ApplyModifiedProperties();
 
-        if (GUI.changed) EditorUtility.SetDirty(enemyManager);
+        if (GUI.changed) EditorUtility.SetDirty(objectManager);
     }
 }
