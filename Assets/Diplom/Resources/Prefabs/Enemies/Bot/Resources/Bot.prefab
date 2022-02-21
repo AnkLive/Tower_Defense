@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <_isShields>k__BackingField: 0
-  <_isAdditionalSettings>k__BackingField: 0
+  <_isAdditionalSettings>k__BackingField: 1
   <_amountOfHealth>k__BackingField: 200
   <_currentHealth>k__BackingField: 0
   <_amountOfShields>k__BackingField: 0

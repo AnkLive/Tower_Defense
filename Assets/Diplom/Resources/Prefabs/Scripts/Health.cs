@@ -25,6 +25,8 @@ public class Health : MonoBehaviour
     public Image _sliderFillImage { get; set; }
     [field: SerializeField, HideInInspector]
     public Image _sliderBottomImage { get; set; }
+    [field: SerializeField]
+    public float price { get; set; }
  
     private void Awake()
     {
