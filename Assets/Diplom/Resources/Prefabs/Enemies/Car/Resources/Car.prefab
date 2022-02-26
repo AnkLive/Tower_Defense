@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5778020496399410057}
   - component: {fileID: 4455478289172307396}
   - component: {fileID: 7645738264576971235}
-  - component: {fileID: 7726195596616418194}
+  - component: {fileID: 6296410598129696937}
   - component: {fileID: 4802192336698248166}
   m_Layer: 3
   m_Name: Car
@@ -79,7 +79,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7726195596616418194
+--- !u!114 &6296410598129696937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,14 +88,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3340747922278533150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac7bada071c864d449c99c4444bf948a, type: 3}
+  m_Script: {fileID: 11500000, guid: d32531af40393cb4b978eb1387e88165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_enemyMovement>k__BackingField: {fileID: 0}
-  <_speed>k__BackingField: 3
-  <_speedDirection>k__BackingField: 5
-  <_isBoss>k__BackingField: 0
-  <_isMove>k__BackingField: 0
+  speed: 0
+  speedDirection: 0
 --- !u!114 &4802192336698248166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +115,7 @@ MonoBehaviour:
   <_isDied>k__BackingField: 0
   <_sliderFillImage>k__BackingField: {fileID: 7778549755933531325}
   <_sliderBottomImage>k__BackingField: {fileID: 7778549755152605111}
+  <price>k__BackingField: 0
 --- !u!1001 &761130986795333913
 PrefabInstance:
   m_ObjectHideFlags: 0

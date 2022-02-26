@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1691201317518687608}
   - component: {fileID: 1691201317518687613}
   - component: {fileID: 1691201317518687611}
-  - component: {fileID: 1691201317518687612}
+  - component: {fileID: 982336380727342441}
   - component: {fileID: 1691201317518687606}
   - component: {fileID: 1691201317518687607}
   - component: {fileID: -6191577352426532589}
@@ -133,7 +133,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1691201317518687612
+--- !u!114 &982336380727342441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,14 +142,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1691201317518687614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac7bada071c864d449c99c4444bf948a, type: 3}
+  m_Script: {fileID: 11500000, guid: ef72fe4c7f173b24481519bed2bce213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_enemyMovement>k__BackingField: {fileID: 0}
-  <_speed>k__BackingField: 1
-  <_speedDirection>k__BackingField: 0.5
-  <_isBoss>k__BackingField: 1
-  <_isMove>k__BackingField: 0
+  speed: 0
+  speedDirection: 0
 --- !u!114 &1691201317518687606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +169,7 @@ MonoBehaviour:
   <_isDied>k__BackingField: 0
   <_sliderFillImage>k__BackingField: {fileID: 634413476972735702}
   <_sliderBottomImage>k__BackingField: {fileID: 634413477752090588}
+  <price>k__BackingField: 0
 --- !u!114 &1691201317518687607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,21 +182,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907d414b04095d54593b7083562f788e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_isAdditionalSettings>k__BackingField: 0
   <_speedRotation>k__BackingField: 5
+  <_objectTrackingTag>k__BackingField: 
   _objList:
-  - _obj: {fileID: 8531554152635920235}
-    _defaultObjRotation: {fileID: 1603861522857121174}
-    _trackingX: 0
-    _trackingY: 1
-    _trackingZ: 0
-  - _obj: {fileID: 7099333388157490630}
-    _defaultObjRotation: {fileID: 1603861522857121174}
-    _trackingX: 1
-    _trackingY: 1
-    _trackingZ: 1
-  _objectTrackingTag:
-  - Tower
+  - obj: {fileID: 0}
+    defaultObjRotation: {fileID: 0}
+    trackingX: 0
+    trackingY: 0
+    trackingZ: 0
+  - obj: {fileID: 0}
+    defaultObjRotation: {fileID: 0}
+    trackingX: 0
+    trackingY: 0
+    trackingZ: 0
   _objTracking: []
 --- !u!114 &-6191577352426532589
 MonoBehaviour:
@@ -212,9 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214963d9f2f7d6144ad0d631da1456c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_countDamage>k__BackingField: 50
-  _shutEffect: {fileID: 0}
-  <_cooldown>k__BackingField: 1
+  _shotEffect: {fileID: 0}
+  countDamage: 0
+  cooldown: 0
 --- !u!1 &1691201318066683054
 GameObject:
   m_ObjectHideFlags: 0
