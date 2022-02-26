@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyDamage : Damage
+public class ObjectDamage : Damage
 {
     [SerializeField] private ParticleSystem _shotEffect;
     [SerializeField] private float countDamage;
@@ -8,7 +8,6 @@ public class EnemyDamage : Damage
     public override float _countDamage { get => countDamage; set => countDamage = value; }
     public override float _cooldown { get => cooldown; set => cooldown = value; }
     public override GameObject _obj { get; set; }
-    public override float _timeStamp { get; set; }
 
     private void Awake() => Subscribe();
 

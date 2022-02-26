@@ -2,49 +2,25 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public abstract class Health : MonoBehaviour
 {
     public static event Action<GameObject> isDiedAction;
-    [field: SerializeField, HideInInspector]
-    public bool _isShields { get; set; } = false;
-    [field: SerializeField, HideInInspector]
-    public bool _isAdditionalSettings { get; set; } = false;
-    [field: SerializeField, HideInInspector]
-    public float _amountOfHealth { get; set; }
-    [field: SerializeField, HideInInspector]
-    public float _currentHealth { get; set; }
-    [field: SerializeField, HideInInspector]
-    public float _amountOfShields { get; set; }
-    [field: SerializeField, HideInInspector]
-    public float _currentShields { get; set; }
-    [field: SerializeField, HideInInspector]
-    public Slider _slider { get; set; }
-    [field: SerializeField, HideInInspector]
-    public bool _isDied { get; set; } = false;
-    [field: SerializeField, HideInInspector]
-    public Image _sliderFillImage { get; set; }
-    [field: SerializeField, HideInInspector]
-    public Image _sliderBottomImage { get; set; }
-    [field: SerializeField]
-    public float price { get; set; }
- 
-    private void Awake()
-    {
-        if (_isShields) 
-        {
-            _currentHealth = _amountOfHealth;
-            _currentShields = SetParemetersHealthBar(_amountOfShields, _slider, Color.green, Color.blue);
-        }
-        else _currentHealth = SetParemetersHealthBar(_amountOfHealth, _slider, Color.red, Color.green);
-    }
+    public abstract bool _isShields { get; set; }
+    public abstract float _amountOfHealth { get; set; }
+    public abstract float _currentHealth { get; set; }
+    public abstract float _amountOfShields { get; set; }
+    public abstract float _currentShields { get; set; }
+    public abstract Slider _slider { get; set; }
+    public abstract Image _sliderTopImage { get; set; }
+    public abstract Image _sliderBottomImage { get; set; }
+    public abstract bool _isDied { get; set; }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
 
         if (_isShields) 
         {
-             _currentShields -= damage;
-            _slider.value = _currentShields;
+            SetCurrentParameters(_currentShields, damage, _slider);
 
             if (_currentShields <= 0) 
             {
@@ -54,8 +30,7 @@ public class Health : MonoBehaviour
         }
         else 
         {
-            _currentHealth -= damage;
-            _slider.value = _currentHealth;
+            SetCurrentParameters(_currentHealth, damage, _slider);
         }
 
         if (_currentHealth <= 0) 
@@ -65,13 +40,19 @@ public class Health : MonoBehaviour
         }
     }
 
-    public float SetParemetersHealthBar(float amountHealth, Slider slider, Color fillColor, Color bottomColor) 
+    public virtual float SetParemetersHealthBar(float amount, Slider slider, Color topColor, Color bottomColor) 
     {
-        var current = amountHealth;
-        slider.maxValue = amountHealth;
-        slider.value = amountHealth;
-        _sliderFillImage.color = fillColor;
+        var current = amount;
+        slider.maxValue = amount;
+        slider.value = amount;
+        _sliderTopImage.color = topColor;
         _sliderBottomImage.color = bottomColor;
         return current;
+    }
+
+    public void SetCurrentParameters(float currentParameter, float inputParameter, Slider slider) 
+    {
+        currentParameter -= inputParameter;
+        slider.value = currentParameter;
     }
 }

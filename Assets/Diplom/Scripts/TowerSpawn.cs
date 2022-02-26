@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class TowerSpawn : MonoBehaviour
@@ -11,8 +10,8 @@ public class TowerSpawn : MonoBehaviour
 
     public void Spawn(GameObject obj)
     {
-        if (_gameManager.CheckEnergy(obj.GetComponent<Health>().price)) {
-            _gameManager._currentEnergy -= obj.GetComponent<Health>().price;
+        if (_gameManager.CheckEnergy(obj.GetComponent<EnemyHealth>()._numberOfCoins)) { //!!!!!!
+            _gameManager._currentEnergy -= obj.GetComponent<EnemyHealth>()._numberOfCoins; //!!!!!!
             _gameManager.SetText(_gameManager._currentEnergy, _gameManager._energyText);
             GameObject tower = Instantiate(obj);
             _objectManager?.AddListObj(_objectManager._allTowersList, tower);

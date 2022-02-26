@@ -1,14 +1,24 @@
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.UI;
 
-[CustomEditor(typeof(Health)), CanEditMultipleObjects]
+[CustomEditor(typeof(Health), true), CanEditMultipleObjects]
 public class HealthCustomEditor : Editor
 {
-    private Health health;
-    public void Awake()
+    private bool _isAdditionalSettings = false;
+    private SerializedProperty amountOfHealth, currentHealth, amountOfShields, currentShields, 
+    slider, sliderTopImage, sliderBottomImage, isDied, isShields;
+
+    public virtual void OnEnable()
     {
-        health = (Health)target;
+        amountOfHealth = serializedObject.FindProperty("amountOfHealth");
+        currentHealth = serializedObject.FindProperty("currentHealth");
+        amountOfShields = serializedObject.FindProperty("amountOfShields");
+        currentShields = serializedObject.FindProperty("currentShields");
+        slider = serializedObject.FindProperty("slider");
+        sliderTopImage = serializedObject.FindProperty("sliderTopImage");
+        sliderBottomImage = serializedObject.FindProperty("sliderBottomImage");
+        isDied = serializedObject.FindProperty("isDied");
+        isShields = serializedObject.FindProperty("isShields");
     }
 
     public override void OnInspectorGUI()
@@ -16,70 +26,31 @@ public class HealthCustomEditor : Editor
         var style = new GUIStyle(GUI.skin.button);
         style = EditorStyles.wordWrappedLabel;
         style.normal.textColor = Color.red;
-        base.OnInspectorGUI();
         serializedObject.Update();
         EditorGUILayout.LabelField("Параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
-        
-        if (health._slider != null && health._sliderFillImage != null && health._sliderBottomImage != null) 
-        {
-            EditorGUI.BeginChangeCheck();
-            health._amountOfHealth = EditorGUILayout.FloatField("Здоровье", health._amountOfHealth);
-
-            if (EditorGUI.EndChangeCheck()) 
-            {
-                health.SetParemetersHealthBar(health._amountOfHealth, health._slider, Color.red, Color.green);
-            }
-            EditorGUI.BeginChangeCheck();
-            health._isShields = EditorGUILayout.Toggle("Щиты", health._isShields);
-            if  (health._isShields) 
-            {
-                health._amountOfShields = EditorGUILayout.FloatField(health._amountOfShields);
-                health.SetParemetersHealthBar(health._amountOfShields, health._slider, Color.green, Color.blue);
-            }
-            else 
-            {
-                health.SetParemetersHealthBar(health._amountOfHealth, health._slider, Color.red, Color.green);
-                health._amountOfShields = 0;
-                health._currentShields = 0;
-            }
-        }
-        else 
-        {   
-            EditorGUILayout.LabelField("Ошибка: требуется указать все необходимые ссылки в дополнительных параметрах",style);
-        }
-
+        EditorGUILayout.PropertyField(amountOfHealth, new GUIContent("Здоровье"), true);
+        EditorGUILayout.PropertyField(isShields, new GUIContent("Щиты"), true);
+        EditorGUILayout.PropertyField(amountOfShields, new GUIContent(" "), true);
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Дополнительные параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
-        health._slider = (Slider)EditorGUILayout.ObjectField("Ссылка на слайдер", health._slider, typeof(Slider), true);
-        health._sliderFillImage = (Image)EditorGUILayout.ObjectField("Fill Slider", health._sliderFillImage, typeof(Image), true);
-        health._sliderBottomImage = (Image)EditorGUILayout.ObjectField("Bottom Slider", health._sliderBottomImage, typeof(Image), true);
+        EditorGUILayout.PropertyField(slider, new GUIContent("Ссылка на слайдер"), true);
+        EditorGUILayout.PropertyField(sliderTopImage, new GUIContent("Top slider"), true);
+        EditorGUILayout.PropertyField(sliderBottomImage, new GUIContent("Bottom slider"), true);
         EditorGUILayout.Space();
-        
-        if (health._slider != null && health._sliderFillImage != null && health._sliderBottomImage != null) 
+        EditorGUILayout.LabelField("Показать дополнительные данные", EditorStyles.boldLabel);
+        _isAdditionalSettings = EditorGUILayout.Toggle(_isAdditionalSettings);
+        EditorGUILayout.Space();
+
+        if (_isAdditionalSettings) 
         {
-            EditorGUILayout.LabelField("Показать дополнительные данные", EditorStyles.boldLabel);
-            health._isAdditionalSettings = EditorGUILayout.Toggle(health._isAdditionalSettings);
+            EditorGUILayout.LabelField("Текущее показатели", EditorStyles.boldLabel);
             EditorGUILayout.Space();
-
-            if (health._isAdditionalSettings) 
-            {
-                EditorGUILayout.LabelField("Текущее показатели", EditorStyles.boldLabel);
-                EditorGUILayout.Space();
-                health._currentHealth = EditorGUILayout.FloatField("Здоровье", health._currentHealth);
-
-                if  (health._isShields) health._currentShields = EditorGUILayout.FloatField("Щиты", health._currentShields);
-                else 
-                {
-                    health._amountOfShields = 0;
-                    health._currentShields = 0;
-                }
-                health._isDied = EditorGUILayout.Toggle("Враг уничтожен", health._isDied);
-            }
+            EditorGUILayout.PropertyField(currentHealth, new GUIContent("Здоровье"), true);
+            EditorGUILayout.PropertyField(currentShields, new GUIContent("Щиты"), true);
+            EditorGUILayout.PropertyField(isDied, new GUIContent("Уничтожен"), true);
         }
         serializedObject.ApplyModifiedProperties();
-        
-        if (GUI.changed) EditorUtility.SetDirty(health);
     }
 }
