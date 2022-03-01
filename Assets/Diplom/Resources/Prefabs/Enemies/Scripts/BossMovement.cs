@@ -10,7 +10,14 @@ public class BossMovement : Movement
 
     public void Start() => base.GetComponentData();
 
-    public void OnCollisionEnter(Collision collision) => base.CheckCollision(collision.gameObject);
+    public void OnCollisionEnter(Collision collision) 
+    {
+
+        if (base.CheckCollision(collision.gameObject))
+        {
+            base.Rotation(collision.gameObject);
+        }
+    }
 
     public void OnCollisionStay(Collision collision)
     {
