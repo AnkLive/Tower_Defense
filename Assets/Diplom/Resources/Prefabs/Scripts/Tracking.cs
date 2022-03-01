@@ -2,30 +2,22 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class ObjRotation
-{
-    public GameObject obj;
-    public GameObject defaultObjRotation;
-    public bool trackingX;
-    public bool trackingY;
-    public bool trackingZ;
-}
-
-public class Tracking : MonoBehaviour
+public abstract class Tracking : MonoBehaviour, IEventSubscription
 {
     public event Action<GameObject> isDamageAction;
-    [field: SerializeField, HideInInspector] public float _speedRotation { get; set; }
-    [field: SerializeField, HideInInspector] public string _objectTrackingTag { get; set; }
-    [field: SerializeField, HideInInspector] public List<ObjRotation> _objList = new List<ObjRotation>();
-    [field: SerializeField, HideInInspector] public List<GameObject> _objTracking = new List<GameObject>();
-    private bool _isTracking = false;
+    public abstract float _speedRotation { get; set; }
+    public abstract string _objectTrackingTag { get; set; }
+    public abstract List<ObjRotation> _objList { get; set; }
+    public abstract List<GameObject> _objTracking { get; set; }
+    public bool _isTracking = false;
 
-    private void Awake() => ObjectManager.isRemoveObjAction += RemoveTrackingListObj;
+    public void ListInitialization() 
+    {
+        _objList = new List<ObjRotation>();
+        _objTracking = new List<GameObject>();
+    }
 
-    private void OnDisable() => ObjectManager.isRemoveObjAction -= RemoveTrackingListObj;
-
-    private void Update()
+    public void checkListTracking() 
     {
 
         if (_objTracking.Count == 0)
@@ -43,13 +35,7 @@ public class Tracking : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collider) => AddTrackingListObj(collider.gameObject);
-
-    private void OnTriggerStay(Collider collider) => CheckTagObj(collider.gameObject);
-
-    private void OnTriggerExit(Collider collider) => RemoveTrackingListObj();
-
-    private void CheckTagObj(GameObject obj)
+    public void CheckTagObj(GameObject obj)
     {
         
         if (obj.CompareTag(_objectTrackingTag))
@@ -62,11 +48,11 @@ public class Tracking : MonoBehaviour
 
     public void RemoveTrackingListObj(GameObject obj) => _objTracking.Remove(obj);
 
-    private void CheckNullObjToList() => _objTracking.RemoveAll(item => item == null);
+    public void CheckNullObjToList() => _objTracking.RemoveAll(item => item == null);
 
-    private void AddTrackingListObj(GameObject obj) => _objTracking.Add(obj);
+    public void AddTrackingListObj(GameObject obj) => _objTracking.Add(obj);
 
-    private void DefaultRotation()
+    public void DefaultRotation()
     {
         
         for (int i = 0; i < _objList.Count; i++)
@@ -76,7 +62,7 @@ public class Tracking : MonoBehaviour
         }
     }
 
-    private void TrackingObj()
+    public void TrackingObj()
     {
         
 
@@ -93,7 +79,7 @@ public class Tracking : MonoBehaviour
         }
     }
 
-    private Quaternion TrackingRotation(Vector3 Direction, ObjRotation boolean)
+    public Quaternion TrackingRotation(Vector3 Direction, ObjRotation boolean)
     {
         if (boolean.trackingX && !boolean.trackingY && !boolean.trackingZ)       
             return Quaternion.LookRotation(new Vector3(0f, Direction.y, Direction.z));
@@ -112,4 +98,8 @@ public class Tracking : MonoBehaviour
         else                                                                        
             return Quaternion.LookRotation(new Vector3(0f, 0f, 0f));
     }
+
+    public virtual void Subscribe() => ObjectManager.isRemoveObjAction += RemoveTrackingListObj;
+
+    public virtual void Unsubscribe() => ObjectManager.isRemoveObjAction -= RemoveTrackingListObj;
 }

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4566977628458531138}
   - component: {fileID: 382317200822701241}
   - component: {fileID: 4942618769304331116}
-  - component: {fileID: 1383310362607271273}
   - component: {fileID: 4418355144091817519}
+  - component: {fileID: 1383310362607271273}
   m_Layer: 3
   m_Name: Bot
   m_TagString: Enemy
@@ -66,29 +66,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1383310362607271273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3535233437151173006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b0fb7cbd6a5d84199f44983543a970, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <_isShields>k__BackingField: 0
-  <_isAdditionalSettings>k__BackingField: 1
-  <_amountOfHealth>k__BackingField: 200
-  <_currentHealth>k__BackingField: 0
-  <_amountOfShields>k__BackingField: 0
-  <_currentShields>k__BackingField: 0
-  <_slider>k__BackingField: {fileID: 8623032260318145514}
-  <_isDied>k__BackingField: 0
-  <_sliderFillImage>k__BackingField: {fileID: 8623032260310160940}
-  <_sliderBottomImage>k__BackingField: {fileID: 8623032258976634150}
-  <price>k__BackingField: 0
 --- !u!114 &4418355144091817519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,8 +78,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32531af40393cb4b978eb1387e88165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  speedDirection: 0
+  speed: 7
+  speedDirection: 3
+--- !u!114 &1383310362607271273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535233437151173006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b0fb7cbd6a5d84199f44983543a970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDied: 0
+  currentHealth: 0
+  currentShields: 0
+  amountOfHealth: 250
+  amountOfShields: 0
+  slider: {fileID: 8623032260318145514}
+  sliderTopImage: {fileID: 8623032260310160940}
+  sliderBottomImage: {fileID: 8623032258976634150}
+  isShields: 0
 --- !u!1001 &711185832387257778
 PrefabInstance:
   m_ObjectHideFlags: 0

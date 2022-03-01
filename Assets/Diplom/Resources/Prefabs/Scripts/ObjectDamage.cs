@@ -9,7 +9,7 @@ public class ObjectDamage : Damage
     public override float _cooldown { get => cooldown; set => cooldown = value; }
     public override GameObject _obj { get; set; }
 
-    private void Awake() => Subscribe();
+    private void Awake() => base.Subscribe();
 
     private void Start() => UpdateTimeStamp();
 
@@ -25,11 +25,7 @@ public class ObjectDamage : Damage
         }
     }
 
-    private void OnDisable() => Unsubscribe();
-
     public override void UpdateTimeStamp() => base.UpdateTimeStamp();
-
-    public override void Subscribe() => base.Subscribe();
-
-    public override void Unsubscribe() => base.Unsubscribe();
+    
+    private void OnDisable() => base.Unsubscribe();
 }

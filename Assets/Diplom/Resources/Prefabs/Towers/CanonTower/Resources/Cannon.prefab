@@ -41,9 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7892725669599824923}
   - component: {fileID: 1619776529999943334}
-  - component: {fileID: 7892725669599824921}
+  - component: {fileID: 8255002006549563532}
   - component: {fileID: 7892725669599824902}
-  - component: {fileID: -2419770536674066753}
+  - component: {fileID: 4301536248640031657}
   - component: {fileID: 4642830436730677932}
   m_Layer: 9
   m_Name: Cannon
@@ -83,7 +83,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7892725669599824921
+--- !u!114 &8255002006549563532
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,12 +92,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7892725669599824903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 907d414b04095d54593b7083562f788e, type: 3}
+  m_Script: {fileID: 11500000, guid: d16d09a3a7cc24a4a84c628cda6e1a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_speedRotation>k__BackingField: 5
-  <_objectTrackingTag>k__BackingField: Enemy
-  _objList:
+  _isTracking: 0
+  speedRotation: 5
+  objectTrackingTag: Enemy
+  objList:
   - obj: {fileID: 7892725669416584306}
     defaultObjRotation: {fileID: 9110217230182741818}
     trackingX: 0
@@ -108,7 +109,7 @@ MonoBehaviour:
     trackingX: 1
     trackingY: 1
     trackingZ: 1
-  _objTracking: []
+  objTracking: []
 --- !u!114 &7892725669599824902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,10 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214963d9f2f7d6144ad0d631da1456c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_countDamage>k__BackingField: 100
-  _shutEffect: {fileID: 3652383447336228476}
-  <_cooldown>k__BackingField: 1
---- !u!114 &-2419770536674066753
+  _shotEffect: {fileID: 4938993978728127105, guid: 1c66182a409c94c438e0566a3dec96ce,
+    type: 3}
+  countDamage: 100
+  cooldown: 1
+--- !u!114 &4301536248640031657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,17 +138,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b0fb7cbd6a5d84199f44983543a970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_isShields>k__BackingField: 0
-  <_isAdditionalSettings>k__BackingField: 0
-  <_amountOfHealth>k__BackingField: 5000
-  <_currentHealth>k__BackingField: 0
-  <_amountOfShields>k__BackingField: 0
-  <_currentShields>k__BackingField: 0
-  <_slider>k__BackingField: {fileID: 2731719002661745813}
-  <_isDied>k__BackingField: 0
-  <_sliderFillImage>k__BackingField: {fileID: 2731719002658965843}
-  <_sliderBottomImage>k__BackingField: {fileID: 2731719003438320217}
-  <price>k__BackingField: 100
+  isDied: 0
+  currentHealth: 0
+  currentShields: 0
+  amountOfHealth: 1000
+  amountOfShields: 100
+  slider: {fileID: 2731719002661745813}
+  sliderTopImage: {fileID: 2731719002658965843}
+  sliderBottomImage: {fileID: 2731719003438320217}
+  isShields: 1
 --- !u!114 &4642830436730677932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,12 +611,6 @@ PrefabInstance:
 --- !u!4 &6771550615274946440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3160518513145574261, guid: 1c66182a409c94c438e0566a3dec96ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 8513223589743037693}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &3652383447336228476 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4938993978728127105, guid: 1c66182a409c94c438e0566a3dec96ce,
     type: 3}
   m_PrefabInstance: {fileID: 8513223589743037693}
   m_PrefabAsset: {fileID: 0}

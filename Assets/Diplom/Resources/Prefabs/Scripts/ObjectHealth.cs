@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealth : Health
+public class ObjectHealth : Health
 {
     [SerializeField] private bool isDied;
     [SerializeField] private float currentHealth;
@@ -12,9 +12,7 @@ public class EnemyHealth : Health
     [SerializeField] private Image sliderTopImage;
     [SerializeField] private Image sliderBottomImage;
     [SerializeField] private bool isShields;
-
-    [SerializeField] private int numberOfCoins;
-
+    
     public override bool _isDied { get => isDied; set => isDied = value; }
     public override float _currentHealth { get => currentHealth; set => currentHealth = value; }
     public override float _currentShields { get => currentShields; set => currentShields = value; }
@@ -24,8 +22,6 @@ public class EnemyHealth : Health
     public override Image _sliderTopImage { get => sliderTopImage; set => sliderTopImage = value; }
     public override Image _sliderBottomImage { get => sliderBottomImage; set => sliderBottomImage = value; }
     public override bool _isShields { get => isShields; set => isShields = value; }
-
-    public int _numberOfCoins { get => numberOfCoins; set => numberOfCoins = value; }
 
     private void Awake()
     {

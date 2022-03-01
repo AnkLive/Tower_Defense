@@ -8,7 +8,7 @@ public class TowerSpawn : MonoBehaviour
 
     private void Awake() => gameObject.GetComponent<TowerSelection>().getSpawnPointObj += SetSpawnObj;
 
-    public void Spawn(GameObject obj)
+    /* public void Spawn(GameObject obj)
     {
         if (_gameManager.CheckEnergy(obj.GetComponent<EnemyHealth>()._numberOfCoins)) { //!!!!!!
             _gameManager._currentEnergy -= obj.GetComponent<EnemyHealth>()._numberOfCoins; //!!!!!!
@@ -28,7 +28,7 @@ public class TowerSpawn : MonoBehaviour
             Debug.Log("No energy");
         }
     }
-
+ */
     public void SetSpawnObj(GameObject obj) => _spawnTowersPrefab = obj;
 
     private void CloseMenuSelectionTowers() => gameObject.GetComponent<TowerSelection>().CloseMenuSelectionTowers();

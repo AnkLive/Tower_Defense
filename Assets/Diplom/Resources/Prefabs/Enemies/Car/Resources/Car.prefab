@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32531af40393cb4b978eb1387e88165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  speedDirection: 0
+  speed: 3
+  speedDirection: 2
 --- !u!114 &4802192336698248166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,17 +105,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b0fb7cbd6a5d84199f44983543a970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_isShields>k__BackingField: 1
-  <_isAdditionalSettings>k__BackingField: 0
-  <_amountOfHealth>k__BackingField: 250
-  <_currentHealth>k__BackingField: 0
-  <_amountOfShields>k__BackingField: 250
-  <_currentShields>k__BackingField: 0
-  <_slider>k__BackingField: {fileID: 7778549755938136443}
-  <_isDied>k__BackingField: 0
-  <_sliderFillImage>k__BackingField: {fileID: 7778549755933531325}
-  <_sliderBottomImage>k__BackingField: {fileID: 7778549755152605111}
-  <price>k__BackingField: 0
+  isDied: 0
+  currentHealth: 0
+  currentShields: 0
+  amountOfHealth: 750
+  amountOfShields: 0
+  slider: {fileID: 7778549755938136443}
+  sliderTopImage: {fileID: 7778549755933531325}
+  sliderBottomImage: {fileID: 7778549755152605111}
+  isShields: 0
 --- !u!1001 &761130986795333913
 PrefabInstance:
   m_ObjectHideFlags: 0

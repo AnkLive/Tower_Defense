@@ -9,6 +9,10 @@ public class NormalMovement : Movement
 
     public void Start() => base.GetComponentData();
 
+    private void Update() {
+        Debug.Log(_speedDirection);
+    }
+
     public void OnCollisionEnter(Collision collision) => base.CheckCollision(collision.gameObject);
 
     public void OnCollisionStay(Collision collision)

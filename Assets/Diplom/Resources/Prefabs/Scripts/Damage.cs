@@ -9,9 +9,9 @@ public abstract class Damage : MonoBehaviour, IEventSubscription
 
     public virtual void IsDamage(GameObject TrackingObj) => _obj = TrackingObj;
 
-    public virtual void Subscribe() => gameObject.GetComponent<Tracking>().isDamageAction += IsDamage;
+    public void Subscribe() => gameObject.GetComponent<Tracking>().isDamageAction += IsDamage;
 
-    public virtual void Unsubscribe() => gameObject.GetComponent<Tracking>().isDamageAction -= IsDamage;
+    public void Unsubscribe() => gameObject.GetComponent<Tracking>().isDamageAction -= IsDamage;
 
     public virtual void UpdateTimeStamp() => _timeStamp = _cooldown;
 }
