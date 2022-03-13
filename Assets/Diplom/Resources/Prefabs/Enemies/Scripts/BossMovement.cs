@@ -6,7 +6,7 @@ public class BossMovement : Movement
     [SerializeField] private float speedDirection;
     public override float _speed { get => speed; set => speed = value; }
     public override float _speedDirection { get => speedDirection; set => speedDirection = value; }
-    public bool _isMove { get; set; }
+    public bool _isMove;
 
     public void Start() => base.GetComponentData();
 
@@ -28,6 +28,7 @@ public class BossMovement : Movement
             if (_isMove)
             {
                 base.MovementObj();
+                base.Rotation(collision.gameObject);
             }
         }
     }

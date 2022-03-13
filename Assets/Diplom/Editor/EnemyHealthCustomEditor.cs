@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(Health), true), CanEditMultipleObjects]
-public class HealthCustomEditor : Editor
+public class EnemyHealthCustomEditor : Editor
 {
     private bool _isAdditionalSettings = false;
     private SerializedProperty amountOfHealth, currentHealth, amountOfShields, currentShields, 
     slider, sliderTopImage, sliderBottomImage, isDied, isShields;
+    
 
     public virtual void OnEnable()
     {

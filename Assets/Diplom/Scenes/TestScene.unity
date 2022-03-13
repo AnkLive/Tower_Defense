@@ -5757,7 +5757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <_timeBetweenWaves>k__BackingField: 5
   _wavesList:
-  - _enemyName: 0
+  - _enemyName: 3
     _enemyCount: 5
     _timeBetweenEnemy: 5
   - _enemyName: 1
@@ -8787,7 +8787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.3535534, y: 0.61237246, z: -0.3535534, w: 0.61237246}
-  m_LocalPosition: {x: -10.29, y: 17.65, z: 22.5}
+  m_LocalPosition: {x: -10.29, y: 17.65, z: 22.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13843,7 +13843,7 @@ Transform:
   - {fileID: 242712996}
   - {fileID: 185783476}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &993159263
 GameObject:
@@ -15024,7 +15024,7 @@ PrefabInstance:
     - target: {fileID: 3194619165380502029, guid: 061bef732868ba447a53ab6801f15062,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3194619165380502029, guid: 061bef732868ba447a53ab6801f15062,
         type: 3}
@@ -18817,7 +18817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <_timeBetweenWaves>k__BackingField: 40
   _wavesList:
-  - _enemyName: 1
+  - _enemyName: 3
     _enemyCount: 3
     _timeBetweenEnemy: 4
   - _enemyName: 3

@@ -19,8 +19,6 @@ public class MovementCustomEditor : Editor
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(speed, new GUIContent("Скорость"), true);
         EditorGUILayout.PropertyField(speedDirection, new GUIContent("Скорость поворота"), true);
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Дополнительные параметры", EditorStyles.boldLabel);
         serializedObject.ApplyModifiedProperties();
     }
 }

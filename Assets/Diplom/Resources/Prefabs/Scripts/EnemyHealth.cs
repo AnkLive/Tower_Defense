@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ObjectHealth : Health
+public class EnemyHealth : Health
 {
     [SerializeField] private bool isDied;
     [SerializeField] private float currentHealth;

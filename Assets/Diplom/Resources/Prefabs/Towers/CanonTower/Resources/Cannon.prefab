@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1619776529999943334}
   - component: {fileID: 8255002006549563532}
   - component: {fileID: 7892725669599824902}
-  - component: {fileID: 4301536248640031657}
+  - component: {fileID: 4904044403679261703}
   - component: {fileID: 4642830436730677932}
   m_Layer: 9
   m_Name: Cannon
@@ -126,7 +126,7 @@ MonoBehaviour:
     type: 3}
   countDamage: 100
   cooldown: 1
---- !u!114 &4301536248640031657
+--- !u!114 &4904044403679261703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,18 +135,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 7892725669599824903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b0fb7cbd6a5d84199f44983543a970, type: 3}
+  m_Script: {fileID: 11500000, guid: 741e5fcbfb94df84a92903961f2a16ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isDied: 0
   currentHealth: 0
   currentShields: 0
   amountOfHealth: 1000
-  amountOfShields: 100
+  amountOfShields: 250
   slider: {fileID: 2731719002661745813}
   sliderTopImage: {fileID: 2731719002658965843}
   sliderBottomImage: {fileID: 2731719003438320217}
   isShields: 1
+  price: 40
 --- !u!114 &4642830436730677932
 MonoBehaviour:
   m_ObjectHideFlags: 0

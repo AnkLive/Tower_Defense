@@ -232,7 +232,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9066987857240419902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b0fb7cbd6a5d84199f44983543a970, type: 3}
+  m_Script: {fileID: 11500000, guid: 741e5fcbfb94df84a92903961f2a16ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isDied: 0
@@ -244,6 +244,7 @@ MonoBehaviour:
   sliderTopImage: {fileID: 4206008640346795137}
   sliderBottomImage: {fileID: 4206008638492651403}
   isShields: 1
+  price: 75
 --- !u!114 &3489753805366062335
 MonoBehaviour:
   m_ObjectHideFlags: 0

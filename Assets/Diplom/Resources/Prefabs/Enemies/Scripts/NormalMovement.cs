@@ -24,6 +24,7 @@ public class NormalMovement : Movement
         if (base.CheckCollision(collision.gameObject))
         {
             base.MovementObj();
+            base.Rotation(collision.gameObject);
         }
     }
 }

@@ -16,8 +16,8 @@ public class ObjectTracking : Tracking
 {
     [SerializeField] private float speedRotation;
     [SerializeField] private string objectTrackingTag;
-    [SerializeField] private List<ObjRotation> objList;
-    [SerializeField] private List<GameObject> objTracking;
+    [SerializeField] private List<ObjRotation> objList = new List<ObjRotation>();
+    [SerializeField] private List<GameObject> objTracking = new List<GameObject>();
 
     public override float _speedRotation { get => speedRotation; set => speedRotation = value; }
     public override string _objectTrackingTag { get => objectTrackingTag; set => objectTrackingTag = value; }
@@ -25,8 +25,6 @@ public class ObjectTracking : Tracking
     public override List<GameObject> _objTracking { get => objTracking; set => objTracking = value; }
 
     private void Awake() => base.Subscribe();
-
-    private void Start() => base.ListInitialization();
 
     private void Update() => base.checkListTracking();
 
