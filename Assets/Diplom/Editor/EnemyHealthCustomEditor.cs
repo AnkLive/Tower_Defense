@@ -1,57 +1,22 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
-[CustomEditor(typeof(Health), true), CanEditMultipleObjects]
-public class EnemyHealthCustomEditor : Editor
+[CustomEditor(typeof(EnemyHealth)), CanEditMultipleObjects]
+public class EnemyHealthCustomEditor : HealthCustomEditor 
 {
-    private bool _isAdditionalSettings = false;
-    private SerializedProperty amountOfHealth, currentHealth, amountOfShields, currentShields, 
-    slider, sliderTopImage, sliderBottomImage, isDied, isShields;
-    
+    private SerializedProperty rewardForDestruction;
 
-    public virtual void OnEnable()
+    public override void OnEnable()
     {
-        amountOfHealth = serializedObject.FindProperty("amountOfHealth");
-        currentHealth = serializedObject.FindProperty("currentHealth");
-        amountOfShields = serializedObject.FindProperty("amountOfShields");
-        currentShields = serializedObject.FindProperty("currentShields");
-        slider = serializedObject.FindProperty("slider");
-        sliderTopImage = serializedObject.FindProperty("sliderTopImage");
-        sliderBottomImage = serializedObject.FindProperty("sliderBottomImage");
-        isDied = serializedObject.FindProperty("isDied");
-        isShields = serializedObject.FindProperty("isShields");
+        base.OnEnable();
+        rewardForDestruction = serializedObject.FindProperty("rewardForDestruction");
     }
 
     public override void OnInspectorGUI()
     {
-        var style = new GUIStyle(GUI.skin.button);
-        style = EditorStyles.wordWrappedLabel;
-        style.normal.textColor = Color.red;
+        base.OnInspectorGUI();
         serializedObject.Update();
-        EditorGUILayout.LabelField("Параметры", EditorStyles.boldLabel);
-        EditorGUILayout.Space();
-        EditorGUILayout.PropertyField(amountOfHealth, new GUIContent("Здоровье"), true);
-        EditorGUILayout.PropertyField(isShields, new GUIContent("Щиты"), true);
-        EditorGUILayout.PropertyField(amountOfShields, new GUIContent(" "), true);
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Дополнительные параметры", EditorStyles.boldLabel);
-        EditorGUILayout.Space();
-        EditorGUILayout.PropertyField(slider, new GUIContent("Ссылка на слайдер"), true);
-        EditorGUILayout.PropertyField(sliderTopImage, new GUIContent("Top slider"), true);
-        EditorGUILayout.PropertyField(sliderBottomImage, new GUIContent("Bottom slider"), true);
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Показать дополнительные данные", EditorStyles.boldLabel);
-        _isAdditionalSettings = EditorGUILayout.Toggle(_isAdditionalSettings);
-        EditorGUILayout.Space();
-
-        if (_isAdditionalSettings) 
-        {
-            EditorGUILayout.LabelField("Текущее показатели", EditorStyles.boldLabel);
-            EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(currentHealth, new GUIContent("Здоровье"), true);
-            EditorGUILayout.PropertyField(currentShields, new GUIContent("Щиты"), true);
-            EditorGUILayout.PropertyField(isDied, new GUIContent("Уничтожен"), true);
-        }
+        EditorGUILayout.PropertyField(rewardForDestruction, new GUIContent("Награда за уничтожение"), true);
         serializedObject.ApplyModifiedProperties();
     }
 }

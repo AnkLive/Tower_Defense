@@ -162,6 +162,7 @@ MonoBehaviour:
   sliderTopImage: {fileID: 3590290191372658303}
   sliderBottomImage: {fileID: 3590290192169837941}
   isShields: 1
+  rewardForDestruction: 25
 --- !u!1 &1092158843959342890
 GameObject:
   m_ObjectHideFlags: 0

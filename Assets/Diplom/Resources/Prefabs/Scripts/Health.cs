@@ -50,7 +50,7 @@ public abstract class Health : MonoBehaviour
         return current;
     }
 
-    public void SetCurrentParameters(float currentParameter, float inputParameter, Slider slider) 
+    public virtual void SetCurrentParameters(float currentParameter, float inputParameter, Slider slider) 
     {
         currentParameter -= inputParameter;
         slider.value = currentParameter;

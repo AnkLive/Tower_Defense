@@ -6,6 +6,7 @@ using UnityEngine;
 public class ObjectManager : MonoBehaviour
 {
     public static event Action<GameObject> isRemoveObjAction;
+    public event Action<int> isDiedObjAction;
     [SerializeField, HideInInspector] public List<GameObject> _allEnemiesList = new List<GameObject>();
     [SerializeField, HideInInspector] public List<GameObject> _allTowersList = new List<GameObject>();
     public ParticleSystem _explosion; //правильно отобразить
@@ -21,11 +22,13 @@ public class ObjectManager : MonoBehaviour
         
         if (obj.GetComponent<Health>()._isDied)
         {
+            Debug.Log("!!!!!!");
             Vector3 pos = new Vector3(obj.transform.position.x, obj.transform.position.y, obj.transform.position.z);
             var exp = Instantiate(_explosion, pos, Quaternion.identity);
             exp.Play();
             Destroy(exp.gameObject, 1f);
             isRemoveObjAction?.Invoke(obj);
+            //isDiedObjAction?.Invoke(obj.GetComponent<EnemyHealth>()._rewardForDestruction);
             DestroyObj(obj);
         }
         CheckNullObjList();

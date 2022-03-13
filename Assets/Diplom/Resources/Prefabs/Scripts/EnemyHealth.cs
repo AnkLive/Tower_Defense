@@ -12,6 +12,8 @@ public class EnemyHealth : Health
     [SerializeField] private Image sliderTopImage;
     [SerializeField] private Image sliderBottomImage;
     [SerializeField] private bool isShields;
+
+    [SerializeField] private int rewardForDestruction;
     
     public override bool _isDied { get => isDied; set => isDied = value; }
     public override float _currentHealth { get => currentHealth; set => currentHealth = value; }
@@ -22,6 +24,8 @@ public class EnemyHealth : Health
     public override Image _sliderTopImage { get => sliderTopImage; set => sliderTopImage = value; }
     public override Image _sliderBottomImage { get => sliderBottomImage; set => sliderBottomImage = value; }
     public override bool _isShields { get => isShields; set => isShields = value; }
+
+    public int _rewardForDestruction { get => rewardForDestruction; set => rewardForDestruction = value; }
 
     private void Awake()
     {
@@ -35,4 +39,7 @@ public class EnemyHealth : Health
 
     public override float SetParemetersHealthBar(float amount, Slider slider, Color topColor, Color bottomColor) => 
     base.SetParemetersHealthBar(amount, slider, topColor, bottomColor);
+
+    public override void SetCurrentParameters(float currentParameter, float inputParameter, Slider slider) => 
+    base.SetCurrentParameters(currentParameter, inputParameter, slider);
 }

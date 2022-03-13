@@ -5757,7 +5757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <_timeBetweenWaves>k__BackingField: 5
   _wavesList:
-  - _enemyName: 3
+  - _enemyName: 0
     _enemyCount: 5
     _timeBetweenEnemy: 5
   - _enemyName: 1
@@ -8834,10 +8834,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41044227f989f80449a2e6aa0e257008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <_objectManager>k__BackingField: {fileID: 963194229}
   <_healthText>k__BackingField: {fileID: 925204599}
   <_energyText>k__BackingField: {fileID: 955159362}
-  <_health>k__BackingField: 5
-  <_energy>k__BackingField: 150
+  <_health>k__BackingField: 20
+  <_energy>k__BackingField: 999
   <_isGame>k__BackingField: 1
 --- !u!1 &972139122
 GameObject:
@@ -18817,7 +18818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <_timeBetweenWaves>k__BackingField: 40
   _wavesList:
-  - _enemyName: 3
+  - _enemyName: 0
     _enemyCount: 3
     _timeBetweenEnemy: 4
   - _enemyName: 3

@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(TowerHealth)), CanEditMultipleObjects]
-public class TowerHealthCustomEditor : EnemyHealthCustomEditor 
+public class TowerHealthCustomEditor : HealthCustomEditor 
 {
     private SerializedProperty price;
 
@@ -15,6 +15,8 @@ public class TowerHealthCustomEditor : EnemyHealthCustomEditor
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
+        serializedObject.Update();
         EditorGUILayout.PropertyField(price, new GUIContent("Стоимость покупки"), true);
+        serializedObject.ApplyModifiedProperties();
     }
 }
