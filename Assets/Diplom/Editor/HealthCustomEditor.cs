@@ -6,7 +6,7 @@ public class HealthCustomEditor : Editor
 {
     private bool _isAdditionalSettings = false;
     private SerializedProperty amountOfHealth, currentHealth, amountOfShields, currentShields, 
-    slider, sliderTopImage, sliderBottomImage, isDied, isShields;
+    slider, sliderTopImage, sliderBottomImage, isDied, isShields, hitEffect;
     
 
     public virtual void OnEnable()
@@ -20,6 +20,7 @@ public class HealthCustomEditor : Editor
         sliderBottomImage = serializedObject.FindProperty("sliderBottomImage");
         isDied = serializedObject.FindProperty("isDied");
         isShields = serializedObject.FindProperty("isShields");
+        hitEffect = serializedObject.FindProperty("hitEffect");
     }
 
     public override void OnInspectorGUI()
@@ -39,6 +40,7 @@ public class HealthCustomEditor : Editor
         EditorGUILayout.PropertyField(slider, new GUIContent("Ссылка на слайдер"), true);
         EditorGUILayout.PropertyField(sliderTopImage, new GUIContent("Top slider"), true);
         EditorGUILayout.PropertyField(sliderBottomImage, new GUIContent("Bottom slider"), true);
+        EditorGUILayout.PropertyField(hitEffect, new GUIContent("hit Effect"), true);
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Показать дополнительные данные", EditorStyles.boldLabel);
         _isAdditionalSettings = EditorGUILayout.Toggle(_isAdditionalSettings);

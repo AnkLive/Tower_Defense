@@ -14,13 +14,14 @@ public abstract class Health : MonoBehaviour
     public abstract Image _sliderTopImage { get; set; }
     public abstract Image _sliderBottomImage { get; set; }
     public abstract bool _isDied { get; set; }
+    public abstract ParticleSystem _hitEffect { get; set; }
 
     public virtual void TakeDamage(float damage)
     {
-
         if (_isShields) 
         {
-            SetCurrentParameters(_currentShields, damage, _slider);
+            _currentShields -= damage;
+            _slider.value = _currentHealth;
 
             if (_currentShields <= 0) 
             {
@@ -30,7 +31,8 @@ public abstract class Health : MonoBehaviour
         }
         else 
         {
-            SetCurrentParameters(_currentHealth, damage, _slider);
+            _currentHealth -= damage;
+            _slider.value = _currentHealth;
         }
 
         if (_currentHealth <= 0) 

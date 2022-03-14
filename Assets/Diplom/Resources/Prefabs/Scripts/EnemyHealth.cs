@@ -12,6 +12,7 @@ public class EnemyHealth : Health
     [SerializeField] private Image sliderTopImage;
     [SerializeField] private Image sliderBottomImage;
     [SerializeField] private bool isShields;
+    [SerializeField] private ParticleSystem hitEffect;
 
     [SerializeField] private int rewardForDestruction;
     
@@ -24,6 +25,7 @@ public class EnemyHealth : Health
     public override Image _sliderTopImage { get => sliderTopImage; set => sliderTopImage = value; }
     public override Image _sliderBottomImage { get => sliderBottomImage; set => sliderBottomImage = value; }
     public override bool _isShields { get => isShields; set => isShields = value; }
+    public override ParticleSystem _hitEffect { get => hitEffect; set => hitEffect = value; }
 
     public int _rewardForDestruction { get => rewardForDestruction; set => rewardForDestruction = value; }
 
@@ -35,7 +37,11 @@ public class EnemyHealth : Health
         else _currentHealth = SetParemetersHealthBar(_amountOfHealth, _slider, Color.red, Color.green);
     }
 
-    public override void TakeDamage(float damage) => base.TakeDamage(damage);
+    public override void TakeDamage(float damage) 
+    {
+        _hitEffect.Play(true);
+        base.TakeDamage(damage);
+    }
 
     public override float SetParemetersHealthBar(float amount, Slider slider, Color topColor, Color bottomColor) => 
     base.SetParemetersHealthBar(amount, slider, topColor, bottomColor);

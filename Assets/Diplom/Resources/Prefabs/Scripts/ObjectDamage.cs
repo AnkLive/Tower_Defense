@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectDamage : Damage
 {
-    [SerializeField] private ParticleSystem _shotEffect;
+    [SerializeField] private List<ParticleSystem> _shotEffect = new List<ParticleSystem>();
     [SerializeField] private float countDamage;
     [SerializeField] private float cooldown;
     public override float _countDamage { get => countDamage; set => countDamage = value; }
@@ -19,7 +20,10 @@ public class ObjectDamage : Damage
 
         if (_timeStamp <= Time.time)
         {
-            _shotEffect.Play();
+            foreach (var item in _shotEffect)
+            {
+                item.Play(true);
+            }
             _obj.GetComponent<Health>().TakeDamage(_countDamage);
             _timeStamp = Time.time + _cooldown;
         }

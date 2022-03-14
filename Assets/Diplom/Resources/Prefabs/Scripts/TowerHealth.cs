@@ -12,6 +12,7 @@ public class TowerHealth : Health
     [SerializeField] private Image sliderTopImage;
     [SerializeField] private Image sliderBottomImage;
     [SerializeField] private bool isShields;
+    [SerializeField] private ParticleSystem hitEffect;
 
     [SerializeField] private int price;
 
@@ -24,7 +25,7 @@ public class TowerHealth : Health
     public override Image _sliderTopImage { get => sliderTopImage; set => sliderTopImage = value; }
     public override Image _sliderBottomImage { get => sliderBottomImage; set => sliderBottomImage = value; }
     public override bool _isShields { get => isShields; set => isShields = value; }
-
+    public override ParticleSystem _hitEffect { get => hitEffect; set => hitEffect = value; }
     public int _price { get => price; set => price = value; }
 
     private void Awake()
