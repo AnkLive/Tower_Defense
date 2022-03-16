@@ -214,7 +214,7 @@ MonoBehaviour:
   _shotEffect:
   - {fileID: 9097908891678156387}
   - {fileID: 2585574705898256331}
-  countDamage: 100
+  countDamage: 300
   cooldown: 2
 --- !u!1 &1691201318066683054
 GameObject:

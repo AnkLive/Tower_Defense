@@ -31,5 +31,5 @@ public class TowerSpawn : MonoBehaviour
 
     public void SetSpawnObj(GameObject obj) => _spawnTowersPrefab = obj;
 
-    private void CloseMenuSelectionTowers() => gameObject.GetComponent<TowerSelection>().CloseMenuSelectionTowers();
+    private void CloseMenuSelectionTowers() => gameObject.GetComponent<TowerSelection>().SetControllerValue(false);
 }

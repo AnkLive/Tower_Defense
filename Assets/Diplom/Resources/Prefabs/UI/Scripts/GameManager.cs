@@ -1,8 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour, IEventSubscription
 {
+    [field: SerializeField] public Animator _controller { get; set; }
+    public static event Action<bool> isPauseAction;
+    [field: SerializeField] public bool _isPause { get; set; } = true;
     [field: SerializeField] public ObjectManager _objectManager { get; set; }
     [field: SerializeField] public Text _healthText { get; set; }
     [field: SerializeField] public Text _energyText { get; set; }
@@ -33,7 +37,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
         SetText(_currentHealth, _healthText);
         _isGame = CheckHealth();
 
-        if (!_isGame) Debug.Log("Stop");
+        if (!_isGame) StopGame(true);
     }
 
     public void SetEnergy(int value) 
@@ -51,4 +55,13 @@ public class GameManager : MonoBehaviour, IEventSubscription
     public void Subscribe() => _objectManager.isDiedObjAction += SetEnergy;
 
     public void Unsubscribe() => _objectManager.isDiedObjAction -= SetEnergy;
+
+    public void StopGame(bool value) 
+    {
+        Time.timeScale = value ? 0f : 1f;
+        Debug.Log(Time.time);
+        _controller.SetBool("isDimming", value);
+        _isPause = value;
+        isPauseAction?.Invoke(_isPause);
+    }
 }
