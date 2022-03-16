@@ -1,36 +1,37 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Tracking)), CanEditMultipleObjects]
+[CustomEditor(typeof(Tracking), true), CanEditMultipleObjects]
 public class TrackingCustomEditor : Editor
 {
     private bool _isAdditionalSettings = false;
+    private SerializedProperty speedRotation, objectTrackingTag, objList, objTracking;
+
+    public virtual void OnEnable()
+    {
+        speedRotation = serializedObject.FindProperty("speedRotation");
+        objectTrackingTag = serializedObject.FindProperty("objectTrackingTag");
+        objList = serializedObject.FindProperty("objList");
+        objTracking = serializedObject.FindProperty("objTracking");
+    }
 
     public override void OnInspectorGUI()
     {
-        Tracking tracking = (Tracking)target;
-        base.OnInspectorGUI();
-        EditorGUILayout.LabelField("Параметры", EditorStyles.boldLabel);
+        serializedObject.Update();
+        EditorGUILayout.LabelField("Базовые параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
-        tracking._speedRotation = EditorGUILayout.FloatField("Скорость поворота", tracking._speedRotation);
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Дополнительные параметры", EditorStyles.boldLabel);
-        EditorGUILayout.Space();
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("_objList"), new GUIContent("Список объектов"), true);
-        tracking._objectTrackingTag = EditorGUILayout.TextField("Тег отслеживаемого объекта", tracking._objectTrackingTag);
+        EditorGUILayout.PropertyField(speedRotation, new GUIContent("Скорость поворота"), true);
+        EditorGUILayout.PropertyField(objectTrackingTag, new GUIContent("Тег отслеживаемого объекта"), true);
+        EditorGUILayout.PropertyField(objList, new GUIContent("Список объектов"), true);
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Показать дополнительные данные", EditorStyles.boldLabel);
         EditorGUILayout.Space();
         _isAdditionalSettings = EditorGUILayout.Toggle("", _isAdditionalSettings);
 
         if  (_isAdditionalSettings) 
-        EditorGUILayout.PropertyField(
-            serializedObject.FindProperty("_objTracking"), 
-            new GUIContent("Список текущих отслеживаемых объектов"), 
-            true
-            );
+        {
+            EditorGUILayout.PropertyField(objTracking, new GUIContent("Список текущих отслеживаемых объектов"), true);
+        }
         serializedObject.ApplyModifiedProperties();
-
-        if (GUI.changed) EditorUtility.SetDirty(tracking);
     }
 }

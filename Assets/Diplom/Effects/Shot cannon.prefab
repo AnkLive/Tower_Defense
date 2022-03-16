@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4938993978728127105}
   - component: {fileID: 6458233028294216994}
   m_Layer: 0
-  m_Name: Shock wawe gun
+  m_Name: Shot cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,24 +1,29 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Damage)), CanEditMultipleObjects]
+[CustomEditor(typeof(Damage), true), CanEditMultipleObjects]
 public class DamageCustomEditor : Editor
 {
+    private SerializedProperty countDamage, cooldown, shotEffect;
+
+    public virtual void OnEnable()
+    {
+        countDamage = serializedObject.FindProperty("countDamage");
+        cooldown = serializedObject.FindProperty("cooldown");
+        shotEffect = serializedObject.FindProperty("_shotEffect");
+    }
 
     public override void OnInspectorGUI()
     {
-        Damage damage = (Damage)target;
-        base.OnInspectorGUI();
-        EditorGUILayout.LabelField("Параметры", EditorStyles.boldLabel);
+        serializedObject.Update();
+        EditorGUILayout.LabelField("Базовые параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
-        damage._countDamage = EditorGUILayout.FloatField("Количество наносимого урона", damage._countDamage);
-        damage._cooldown = EditorGUILayout.FloatField("Скорость перезарядки", damage._cooldown);
+        EditorGUILayout.PropertyField(countDamage, new GUIContent("Количество наносимого урона"), true);
+        EditorGUILayout.PropertyField(cooldown, new GUIContent("Скорость перезарядки"), true);
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Дополнительные параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
-        damage._shutEffect = (ParticleSystem)EditorGUILayout.ObjectField("Ссылка на эффект", damage._shutEffect, typeof(ParticleSystem), true);
+        EditorGUILayout.PropertyField(shotEffect, new GUIContent("Эффект выстрела"), true);
         serializedObject.ApplyModifiedProperties();
-
-        if (GUI.changed) EditorUtility.SetDirty(damage);
     }
 }

@@ -1,33 +1,17 @@
-using System;
 using UnityEngine;
 
-public class Damage : MonoBehaviour
+public abstract class Damage : MonoBehaviour, IEventSubscription
 {
-    private GameObject _ref;
-    [field: SerializeField, HideInInspector]
-    public float _countDamage { get; set; }
-    [field: SerializeField, HideInInspector]
-    public ParticleSystem _shutEffect;
-    [field: SerializeField, HideInInspector]
-    public float _cooldown { get; set; }
-    private float _timeStamp;
-    
-    private void Awake() => gameObject.GetComponent<Tracking>().isDamageAction += IsDamage;
-    
-    private void Start() => _timeStamp = _cooldown;
+    public abstract GameObject _obj { get; set; }
+    public abstract float _countDamage { get; set; }
+    public abstract float _cooldown { get; set; }
+    public float _timeStamp { get; set; }
 
-    private void IsDamage(GameObject obj)
-    {
-        _ref = obj;
+    public virtual void IsDamage(GameObject TrackingObj) => _obj = TrackingObj;
 
-        if (_timeStamp <= Time.time)
-        {
-            _shutEffect.Play();
-            obj.GetComponent<Health>().TakeDamage(_countDamage);
-            _timeStamp = Time.time + _cooldown;
-        }
+    public void Subscribe() => gameObject.GetComponent<Tracking>().isDamageAction += IsDamage;
 
-    }
+    public void Unsubscribe() => gameObject.GetComponent<Tracking>().isDamageAction -= IsDamage;
 
-    private void OnDisable() => gameObject.GetComponent<Tracking>().isDamageAction -= IsDamage;
+    public virtual void UpdateTimeStamp() => _timeStamp = _cooldown;
 }

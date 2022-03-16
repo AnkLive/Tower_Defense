@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TowerSelection : MonoBehaviour
 {
+    public GameManager gameManager;
     public event Action<GameObject> getSpawnPointObj;
     private RaycastHit hit;
     private Ray ray;
@@ -27,16 +28,20 @@ public class TowerSelection : MonoBehaviour
                     if (hit.collider.CompareTag("TowerSpawnPoint"))
                     {
                         getSpawnPointObj?.Invoke(hit.collider.gameObject.transform.Find("SpawnPoint").gameObject);
-                        _controller.SetBool("isActive", true);
+                        SetControllerValue(true);
                     } 
                     else
                     {
-                        CloseMenuSelectionTowers();
+                        SetControllerValue(false);
                     }
                 }
             }
         }
     }
 
-    public void CloseMenuSelectionTowers() => _controller.SetBool("isActive", false);
+    public void SetControllerValue(bool value) 
+    {
+        gameManager.StopGame(value);
+        _controller.SetBool("isActive", value);
+    }
 }

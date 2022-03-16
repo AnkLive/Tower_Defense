@@ -1,21 +1,24 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Movement)), CanEditMultipleObjects]
+[CustomEditor(typeof(Movement), true), CanEditMultipleObjects]
 public class MovementCustomEditor : Editor
 {
+    private SerializedProperty speed, speedDirection;
+
+    public virtual void OnEnable()
+    {
+        speed = serializedObject.FindProperty("speed");
+        speedDirection = serializedObject.FindProperty("speedDirection");
+    }
 
     public override void OnInspectorGUI()
     {
-        Movement movement = (Movement)target;
-        base.OnInspectorGUI();
-        EditorGUILayout.LabelField("Параметры", EditorStyles.boldLabel);
+        serializedObject.Update();
+        EditorGUILayout.LabelField("Базовые параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
-        movement._speed = EditorGUILayout.FloatField("Скорость", movement._speed);
-        movement._speedDirection = EditorGUILayout.FloatField("Скорость поворота", movement._speedDirection);
-        movement._isBoss = EditorGUILayout.Toggle("Босс", movement._isBoss);
+        EditorGUILayout.PropertyField(speed, new GUIContent("Скорость"), true);
+        EditorGUILayout.PropertyField(speedDirection, new GUIContent("Скорость поворота"), true);
         serializedObject.ApplyModifiedProperties();
-
-        if (GUI.changed) EditorUtility.SetDirty(movement);
     }
 }
