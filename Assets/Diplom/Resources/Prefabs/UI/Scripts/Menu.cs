@@ -1,14 +1,17 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class Menu : MonoBehaviour
 {
     AudioSource music, sound;
-    private void SetScreenVisibility(GameObject obj1, GameObject obj2) {
-        obj1.SetActive(true);
-        obj1.SetActive(false);
-    }
 
-    private void SetSound(bool value, ref AudioSource sound) {
+    public void SetScreenVisibility(GameObject obj) => obj.SetActive(true);
+
+    public void SetScreenInvisibility(GameObject obj) => obj.SetActive(false);
+
+    public void SetSound(bool value, AudioSource sound) 
+    {
+
         if(value)
         {
             sound.Play();
@@ -19,5 +22,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    private void QuitGame() => Application.Quit();
+    public void QuitGame() => Application.Quit();
+
+    public void StartLevel(int value) => SceneManager.LoadScene(value);
 }
