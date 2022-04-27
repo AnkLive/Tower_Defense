@@ -6,21 +6,34 @@ public class CameraRotation : MonoBehaviour
     public GameObject _obj { get; private set; }
     [field: SerializeField]
     public float _sensitivity { get; private set; }
-    private float _horizontalAxisRotation;
-    public float yaw = 0.0f;
+
+    public float freezeStartX, freezeEndX;
 
     void Update()
     {
-        _horizontalAxisRotation += Input.GetAxis("Mouse X") * _sensitivity;
-        Rotation();
-    }
-
-    private void Rotation()
-    {
-        if (Input.GetMouseButton(0))
+        if (Input.touchCount > 0)
         {
-            transform.RotateAround(_obj.transform.position, new Vector3(0f, _horizontalAxisRotation, 0.0f),
-                _sensitivity * Time.deltaTime);
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) 
+            {
+                if (transform.position.z <= freezeStartX && Input.GetTouch(0).deltaPosition.x > 0)
+                {
+                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                    transform.Translate(-touchDeltaPosition.x * _sensitivity * Time.deltaTime, 0f, 0f);
+                }
+                else if (transform.position.z >= freezeEndX && Input.GetTouch(0).deltaPosition.x < 0) 
+                {
+                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                    transform.Translate(-touchDeltaPosition.x * _sensitivity * Time.deltaTime, 0f, 0f);
+                }
+            }
+        }
+        if (transform.position.z > freezeStartX) 
+        {
+            transform.Translate(freezeStartX * _sensitivity / 2 * Time.deltaTime, 0f, 0f);
+        }
+        else if (transform.position.z < freezeEndX) 
+        {
+            transform.Translate(freezeEndX * _sensitivity / 2 * Time.deltaTime, 0f, 0f);
         }
     }
 }
