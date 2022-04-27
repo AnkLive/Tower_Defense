@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
 {
     [field: SerializeField] public Animator _controller { get; set; }
     public static event Action<bool> isPauseAction;
+    public static event Action<bool> isGameOverAction;
     [field: SerializeField] public bool _isPause { get; set; } = true;
     [field: SerializeField] public ObjectManager _objectManager { get; set; }
     [field: SerializeField] public Text _healthText { get; set; }
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour, IEventSubscription
     [field: SerializeField] public bool _isGame { get; set; } = true;
     private int _currentHealth;
     public int _currentEnergy { get; set; }
+    public GameObject gameOverPanel, UIPanel;
+    public Menu menu;
 
     private void Awake() => DestroyObjects.isPlayerHealthAction += SetHealth;
 
@@ -36,8 +39,18 @@ public class GameManager : MonoBehaviour, IEventSubscription
         if (_currentHealth < 0) _health = 0;
         SetText(_currentHealth, _healthText);
         _isGame = CheckHealth();
+        Debug.Log(_isGame);
+        
 
-        if (!_isGame) StopGame(true);
+        if (_isGame) 
+        {
+            StopGame(true);
+        }
+        else 
+        {
+            isDied();
+            StopGame(true);
+        }
     }
 
     public void SetEnergy(int value) 
@@ -62,5 +75,12 @@ public class GameManager : MonoBehaviour, IEventSubscription
         _controller.SetBool("isDimming", value);
         _isPause = value;
         isPauseAction?.Invoke(_isPause);
+    }
+
+    public void isDied() 
+    {
+        isGameOverAction?.Invoke(true);
+        menu.SetScreenVisibility(gameOverPanel);
+        menu.SetScreenInvisibility(UIPanel);
     }
 }
