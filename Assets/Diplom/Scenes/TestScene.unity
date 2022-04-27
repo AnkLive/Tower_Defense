@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3354710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+    type: 3}
+  m_PrefabInstance: {fileID: 272679323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &12640210
 GameObject:
   m_ObjectHideFlags: 0
@@ -9101,6 +9107,7 @@ GameObject:
   - component: {fileID: 963194231}
   - component: {fileID: 963194233}
   - component: {fileID: 963194234}
+  - component: {fileID: 963194235}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9266,6 +9273,21 @@ MonoBehaviour:
   LEVEL_3: 0
   MUSIC: 0
   SOUND: 0
+--- !u!114 &963194235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb9112fc5fb2fc419dcb9041108e2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <_obj>k__BackingField: {fileID: 3354710}
+  <_sensitivity>k__BackingField: 2
+  yaw: 0
 --- !u!1 &972139122
 GameObject:
   m_ObjectHideFlags: 0
@@ -18627,7 +18649,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings: {fileID: 963194233}
-  _checkmark: {fileID: 375001358}
   _anim: {fileID: 1397769058}
   _toggle: {fileID: 1982677358}
 --- !u!114 &1982677358
@@ -19583,7 +19604,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings: {fileID: 963194233}
-  _checkmark: {fileID: 12640211}
   _anim: {fileID: 255592267}
   _toggle: {fileID: 2099516164}
 --- !u!114 &2099516164
