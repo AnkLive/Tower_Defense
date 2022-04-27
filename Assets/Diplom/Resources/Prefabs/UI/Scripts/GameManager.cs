@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour, IEventSubscription
     public void StopGame(bool value) 
     {
         Time.timeScale = value ? 0f : 1f;
-        Debug.Log(Time.time);
         _controller.SetBool("isDimming", value);
         _isPause = value;
         isPauseAction?.Invoke(_isPause);

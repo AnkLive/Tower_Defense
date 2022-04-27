@@ -32,7 +32,7 @@ public class TowerSelection : MonoBehaviour
                     } 
                     else
                     {
-                        SetControllerValue(false);
+                        //SetControllerValue(false);
                     }
                 }
             }
