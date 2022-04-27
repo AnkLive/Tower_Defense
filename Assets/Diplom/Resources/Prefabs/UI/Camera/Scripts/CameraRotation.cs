@@ -6,34 +6,34 @@ public class CameraRotation : MonoBehaviour
     public GameObject _obj { get; private set; }
     [field: SerializeField]
     public float _sensitivity { get; private set; }
-    private float _horizontalAxisRotation;
-    public float yaw = 0.0f;
+
+    public float freezeStartX, freezeEndX;
 
     void Update()
     {
-       if (Input.touchCount > 0) 
- {
-        Touch touch = Input.GetTouch(0); // get first touch since touch count is greater than zero
-     
-        if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) 
+        if (Input.touchCount > 0)
         {
-            // get the touch position from the screen touch to world point
-            Vector2 touchedPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y));
-            // lerp and set the position of the current object to that of the touch, but smoothly over time.
-            transform.position = Vector3.Lerp(transform.position, touchedPos, Time.deltaTime);
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) 
+            {
+                if (transform.position.z <= freezeStartX && Input.GetTouch(0).deltaPosition.x > 0)
+                {
+                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                    transform.Translate(-touchDeltaPosition.x * _sensitivity * Time.deltaTime, 0f, 0f);
+                }
+                else if (transform.position.z >= freezeEndX && Input.GetTouch(0).deltaPosition.x < 0) 
+                {
+                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                    transform.Translate(-touchDeltaPosition.x * _sensitivity * Time.deltaTime, 0f, 0f);
+                }
+            }
         }
- }
-
-
-    }
-
-    private void Rotation()
-    {
-        if (Input.GetMouseButton(0))
+        if (transform.position.z > freezeStartX) 
         {
-            transform.RotateAround(_obj.transform.position, new Vector3(0f, _horizontalAxisRotation, 0.0f),
-                _sensitivity * Time.deltaTime);
+            transform.Translate(freezeStartX * _sensitivity / 2 * Time.deltaTime, 0f, 0f);
+        }
+        else if (transform.position.z < freezeEndX) 
+        {
+            transform.Translate(freezeEndX * _sensitivity / 2 * Time.deltaTime, 0f, 0f);
         }
     }
-
 }
