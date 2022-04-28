@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
     [field: SerializeField] public Animator _controller { get; set; }
     public static event Action<bool> isPauseAction;
     public static event Action<bool> isGameOverAction;
+    
     [field: SerializeField] public bool _isPause { get; set; } = true;
     [field: SerializeField] public ObjectManager _objectManager { get; set; }
     [field: SerializeField] public Text _healthText { get; set; }
@@ -14,15 +15,17 @@ public class GameManager : MonoBehaviour, IEventSubscription
     [field: SerializeField] public int _health { get; private set; }
     [field: SerializeField] public int _energy { get; private set; }
     [field: SerializeField] public bool _isGame { get; set; } = true;
+    [field: SerializeField] public bool _isWin { get; set; } = true;
     private int _currentHealth;
     public int _currentEnergy { get; set; }
-    public GameObject gameOverPanel, UIPanel;
+    public GameObject gameOverPanel, UIPanel, winPanel;
     public Menu menu;
 
     private void Awake() => DestroyObjects.isPlayerHealthAction += SetHealth;
 
     private void Start() 
     {
+        _objectManager.isWinAction += isWin;
         Subscribe();
         _currentHealth += _health;
         _currentEnergy += _energy;
@@ -39,8 +42,6 @@ public class GameManager : MonoBehaviour, IEventSubscription
         if (_currentHealth < 0) _health = 0;
         SetText(_currentHealth, _healthText);
         _isGame = CheckHealth();
-        Debug.Log(_isGame);
-        
 
         if (_isGame) 
         {
@@ -81,6 +82,12 @@ public class GameManager : MonoBehaviour, IEventSubscription
     {
         isGameOverAction?.Invoke(true);
         menu.SetScreenVisibility(gameOverPanel);
+        menu.SetScreenInvisibility(UIPanel);
+    }
+
+    public void isWin() 
+    {
+        menu.SetScreenVisibility(winPanel);
         menu.SetScreenInvisibility(UIPanel);
     }
 }

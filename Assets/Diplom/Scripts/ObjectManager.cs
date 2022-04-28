@@ -7,11 +7,17 @@ public class ObjectManager : MonoBehaviour
 {
     public static event Action<GameObject> isRemoveObjAction;
     public event Action<int> isDiedObjAction;
+    public event Action isWinAction;
     [SerializeField, HideInInspector] public List<GameObject> _allEnemiesList = new List<GameObject>();
     [SerializeField, HideInInspector] public List<GameObject> _allTowersList = new List<GameObject>();
-    public ParticleSystem _explosion; //правильно отобразить
+    public ParticleSystem _explosion;
+    bool isLastWaveBool;
 
-    private void Awake() => Health.isDiedAction += HealthCheck;
+    private void Awake() 
+    {
+        EnemySpawn.isLastWaveAction += isLastWave;
+        Health.isDiedAction += HealthCheck;
+    }
 
     public void AddListObj(List<GameObject> list, GameObject obj) => list.Add(obj);
 
@@ -36,5 +42,20 @@ public class ObjectManager : MonoBehaviour
     {
         _allEnemiesList.RemoveAll(item => item == null);
         _allTowersList.RemoveAll(item => item == null);
+        if (isLastWaveBool) {
+            if (_allEnemiesList.Count == 0) 
+            {
+                isWinAction?.Invoke();
+            }
+        }
+    }
+
+    public void isLastWave(bool value) {
+         CheckNullObjList();
+        if (!_allEnemiesList.Any()) 
+        {
+            isWinAction?.Invoke();
+        }
+        
     }
 }
