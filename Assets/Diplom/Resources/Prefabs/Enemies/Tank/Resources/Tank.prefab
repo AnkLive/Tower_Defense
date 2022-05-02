@@ -137,7 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214963d9f2f7d6144ad0d631da1456c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shotEffect: {fileID: 3625071563675096917}
+  _shotEffect:
+  - {fileID: 0}
   countDamage: 250
   cooldown: 1
 --- !u!114 &1092158843688159520
@@ -161,7 +162,9 @@ MonoBehaviour:
   sliderTopImage: {fileID: 3590290191372658303}
   sliderBottomImage: {fileID: 3590290192169837941}
   isShields: 1
+  hitEffect: {fileID: 0}
   rewardForDestruction: 25
+  scoreForDestruction: 250
 --- !u!1 &1092158843959342890
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,12 +793,6 @@ PrefabInstance:
 --- !u!4 &6708227565427703457 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3160518513145574261, guid: 1c66182a409c94c438e0566a3dec96ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 8557969291052010964}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &3625071563675096917 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4938993978728127105, guid: 1c66182a409c94c438e0566a3dec96ce,
     type: 3}
   m_PrefabInstance: {fileID: 8557969291052010964}
   m_PrefabAsset: {fileID: 0}

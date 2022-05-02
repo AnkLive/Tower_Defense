@@ -7,22 +7,29 @@ public class GameManager : MonoBehaviour, IEventSubscription
     [field: SerializeField] public Animator _controller { get; set; }
     public static event Action<bool> isPauseAction;
     public static event Action<bool> isGameOverAction;
+    
     [field: SerializeField] public bool _isPause { get; set; } = true;
     [field: SerializeField] public ObjectManager _objectManager { get; set; }
     [field: SerializeField] public Text _healthText { get; set; }
     [field: SerializeField] public Text _energyText { get; set; }
+    [field: SerializeField] public Text _scoreText { get; set; }
+    [field: SerializeField] public Text _scoreWinText { get; set; }
     [field: SerializeField] public int _health { get; private set; }
     [field: SerializeField] public int _energy { get; private set; }
+    [field: SerializeField] public int _score { get; private set; }
     [field: SerializeField] public bool _isGame { get; set; } = true;
+    [field: SerializeField] public bool _isWin { get; set; } = true;
     private int _currentHealth;
     public int _currentEnergy { get; set; }
-    public GameObject gameOverPanel, UIPanel;
+    public GameObject gameOverPanel, UIPanel, winPanel;
     public Menu menu;
+    public SafePfers save;
 
     private void Awake() => DestroyObjects.isPlayerHealthAction += SetHealth;
 
     private void Start() 
     {
+        _objectManager.isWinAction += isWin;
         Subscribe();
         _currentHealth += _health;
         _currentEnergy += _energy;
@@ -31,6 +38,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
     }
 
     public void SetText(float value, Text textField) => textField.text = value.ToString();
+    public void SetText(string value, Text textField) => textField.text = value;
 
     public void SetHealth(int value) 
     {
@@ -39,8 +47,6 @@ public class GameManager : MonoBehaviour, IEventSubscription
         if (_currentHealth < 0) _health = 0;
         SetText(_currentHealth, _healthText);
         _isGame = CheckHealth();
-        Debug.Log(_isGame);
-        
 
         if (_isGame) 
         {
@@ -53,10 +59,13 @@ public class GameManager : MonoBehaviour, IEventSubscription
         }
     }
 
-    public void SetEnergy(int value) 
+    public void SetEnergyAndScore(int energy, int score) 
     {
-        _currentEnergy += value;
+        _currentEnergy += energy;
+        _score += score;
         SetText(_currentEnergy, _energyText);
+        string scoreText = "—чет " + _score;
+        SetText(scoreText, _scoreText);
     }
 
     private bool CheckHealth() => _currentHealth <= 0 ? false : true;
@@ -65,9 +74,9 @@ public class GameManager : MonoBehaviour, IEventSubscription
 
     private void OnDisable() => Unsubscribe();
 
-    public void Subscribe() => _objectManager.isDiedObjAction += SetEnergy;
+    public void Subscribe() => _objectManager.isDiedObjAction += SetEnergyAndScore;
 
-    public void Unsubscribe() => _objectManager.isDiedObjAction -= SetEnergy;
+    public void Unsubscribe() => _objectManager.isDiedObjAction -= SetEnergyAndScore;
 
     public void StopGame(bool value) 
     {
@@ -83,4 +92,16 @@ public class GameManager : MonoBehaviour, IEventSubscription
         menu.SetScreenVisibility(gameOverPanel);
         menu.SetScreenInvisibility(UIPanel);
     }
+
+    public void isWin() 
+    {
+        _scoreWinText.text = _score.ToString();
+        menu.SetScreenVisibility(winPanel);
+        menu.SetScreenInvisibility(UIPanel);
+        SavingGameResults();
+    }
+
+    public void SavingGameResults() => save.TOTAL_SCORE += ResultGameScore(_currentEnergy, _currentHealth, _score);
+
+    public int ResultGameScore(int energy, int health, int score) => energy * health + score;
 }

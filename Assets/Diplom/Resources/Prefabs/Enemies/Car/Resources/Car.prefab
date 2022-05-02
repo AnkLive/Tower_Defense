@@ -114,7 +114,9 @@ MonoBehaviour:
   sliderTopImage: {fileID: 7778549755933531325}
   sliderBottomImage: {fileID: 7778549755152605111}
   isShields: 0
+  hitEffect: {fileID: 0}
   rewardForDestruction: 15
+  scoreForDestruction: 175
 --- !u!1001 &761130986795333913
 PrefabInstance:
   m_ObjectHideFlags: 0
