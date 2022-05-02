@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObjectManager : MonoBehaviour
 {
     public static event Action<GameObject> isRemoveObjAction;
-    public event Action<int> isDiedObjAction;
+    public event Action<int, int> isDiedObjAction;
     public event Action isWinAction;
     [SerializeField, HideInInspector] public List<GameObject> _allEnemiesList = new List<GameObject>();
     [SerializeField, HideInInspector] public List<GameObject> _allTowersList = new List<GameObject>();
@@ -32,7 +32,7 @@ public class ObjectManager : MonoBehaviour
             exp.Play();
             Destroy(exp.gameObject, 3f);
             isRemoveObjAction?.Invoke(obj);
-            isDiedObjAction?.Invoke(obj.GetComponent<EnemyHealth>()._rewardForDestruction);
+            isDiedObjAction?.Invoke(obj.GetComponent<EnemyHealth>()._rewardForDestruction, obj.GetComponent<EnemyHealth>()._scoreForDestruction);
             
         }
         CheckNullObjList();

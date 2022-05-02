@@ -12,14 +12,17 @@ public class GameManager : MonoBehaviour, IEventSubscription
     [field: SerializeField] public ObjectManager _objectManager { get; set; }
     [field: SerializeField] public Text _healthText { get; set; }
     [field: SerializeField] public Text _energyText { get; set; }
+    [field: SerializeField] public Text _scoreText { get; set; }
     [field: SerializeField] public int _health { get; private set; }
     [field: SerializeField] public int _energy { get; private set; }
+    [field: SerializeField] public int _score { get; private set; }
     [field: SerializeField] public bool _isGame { get; set; } = true;
     [field: SerializeField] public bool _isWin { get; set; } = true;
     private int _currentHealth;
     public int _currentEnergy { get; set; }
     public GameObject gameOverPanel, UIPanel, winPanel;
     public Menu menu;
+    public SafePfers save;
 
     private void Awake() => DestroyObjects.isPlayerHealthAction += SetHealth;
 
@@ -54,10 +57,12 @@ public class GameManager : MonoBehaviour, IEventSubscription
         }
     }
 
-    public void SetEnergy(int value) 
+    public void SetEnergyAndScore(int energy, int score) 
     {
-        _currentEnergy += value;
+        _currentEnergy += energy;
+        _score += score;
         SetText(_currentEnergy, _energyText);
+        SetText(_score, _scoreText);
     }
 
     private bool CheckHealth() => _currentHealth <= 0 ? false : true;
@@ -66,9 +71,9 @@ public class GameManager : MonoBehaviour, IEventSubscription
 
     private void OnDisable() => Unsubscribe();
 
-    public void Subscribe() => _objectManager.isDiedObjAction += SetEnergy;
+    public void Subscribe() => _objectManager.isDiedObjAction += SetEnergyAndScore;
 
-    public void Unsubscribe() => _objectManager.isDiedObjAction -= SetEnergy;
+    public void Unsubscribe() => _objectManager.isDiedObjAction -= SetEnergyAndScore;
 
     public void StopGame(bool value) 
     {
@@ -89,5 +94,10 @@ public class GameManager : MonoBehaviour, IEventSubscription
     {
         menu.SetScreenVisibility(winPanel);
         menu.SetScreenInvisibility(UIPanel);
+        SavingGameResults();
     }
+
+    public void SavingGameResults() => save.TOTAL_SCORE += ResultGameScore(_currentEnergy, _currentHealth, _score);
+
+    public int ResultGameScore(int energy, int health, int score) => energy * health + score;
 }
