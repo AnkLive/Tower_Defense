@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
     [field: SerializeField] public Text _healthText { get; set; }
     [field: SerializeField] public Text _energyText { get; set; }
     [field: SerializeField] public Text _scoreText { get; set; }
+    [field: SerializeField] public Text _scoreWinText { get; set; }
     [field: SerializeField] public int _health { get; private set; }
     [field: SerializeField] public int _energy { get; private set; }
     [field: SerializeField] public int _score { get; private set; }
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
     }
 
     public void SetText(float value, Text textField) => textField.text = value.ToString();
+    public void SetText(string value, Text textField) => textField.text = value;
 
     public void SetHealth(int value) 
     {
@@ -62,7 +64,8 @@ public class GameManager : MonoBehaviour, IEventSubscription
         _currentEnergy += energy;
         _score += score;
         SetText(_currentEnergy, _energyText);
-        SetText(_score, _scoreText);
+        string scoreText = "—чет " + _score;
+        SetText(scoreText, _scoreText);
     }
 
     private bool CheckHealth() => _currentHealth <= 0 ? false : true;
@@ -92,6 +95,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
 
     public void isWin() 
     {
+        _scoreWinText.text = _score.ToString();
         menu.SetScreenVisibility(winPanel);
         menu.SetScreenInvisibility(UIPanel);
         SavingGameResults();

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
@@ -23,9 +22,10 @@ public class ObjectManager : MonoBehaviour
 
     public void HealthCheck(GameObject obj)
     {
-        
         if (obj.GetComponent<Health>()._isDied)
         {
+            _allEnemiesList.Remove(obj);
+            _allTowersList.Remove(obj);
             Destroy(obj);
             Vector3 pos = new Vector3(obj.transform.position.x, obj.transform.position.y, obj.transform.position.z);
             var exp = Instantiate(_explosion, pos, Quaternion.identity);
@@ -33,15 +33,7 @@ public class ObjectManager : MonoBehaviour
             Destroy(exp.gameObject, 3f);
             isRemoveObjAction?.Invoke(obj);
             isDiedObjAction?.Invoke(obj.GetComponent<EnemyHealth>()._rewardForDestruction, obj.GetComponent<EnemyHealth>()._scoreForDestruction);
-            
         }
-        CheckNullObjList();
-    }
-
-    private void CheckNullObjList() 
-    {
-        _allEnemiesList.RemoveAll(item => item == null);
-        _allTowersList.RemoveAll(item => item == null);
         if (isLastWaveBool) {
             if (_allEnemiesList.Count == 0) 
             {
@@ -50,9 +42,16 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
+    private void CheckNullObjList() 
+    {
+        _allEnemiesList.RemoveAll(item => item == null);
+        _allTowersList.RemoveAll(item => item == null);
+    }
+
     public void isLastWave(bool value) {
+        isLastWaveBool = value;
          CheckNullObjList();
-        if (!_allEnemiesList.Any()) 
+        if (_allEnemiesList.Count == 0) 
         {
             isWinAction?.Invoke();
         }

@@ -199,6 +199,7 @@ MonoBehaviour:
   isShields: 1
   hitEffect: {fileID: 8423940456703636242}
   rewardForDestruction: 100
+  scoreForDestruction: 750
 --- !u!114 &-6191577352426532589
 MonoBehaviour:
   m_ObjectHideFlags: 0
