@@ -9226,7 +9226,7 @@ MonoBehaviour:
   <_objectManager>k__BackingField: {fileID: 963194229}
   <_healthText>k__BackingField: {fileID: 925204599}
   <_energyText>k__BackingField: {fileID: 955159362}
-  <_health>k__BackingField: 20
+  <_health>k__BackingField: 2
   <_energy>k__BackingField: 200
   <_isGame>k__BackingField: 1
 --- !u!114 &963194232
