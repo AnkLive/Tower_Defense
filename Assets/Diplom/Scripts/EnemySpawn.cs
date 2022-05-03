@@ -6,7 +6,6 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     public static event Action<GameObject> addHealthBar;
-    public static event Action<bool> isLastWaveAction;
     [field: SerializeField, HideInInspector] public ObjectManager _objectManager { get; set; }
     [field: SerializeField, HideInInspector] public GameObject _spawn { get; set; }
     [field: SerializeField, HideInInspector] public WaveManager _waveManager { get; set; }
@@ -26,13 +25,7 @@ public class EnemySpawn : MonoBehaviour
         if (_numberOWave < _waveList.Count)
         {
             TimeBetweenWaves();
-            
         }
-         if (_numberOWave < _waveList.Count && !_startNextWave)
-            {
-                isLastWaveAction?.Invoke(true);
-            }
-           
     }
 
     private void StartCoroutine() => StartCoroutine(SpawnEnemy(_waveList[_numberOWave]._timeBetweenEnemy));

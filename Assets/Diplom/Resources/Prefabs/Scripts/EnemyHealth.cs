@@ -15,7 +15,6 @@ public class EnemyHealth : Health
     [SerializeField] private ParticleSystem hitEffect;
 
     [SerializeField] private int rewardForDestruction;
-    [SerializeField] private int scoreForDestruction;
     
     public override bool _isDied { get => isDied; set => isDied = value; }
     public override float _currentHealth { get => currentHealth; set => currentHealth = value; }
@@ -29,7 +28,6 @@ public class EnemyHealth : Health
     public override ParticleSystem _hitEffect { get => hitEffect; set => hitEffect = value; }
 
     public int _rewardForDestruction { get => rewardForDestruction; set => rewardForDestruction = value; }
-    public int _scoreForDestruction { get => scoreForDestruction; set => scoreForDestruction = value; }
 
     private void Awake()
     {

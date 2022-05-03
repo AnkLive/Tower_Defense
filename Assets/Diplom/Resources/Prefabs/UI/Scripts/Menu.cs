@@ -11,6 +11,7 @@ public class Menu : MonoBehaviour
 
     public void SetSound(bool value, AudioSource sound) 
     {
+
         if(value)
         {
             sound.Play();
