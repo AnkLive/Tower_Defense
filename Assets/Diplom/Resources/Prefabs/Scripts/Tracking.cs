@@ -29,7 +29,7 @@ public abstract class Tracking : MonoBehaviour, IEventSubscription
         {
             CheckNullObjToList();
         }
-        else
+        else if (_objTracking.Count > 0 && _objTracking[0] != null)
         {
             _isTracking = true;
         }
@@ -65,16 +65,17 @@ public abstract class Tracking : MonoBehaviour, IEventSubscription
     public void TrackingObj()
     {
         
-
         if (_objTracking.Count > 0 && _isTracking) 
         {
             isDamageAction?.Invoke(_objTracking[0]);
             
             for (int i = 0; i < _objList.Count; i++)
             {
+                if (_objTracking.Count > 0 && _objTracking[0] != null) {
                 Vector3 direction = (_objTracking[0].transform.position - _objList[i].obj.transform.position).normalized;
                 _objList[i].obj.transform.rotation = Quaternion.Lerp(_objList[i].obj.transform.rotation,
                     TrackingRotation(direction, _objList[i]), Time.deltaTime * _speedRotation);
+                }
             }  
         }
     }
