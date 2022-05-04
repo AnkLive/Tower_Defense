@@ -12,7 +12,7 @@ public class ObjectManager : MonoBehaviour
     public ParticleSystem _explosion;
     bool isLastWaveBool;
 
-    private void Awake() 
+    private void Start() 
     {
         EnemySpawn.isLastWaveAction += isLastWave;
         Health.isDiedAction += HealthCheck;
@@ -24,6 +24,8 @@ public class ObjectManager : MonoBehaviour
     {
         if (obj.GetComponent<Health>()._isDied)
         {
+            isRemoveObjAction?.Invoke(obj);
+            isDiedObjAction?.Invoke(obj.GetComponent<EnemyHealth>()._rewardForDestruction, obj.GetComponent<EnemyHealth>()._scoreForDestruction);
             _allEnemiesList.Remove(obj);
             _allTowersList.Remove(obj);
             Destroy(obj);
@@ -31,13 +33,15 @@ public class ObjectManager : MonoBehaviour
             var exp = Instantiate(_explosion, pos, Quaternion.identity);
             exp.Play();
             Destroy(exp.gameObject, 3f);
-            isRemoveObjAction?.Invoke(obj);
-            isDiedObjAction?.Invoke(obj.GetComponent<EnemyHealth>()._rewardForDestruction, obj.GetComponent<EnemyHealth>()._scoreForDestruction);
         }
         if (isLastWaveBool) {
             if (_allEnemiesList.Count == 0) 
             {
+                Debug.Log("2");
                 isWinAction?.Invoke();
+                isLastWaveBool = false;
+                EnemySpawn.isLastWaveAction -= isLastWave;
+                Health.isDiedAction -= HealthCheck;
             }
         }
     }
@@ -50,10 +54,13 @@ public class ObjectManager : MonoBehaviour
 
     public void isLastWave(bool value) {
         isLastWaveBool = value;
-         CheckNullObjList();
+        CheckNullObjList();
         if (_allEnemiesList.Count == 0) 
         {
             isWinAction?.Invoke();
+            isLastWaveBool = false;
+            EnemySpawn.isLastWaveAction -= isLastWave;
+            Health.isDiedAction -= HealthCheck;
         }
         
     }

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
     [field: SerializeField] public Text _energyText { get; set; }
     [field: SerializeField] public Text _scoreText { get; set; }
     [field: SerializeField] public Text _scoreWinText { get; set; }
+    [field: SerializeField] public Text _newRecordText { get; set; }
     [field: SerializeField] public int _health { get; private set; }
     [field: SerializeField] public int _energy { get; private set; }
     [field: SerializeField] public int _score { get; private set; }
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
 
     public void isWin() 
     {
+        save.BEST_RESULT = BestResult(_score);
         _scoreWinText.text = _score.ToString();
         menu.SetScreenVisibility(winPanel);
         menu.SetScreenInvisibility(UIPanel);
@@ -104,4 +106,17 @@ public class GameManager : MonoBehaviour, IEventSubscription
     public void SavingGameResults() => save.TOTAL_SCORE += ResultGameScore(_currentEnergy, _currentHealth, _score);
 
     public int ResultGameScore(int energy, int health, int score) => energy * health + score;
+
+    public int BestResult(int score) 
+    {
+        if (save.BEST_RESULT < score) 
+        {
+            _newRecordText.text = "Новый рекорд!";
+            return score;
+        }
+        else 
+        {
+            return save.BEST_RESULT;
+        }
+    }
 }

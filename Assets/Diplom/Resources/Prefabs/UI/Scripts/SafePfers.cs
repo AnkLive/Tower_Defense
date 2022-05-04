@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SafePfers : MonoBehaviour
 {
-    public int LEVEL_1, LEVEL_2, LEVEL_3, MUSIC, SOUND, TOTAL_SCORE;
+    public int LEVEL_1, LEVEL_2, LEVEL_3, MUSIC, SOUND, TOTAL_SCORE, BEST_RESULT;
 
     public void SaveGame() 
     {
@@ -12,6 +12,7 @@ public class SafePfers : MonoBehaviour
         PlayerPrefs.SetInt("music", MUSIC);
         PlayerPrefs.SetInt("sound", SOUND);
         PlayerPrefs.SetInt("total_score", TOTAL_SCORE);
+        PlayerPrefs.SetInt("best_result", BEST_RESULT);
         PlayerPrefs.Save();
     }
 
@@ -30,5 +31,6 @@ public class SafePfers : MonoBehaviour
         MUSIC = PlayerPrefs.GetInt("music");
         SOUND = PlayerPrefs.GetInt("sound");
         TOTAL_SCORE = PlayerPrefs.GetInt("total_score", TOTAL_SCORE);
+        BEST_RESULT = PlayerPrefs.GetInt("best_result", BEST_RESULT);
     }
 }
