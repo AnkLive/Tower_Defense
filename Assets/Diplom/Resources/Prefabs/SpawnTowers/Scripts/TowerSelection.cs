@@ -24,15 +24,11 @@ public class TowerSelection : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-
                     if (hit.collider.CompareTag("TowerSpawnPoint"))
                     {
+                        ValueChanged();
                         getSpawnPointObj?.Invoke(hit.collider.gameObject.transform.Find("SpawnPoint").gameObject);
                         SetControllerValue(true);
-                    } 
-                    else
-                    {
-                        //SetControllerValue(false);
                     }
                 }
             }
@@ -43,5 +39,17 @@ public class TowerSelection : MonoBehaviour
     {
         gameManager.StopGame(value);
         _controller.SetBool("isActive", value);
+    }
+
+    public void SetBoolValue(bool value) 
+    {
+        _controller.SetBool("isActive", value);
+    }
+
+    
+
+    void ValueChanged()
+    {
+        _controller.SetTrigger("anim");
     }
 }

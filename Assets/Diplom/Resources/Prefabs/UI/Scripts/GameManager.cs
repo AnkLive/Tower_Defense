@@ -87,6 +87,14 @@ public class GameManager : MonoBehaviour, IEventSubscription
         isPauseAction?.Invoke(_isPause);
     }
 
+    public void StopGame(Toggle toggle) 
+    {
+        Time.timeScale = toggle.isOn ? 0f : 1f;
+        _controller.SetBool("isDimming", toggle.isOn);
+        _isPause = toggle.isOn;
+        isPauseAction?.Invoke(_isPause);
+    }
+
     public void isDied() 
     {
         isGameOverAction?.Invoke(true);

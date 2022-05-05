@@ -37,7 +37,6 @@ public class ObjectManager : MonoBehaviour
         if (isLastWaveBool) {
             if (_allEnemiesList.Count == 0) 
             {
-                Debug.Log("2");
                 isWinAction?.Invoke();
                 isLastWaveBool = false;
                 EnemySpawn.isLastWaveAction -= isLastWave;
