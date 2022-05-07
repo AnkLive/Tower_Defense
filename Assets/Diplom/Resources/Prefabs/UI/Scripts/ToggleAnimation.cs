@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ToggleAnimation : MonoBehaviour
 {
+    
     public Settings _settings;
     public Animator _anim;
     public Toggle _toggle;
@@ -22,6 +24,7 @@ public class ToggleAnimation : MonoBehaviour
 
     void ToggleValueChanged(Toggle change)
     {
+        _settings.SaveData();
         _anim.SetTrigger("anim");
     }
 }

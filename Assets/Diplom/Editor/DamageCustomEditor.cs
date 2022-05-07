@@ -4,13 +4,14 @@ using UnityEditor;
 [CustomEditor(typeof(Damage), true), CanEditMultipleObjects]
 public class DamageCustomEditor : Editor
 {
-    private SerializedProperty countDamage, cooldown, shotEffect;
+    private SerializedProperty countDamage, cooldown, shotEffect, shotSound;
 
     public virtual void OnEnable()
     {
         countDamage = serializedObject.FindProperty("countDamage");
         cooldown = serializedObject.FindProperty("cooldown");
         shotEffect = serializedObject.FindProperty("_shotEffect");
+        shotSound = serializedObject.FindProperty("shotSound");
     }
 
     public override void OnInspectorGUI()
@@ -24,6 +25,7 @@ public class DamageCustomEditor : Editor
         EditorGUILayout.LabelField("Дополнительные параметры", EditorStyles.boldLabel);
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(shotEffect, new GUIContent("Эффект выстрела"), true);
+        EditorGUILayout.PropertyField(shotSound, new GUIContent("Звук выстрела"), true);
         serializedObject.ApplyModifiedProperties();
     }
 }

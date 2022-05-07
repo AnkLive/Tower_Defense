@@ -30,7 +30,7 @@ public class SafePfers : MonoBehaviour
         LEVEL_3 = PlayerPrefs.GetInt("level_3");
         MUSIC = PlayerPrefs.GetInt("music");
         SOUND = PlayerPrefs.GetInt("sound");
-        TOTAL_SCORE = PlayerPrefs.GetInt("total_score", TOTAL_SCORE);
-        BEST_RESULT = PlayerPrefs.GetInt("best_result", BEST_RESULT);
+        TOTAL_SCORE = PlayerPrefs.GetInt("total_score");
+        BEST_RESULT = PlayerPrefs.GetInt("best_result");
     }
 }
