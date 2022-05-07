@@ -4,18 +4,11 @@ using UnityEngine.UI;
 public class PauseIconChange : MonoBehaviour
 {
     public GameObject pause, play;
-    Image image;
-    Toggle toggle;
-
-    private void Start() 
-    { 
-        image = gameObject.GetComponent<Image>();
-        toggle = gameObject.GetComponent<Toggle>();
-    }
+    public GameManager isPause;
 
     public void ChangeSprite() 
     {
-        if (toggle.isOn == true) {
+        if (isPause._isPause) {
             pause.SetActive(false);
             play.SetActive(true);
         }

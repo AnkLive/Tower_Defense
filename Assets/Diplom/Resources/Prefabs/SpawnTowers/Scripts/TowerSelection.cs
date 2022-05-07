@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerSelection : MonoBehaviour
 {
@@ -12,23 +13,32 @@ public class TowerSelection : MonoBehaviour
     [SerializeField]
     private Animator _controller;
 
+    PauseIconChange change;
+
+    public bool isPauseButtonSelected;
+
+    private void Start() {
+        change = gameObject.GetComponent<PauseIconChange>();
+    }
+
     void Update()
     {
-
         if (Application.platform == RuntimePlatform.WindowsEditor)
         {
             ray = _camera.ScreenPointToRay(Input.mousePosition);
             
             if (Input.GetMouseButtonDown(0))
             {
-
                 if (Physics.Raycast(ray, out hit))
                 {
+                    if (!gameManager._isPause || isPauseButtonSelected) {
                     if (hit.collider.CompareTag("TowerSpawnPoint"))
                     {
                         ValueChanged();
                         getSpawnPointObj?.Invoke(hit.collider.gameObject.transform.Find("SpawnPoint").gameObject);
                         SetControllerValue(true);
+                        change.ChangeSprite();
+                    }
                     }
                 }
             }
@@ -41,12 +51,14 @@ public class TowerSelection : MonoBehaviour
         _controller.SetBool("isActive", value);
     }
 
-    public void SetBoolValue(bool value) 
+    public void SetBoolValue() 
     {
-        _controller.SetBool("isActive", value);
+        _controller.SetBool("isActive", false);
     }
 
-    
+    public void SetPauseButtonValue(bool value) {
+        isPauseButtonSelected = value;
+    }
 
     void ValueChanged()
     {

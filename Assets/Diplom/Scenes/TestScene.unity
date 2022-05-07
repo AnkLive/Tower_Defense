@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 12640211}
   - component: {fileID: 12640213}
   - component: {fileID: 12640212}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 17868084}
   - component: {fileID: 17868085}
   - component: {fileID: 17868083}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 30980408}
   - component: {fileID: 30980410}
   - component: {fileID: 30980409}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 55253650}
   - component: {fileID: 55253651}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 74785632}
   - component: {fileID: 74785631}
   - component: {fileID: 74785630}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -927,18 +927,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 963194232}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: SetScreenVisibility
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1163046583}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2251,7 +2239,7 @@ GameObject:
   - component: {fileID: 243537978}
   - component: {fileID: 243537980}
   - component: {fileID: 243537979}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: SoundText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2527,7 +2515,7 @@ GameObject:
   - component: {fileID: 254170696}
   - component: {fileID: 254170699}
   - component: {fileID: 254170698}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2604,7 +2592,7 @@ GameObject:
   - component: {fileID: 255592269}
   - component: {fileID: 255592268}
   - component: {fileID: 255592267}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3107,6 +3095,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
       propertyPath: m_TagString
       value: TowerSpawnPoint
       objectReference: {fileID: 0}
@@ -3431,7 +3424,7 @@ GameObject:
   - component: {fileID: 323435535}
   - component: {fileID: 323435537}
   - component: {fileID: 323435536}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4195,7 +4188,7 @@ GameObject:
   - component: {fileID: 375001358}
   - component: {fileID: 375001360}
   - component: {fileID: 375001359}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6807,7 +6800,7 @@ GameObject:
   - component: {fileID: 566436013}
   - component: {fileID: 566436015}
   - component: {fileID: 566436014}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7452,7 +7445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 640335955}
   - component: {fileID: 640335956}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7646,7 +7639,7 @@ GameObject:
   - component: {fileID: 668844071}
   - component: {fileID: 668844073}
   - component: {fileID: 668844072}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8798,7 +8791,7 @@ GameObject:
   - component: {fileID: 820999030}
   - component: {fileID: 820999032}
   - component: {fileID: 820999031}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9063,7 +9056,7 @@ GameObject:
   - component: {fileID: 921378311}
   - component: {fileID: 921378312}
   - component: {fileID: 921378310}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Railgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9197,7 +9190,7 @@ GameObject:
   - component: {fileID: 925204598}
   - component: {fileID: 925204600}
   - component: {fileID: 925204599}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9444,7 +9437,7 @@ GameObject:
   - component: {fileID: 955159361}
   - component: {fileID: 955159363}
   - component: {fileID: 955159362}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: EnergyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9531,6 +9524,7 @@ GameObject:
   - component: {fileID: 963194234}
   - component: {fileID: 963194235}
   - component: {fileID: 963194236}
+  - component: {fileID: 963194237}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9617,8 +9611,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _allEnemiesList: []
   _allTowersList: []
-  _explosion: {fileID: 1174349177491522752, guid: 00271bdf7492bdf499bdcaab11232f98,
+  _explosionEffect: {fileID: 1174349177491522752, guid: 00271bdf7492bdf499bdcaab11232f98,
     type: 3}
+  _explosionSound: {fileID: 963194237}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9662,6 +9657,7 @@ MonoBehaviour:
   winPanel: {fileID: 332701776}
   menu: {fileID: 963194232}
   save: {fileID: 963194234}
+  pauseToggle: {fileID: 1641384077}
 --- !u!114 &963194232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9674,6 +9670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999da789b1df2144ca82bcb27157635d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 963194236}
+  data: {fileID: 963194234}
 --- !u!114 &963194233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9735,10 +9733,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 57d92d5660bac374499661525a06ba81, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.05
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9811,6 +9809,102 @@ AudioSource:
     - serializedVersion: 3
       time: 0
       value: 0.66083145
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &963194237
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 943268497add6044098c118de6e2cd62, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10351,7 +10445,7 @@ GameObject:
   - component: {fileID: 1054477898}
   - component: {fileID: 1054477900}
   - component: {fileID: 1054477899}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11037,7 +11131,7 @@ GameObject:
   - component: {fileID: 1081196057}
   - component: {fileID: 1081196058}
   - component: {fileID: 1081196056}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Mashinegun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11172,7 +11266,7 @@ GameObject:
   - component: {fileID: 1082916857}
   - component: {fileID: 1082916856}
   - component: {fileID: 1082916855}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Back To Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11562,7 +11656,7 @@ GameObject:
   - component: {fileID: 1117263461}
   - component: {fileID: 1117263463}
   - component: {fileID: 1117263462}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12233,7 +12327,7 @@ GameObject:
   - component: {fileID: 1163046584}
   - component: {fileID: 1163046586}
   - component: {fileID: 1163046587}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: SelectionTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12301,7 +12395,7 @@ GameObject:
   - component: {fileID: 1163936390}
   - component: {fileID: 1163936392}
   - component: {fileID: 1163936391}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12756,7 +12850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1203554101}
   - component: {fileID: 1203554102}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13436,7 +13530,7 @@ GameObject:
   - component: {fileID: 1278946703}
   - component: {fileID: 1278946705}
   - component: {fileID: 1278946704}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13573,7 +13667,7 @@ GameObject:
   - component: {fileID: 1310854547}
   - component: {fileID: 1310854549}
   - component: {fileID: 1310854548}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13651,7 +13745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1319021204}
   - component: {fileID: 1319021205}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13698,7 +13792,7 @@ GameObject:
   - component: {fileID: 1320664063}
   - component: {fileID: 1320664062}
   - component: {fileID: 1320664064}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13777,6 +13871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pause: {fileID: -2848200524494177537, guid: 4a05acf134cc0424b8b26eb14566e2af, type: 3}
   play: {fileID: -4597346656075825936, guid: 4a05acf134cc0424b8b26eb14566e2af, type: 3}
+  isPause: {fileID: 0}
 --- !u!1 &1321956458
 GameObject:
   m_ObjectHideFlags: 0
@@ -14217,7 +14312,7 @@ GameObject:
   - component: {fileID: 1377564904}
   - component: {fileID: 1377564906}
   - component: {fileID: 1377564905}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Yes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14456,7 +14551,7 @@ GameObject:
   - component: {fileID: 1397305729}
   - component: {fileID: 1397305731}
   - component: {fileID: 1397305730}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: HealthPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14533,7 +14628,7 @@ GameObject:
   - component: {fileID: 1397769060}
   - component: {fileID: 1397769059}
   - component: {fileID: 1397769058}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14755,7 +14850,7 @@ GameObject:
   - component: {fileID: 1405706043}
   - component: {fileID: 1405706042}
   - component: {fileID: 1405706041}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14861,18 +14956,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1163046583}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 963194232}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: SetScreenVisibility
@@ -14902,20 +14985,20 @@ MonoBehaviour:
         m_MethodName: SetScreenInvisibility
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1163046583}
+          m_ObjectArgument: {fileID: 820999029}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 963194232}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: SetScreenInvisibility
-        m_Mode: 2
+      - m_Target: {fileID: 1759187135}
+        m_TargetAssemblyTypeName: TowerSelection, Assembly-CSharp
+        m_MethodName: SetPauseButtonValue
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 820999029}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -15587,7 +15670,7 @@ GameObject:
   - component: {fileID: 1449356333}
   - component: {fileID: 1449356335}
   - component: {fileID: 1449356334}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15747,7 +15830,7 @@ GameObject:
   - component: {fileID: 1452012691}
   - component: {fileID: 1452012693}
   - component: {fileID: 1452012692}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: CoinPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15904,7 +15987,7 @@ GameObject:
   - component: {fileID: 1463230528}
   - component: {fileID: 1463230530}
   - component: {fileID: 1463230529}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: No
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16332,7 +16415,7 @@ GameObject:
   - component: {fileID: 1531331222}
   - component: {fileID: 1531331224}
   - component: {fileID: 1531331223}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16410,7 +16493,7 @@ GameObject:
   - component: {fileID: 1555897882}
   - component: {fileID: 1555897884}
   - component: {fileID: 1555897883}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16806,8 +16889,8 @@ MonoBehaviour:
   <_timeBetweenWaves>k__BackingField: 40
   _wavesList:
   - _enemyName: 0
-    _enemyCount: 1
-    _timeBetweenEnemy: 4
+    _enemyCount: 2
+    _timeBetweenEnemy: 1.68
 --- !u!114 &1615380980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17076,7 +17159,7 @@ GameObject:
   - component: {fileID: 1641384078}
   - component: {fileID: 1641384077}
   - component: {fileID: 1641384079}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17166,7 +17249,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1759187135}
         m_TargetAssemblyTypeName: TowerSelection, Assembly-CSharp
         m_MethodName: SetBoolValue
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17186,6 +17269,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1759187135}
+        m_TargetAssemblyTypeName: TowerSelection, Assembly-CSharp
+        m_MethodName: SetPauseButtonValue
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   m_IsOn: 0
 --- !u!222 &1641384078
@@ -17210,6 +17305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pause: {fileID: 1320664060}
   play: {fileID: 30980407}
+  isPause: {fileID: 963194231}
 --- !u!4 &1642717735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 50f199b8205bb024db2fbec7c9232d33,
@@ -17563,7 +17659,7 @@ GameObject:
   - component: {fileID: 1705950759}
   - component: {fileID: 1705950761}
   - component: {fileID: 1705950760}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17827,7 +17923,8 @@ GameObject:
   - component: {fileID: 1759187133}
   - component: {fileID: 1759187135}
   - component: {fileID: 1759187134}
-  m_Layer: 2
+  - component: {fileID: 1759187136}
+  m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17947,6 +18044,22 @@ MonoBehaviour:
   gameManager: {fileID: 963194231}
   _camera: {fileID: 963194227}
   _controller: {fileID: 1163046587}
+  isPauseButtonSelected: 0
+--- !u!114 &1759187136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759187129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e5216ddced9c64b86a05e201c339fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pause: {fileID: 1320664060}
+  play: {fileID: 30980407}
+  isPause: {fileID: 963194231}
 --- !u!1 &1769411632
 GameObject:
   m_ObjectHideFlags: 0
@@ -18016,7 +18129,7 @@ GameObject:
   - component: {fileID: 1771607589}
   - component: {fileID: 1771607591}
   - component: {fileID: 1771607590}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18140,7 +18253,7 @@ GameObject:
   - component: {fileID: 1799620643}
   - component: {fileID: 1799620645}
   - component: {fileID: 1799620644}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19129,7 +19242,7 @@ GameObject:
   - component: {fileID: 1843165244}
   - component: {fileID: 1843165246}
   - component: {fileID: 1843165245}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19206,7 +19319,7 @@ GameObject:
   - component: {fileID: 1849059246}
   - component: {fileID: 1849059248}
   - component: {fileID: 1849059247}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19340,7 +19453,7 @@ GameObject:
   - component: {fileID: 1870302684}
   - component: {fileID: 1870302686}
   - component: {fileID: 1870302685}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20131,7 +20244,7 @@ GameObject:
   - component: {fileID: 1958358726}
   - component: {fileID: 1958358728}
   - component: {fileID: 1958358727}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: MusicText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20210,7 +20323,7 @@ GameObject:
   - component: {fileID: 1963432059}
   - component: {fileID: 1963432061}
   - component: {fileID: 1963432060}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20376,7 +20489,8 @@ GameObject:
   - component: {fileID: 1982677356}
   - component: {fileID: 1982677358}
   - component: {fileID: 1982677357}
-  m_Layer: 2
+  - component: {fileID: 1982677359}
+  m_Layer: 5
   m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20477,7 +20591,127 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 963194232}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: SetSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1982677359}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_IsOn: 0
+--- !u!82 &1982677359
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982677355}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ec565505e5171e148aba4c332cfd98ec, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.05
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2005949655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20674,7 +20908,7 @@ GameObject:
   - component: {fileID: 2044103371}
   - component: {fileID: 2044103373}
   - component: {fileID: 2044103372}
-  m_Layer: 2
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21410,7 +21644,8 @@ GameObject:
   - component: {fileID: 2099516162}
   - component: {fileID: 2099516164}
   - component: {fileID: 2099516163}
-  m_Layer: 2
+  - component: {fileID: 2099516165}
+  m_Layer: 5
   m_Name: Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21511,7 +21746,115 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2099516165}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_IsOn: 0
+--- !u!82 &2099516165
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099516161}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ec565505e5171e148aba4c332cfd98ec, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.05
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &2114261823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2e14e108e6882fe4b98b59e95ed8831f,

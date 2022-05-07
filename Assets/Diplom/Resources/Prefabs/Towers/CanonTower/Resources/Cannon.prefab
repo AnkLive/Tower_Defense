@@ -129,6 +129,7 @@ MonoBehaviour:
   countDamage: 100
   cooldown: 1
   shotSound: {fileID: 3376310076702514263}
+  tracking: {fileID: 8255002006549563532}
 --- !u!114 &4904044403679261703
 MonoBehaviour:
   m_ObjectHideFlags: 0
