@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
     public static event Action<bool> isPauseAction;
     public static event Action<bool> isGameOverAction;
     
-    [field: SerializeField] public bool _isPause { get; set; } = true;
+    [field: SerializeField] public bool _isPause { get; set; } = false;
     [field: SerializeField] public ObjectManager _objectManager { get; set; }
     [field: SerializeField] public Text _healthText { get; set; }
     [field: SerializeField] public Text _energyText { get; set; }
@@ -26,10 +26,13 @@ public class GameManager : MonoBehaviour, IEventSubscription
     public Menu menu;
     public SafePfers save;
 
+    public Toggle pauseToggle;
+
     private void Awake() => DestroyObjects.isPlayerHealthAction += SetHealth;
 
     private void Start() 
     {
+        _isPause = false;
         _objectManager.isWinAction += isWin;
         Subscribe();
         _currentHealth += _health;
@@ -85,10 +88,20 @@ public class GameManager : MonoBehaviour, IEventSubscription
         _controller.SetBool("isDimming", value);
         _isPause = value;
         isPauseAction?.Invoke(_isPause);
+        pauseToggle.isOn = _isPause;
+    }
+
+    public void StopGame(Toggle toggle) 
+    {
+        Time.timeScale = toggle.isOn ? 0f : 1f;
+        _controller.SetBool("isDimming", toggle.isOn);
+        _isPause = toggle.isOn;
+        isPauseAction?.Invoke(_isPause);
     }
 
     public void isDied() 
     {
+        _controller.SetBool("isDimming", true);
         isGameOverAction?.Invoke(true);
         menu.SetScreenVisibility(gameOverPanel);
         menu.SetScreenInvisibility(UIPanel);
@@ -96,6 +109,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
 
     public void isWin() 
     {
+        _controller.SetBool("isDimming", true);
         save.BEST_RESULT = BestResult(_score);
         _scoreWinText.text = _score.ToString();
         menu.SetScreenVisibility(winPanel);

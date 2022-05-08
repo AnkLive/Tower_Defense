@@ -22,10 +22,11 @@ public class Settings : MonoBehaviour
         settingsIsLoadedEvent?.Invoke();
     }
 
-    public void SaveData() {
+    public void SaveData() 
+    {
         savePfers.MUSIC = SaveDataValue(music.isOn);
         savePfers.SOUND = SaveDataValue(sound.isOn);
-        savePfers.SaveGame();
+        savePfers.SaveSettings();
     }
 
     private bool LoadDataValue(int value) => value == 1 ? true : false;

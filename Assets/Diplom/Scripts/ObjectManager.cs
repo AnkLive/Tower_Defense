@@ -9,7 +9,8 @@ public class ObjectManager : MonoBehaviour
     public event Action isWinAction;
     [SerializeField, HideInInspector] public List<GameObject> _allEnemiesList = new List<GameObject>();
     [SerializeField, HideInInspector] public List<GameObject> _allTowersList = new List<GameObject>();
-    public ParticleSystem _explosion;
+    public ParticleSystem _explosionEffect;
+    public AudioSource _explosionSound;
     bool isLastWaveBool;
 
     private void Start() 
@@ -29,15 +30,18 @@ public class ObjectManager : MonoBehaviour
             _allEnemiesList.Remove(obj);
             _allTowersList.Remove(obj);
             Destroy(obj);
+            if (PlayerPrefs.GetInt("sound") == 1) 
+            {
+                _explosionSound.Play();
+            }
             Vector3 pos = new Vector3(obj.transform.position.x, obj.transform.position.y, obj.transform.position.z);
-            var exp = Instantiate(_explosion, pos, Quaternion.identity);
+            var exp = Instantiate(_explosionEffect, pos, Quaternion.identity);
             exp.Play();
             Destroy(exp.gameObject, 3f);
         }
         if (isLastWaveBool) {
             if (_allEnemiesList.Count == 0) 
             {
-                Debug.Log("2");
                 isWinAction?.Invoke();
                 isLastWaveBool = false;
                 EnemySpawn.isLastWaveAction -= isLastWave;

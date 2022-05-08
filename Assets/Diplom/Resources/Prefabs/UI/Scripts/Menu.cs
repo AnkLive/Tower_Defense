@@ -1,23 +1,29 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    AudioSource music, sound;
+    public AudioSource music;
+    public SafePfers data;
 
     public void SetScreenVisibility(GameObject obj) => obj.SetActive(true);
 
     public void SetScreenInvisibility(GameObject obj) => obj.SetActive(false);
 
-    public void SetSound(bool value, AudioSource sound) 
+    private void Start() {
+        SetSound();
+    }
+
+    public void SetSound() 
     {
-        if(value)
+        if(data.MUSIC == 1)
         {
-            sound.Play();
+            music.Play();
         }
         else
         {
-            sound.Pause();
+            music.Pause();
         }
     }
 

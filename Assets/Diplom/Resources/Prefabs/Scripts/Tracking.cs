@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Tracking : MonoBehaviour, IEventSubscription
 {
     public event Action<GameObject> isDamageAction;
+    public event Action<bool> isTrackingAction;
     public abstract float _speedRotation { get; set; }
     public abstract string _objectTrackingTag { get; set; }
     public abstract List<ObjRotation> _objList { get; set; }
@@ -19,7 +20,7 @@ public abstract class Tracking : MonoBehaviour, IEventSubscription
 
     public void checkListTracking() 
     {
-
+        isTrackingAction?.Invoke(_isTracking);
         if (_objTracking.Count == 0)
         {
             _isTracking = false;

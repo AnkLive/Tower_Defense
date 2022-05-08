@@ -26,6 +26,7 @@ public class TowerHealth : Health
     public override Image _sliderBottomImage { get => sliderBottomImage; set => sliderBottomImage = value; }
     public override bool _isShields { get => isShields; set => isShields = value; }
     public override ParticleSystem _hitEffect { get => hitEffect; set => hitEffect = value; }
+
     public int _price { get => price; set => price = value; }
 
     private void Awake()
