@@ -13,9 +13,11 @@ public class MashinegunDamage : Damage
     public override GameObject _obj { get; set; }
     public override Tracking _tracking { get => tracking; set => tracking = value; }
     public override AudioSource _shotSound { get => shotSound; set => shotSound = value; }
+    bool _isPause = false;
     
     private void Awake() 
     {
+        GameManager.isPauseAction += CheckPause;
         gameObject.GetComponent<Tracking>().isTrackingAction += IsTracking;
         base.Subscribe();
     }
@@ -28,7 +30,10 @@ public class MashinegunDamage : Damage
 
         if (_timeStamp <= Time.time)
         {
-            
+            if (_isPause) 
+            {
+                _shotSound.Pause();
+            }
             foreach (var item in _shotEffect)
             {
                 item.Play(true);
@@ -60,6 +65,18 @@ public class MashinegunDamage : Damage
     {
         gameObject.GetComponent<Tracking>().isTrackingAction += IsTracking;
         base.Unsubscribe();
+    }
+
+    public void CheckPause(bool value) 
+    {
+        if(value) 
+        {
+            _shotSound.Pause();
+        } else if(CheckSettings() && !_shotSound.isPlaying && value && !value) 
+        {
+            _shotSound.Play();
+        }
+        _isPause = value;
     }
 
     public override bool CheckSettings() => base.CheckSettings();

@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
 
     public void isDied() 
     {
+        _controller.SetBool("isDimming", true);
         isGameOverAction?.Invoke(true);
         menu.SetScreenVisibility(gameOverPanel);
         menu.SetScreenInvisibility(UIPanel);
@@ -108,6 +109,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
 
     public void isWin() 
     {
+        _controller.SetBool("isDimming", true);
         save.BEST_RESULT = BestResult(_score);
         _scoreWinText.text = _score.ToString();
         menu.SetScreenVisibility(winPanel);
