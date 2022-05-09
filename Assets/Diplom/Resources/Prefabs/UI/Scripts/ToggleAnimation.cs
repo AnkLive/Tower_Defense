@@ -28,6 +28,8 @@ public class ToggleAnimation : MonoBehaviour
         _anim.SetBool("toggle", _toggle.isOn);
     }
 
+    public void SetToggleState() => _anim.SetBool("toggle", _toggle.isOn);
+
     void ToggleValueChanged(Toggle change)
     {
         _settings.SaveData();
