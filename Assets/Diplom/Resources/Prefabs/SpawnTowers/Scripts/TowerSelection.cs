@@ -25,9 +25,9 @@ public class TowerSelection : MonoBehaviour
     {
         if (Application.platform == RuntimePlatform.WindowsEditor)
         {
-            ray = _camera.ScreenPointToRay(Input.mousePosition);
+            ray = _camera.ScreenPointToRay(Input.GetTouch(0).position);
             
-            if (Input.GetMouseButtonDown(0))
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 if (Physics.Raycast(ray, out hit))
                 {

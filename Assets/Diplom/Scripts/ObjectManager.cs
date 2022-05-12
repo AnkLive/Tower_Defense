@@ -11,7 +11,7 @@ public class ObjectManager : MonoBehaviour
     [SerializeField, HideInInspector] public List<GameObject> _allTowersList = new List<GameObject>();
     public ParticleSystem _explosionEffect;
     public AudioSource _explosionSound;
-    bool isLastWaveBool;
+    bool isLastWaveBool = false;
 
     private void Start() 
     {
@@ -42,6 +42,7 @@ public class ObjectManager : MonoBehaviour
         if (isLastWaveBool) {
             if (_allEnemiesList.Count == 0) 
             {
+                Debug.Log("2");
                 isWinAction?.Invoke();
                 isLastWaveBool = false;
                 EnemySpawn.isLastWaveAction -= isLastWave;
@@ -56,11 +57,13 @@ public class ObjectManager : MonoBehaviour
         _allTowersList.RemoveAll(item => item == null);
     }
 
-    public void isLastWave(bool value) {
+    public void isLastWave(bool value) 
+    {
         isLastWaveBool = value;
         CheckNullObjList();
         if (_allEnemiesList.Count == 0) 
         {
+            Debug.Log("1");
             isWinAction?.Invoke();
             isLastWaveBool = false;
             EnemySpawn.isLastWaveAction -= isLastWave;

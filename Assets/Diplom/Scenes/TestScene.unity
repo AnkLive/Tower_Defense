@@ -6551,7 +6551,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <_timeBetweenWaves>k__BackingField: 5
-  _wavesList: []
+  _wavesList:
+  - _enemyName: 0
+    _enemyCount: 5
+    _timeBetweenEnemy: 1
 --- !u!114 &549196705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9743,7 +9746,7 @@ MonoBehaviour:
   <_scoreText>k__BackingField: {fileID: 1771607590}
   <_scoreWinText>k__BackingField: {fileID: 1386929585}
   <_newRecordText>k__BackingField: {fileID: 2076608948}
-  <_health>k__BackingField: 1
+  <_health>k__BackingField: 20
   <_energy>k__BackingField: 200
   <_score>k__BackingField: 0
   <_isGame>k__BackingField: 1
@@ -17109,7 +17112,7 @@ MonoBehaviour:
   <_timeBetweenWaves>k__BackingField: 40
   _wavesList:
   - _enemyName: 0
-    _enemyCount: 1
+    _enemyCount: 4
     _timeBetweenEnemy: 1.68
 --- !u!114 &1615380980
 MonoBehaviour:

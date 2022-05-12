@@ -11,11 +11,14 @@ public class ToggleAnimation : MonoBehaviour
 
     private void Start() 
     {
-        _anim.SetBool("toggle", _toggle.isOn);
         _toggle.onValueChanged.AddListener(delegate 
         {
             ToggleValueChanged(_toggle);
         });
+        if (_anim.gameObject.activeSelf) 
+        {
+            _anim.SetBool("toggle", _toggle.isOn);
+        }
     }
 
     public void ToggleAnim() 
@@ -25,14 +28,26 @@ public class ToggleAnimation : MonoBehaviour
             _settings.SaveData();
         }
         value = true;
-        _anim.SetBool("toggle", _toggle.isOn);
+        if (_anim.gameObject.activeSelf) 
+        {
+            _anim.SetBool("toggle", _toggle.isOn);
+        }
     }
 
-    public void SetToggleState() => _anim.SetBool("toggle", _toggle.isOn);
+    public void SetToggleState() 
+    {
+        if (_anim.gameObject.activeSelf) 
+        {
+            _anim.SetBool("toggle", _toggle.isOn);
+        }
+    }
 
-    void ToggleValueChanged(Toggle change)
+    public void ToggleValueChanged(Toggle change)
     {
         _settings.SaveData();
-        _anim.SetTrigger("anim");
+        if (_anim.gameObject.activeSelf) 
+        {
+            _anim.SetTrigger("anim");
+        }
     }
 }
