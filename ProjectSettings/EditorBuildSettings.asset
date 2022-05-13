@@ -10,13 +10,13 @@ EditorBuildSettings:
     guid: a06af25e15ae368449fe4fca9a1b92cf
   - enabled: 1
     path: Assets/Diplom/Scenes/Level 1.unity
-    guid: 20e58f2994e89d94caddfb3c234823b5
+    guid: 264f8c0e70e753946af645e97e6dae9a
   - enabled: 1
     path: Assets/Diplom/Scenes/Level 2.unity
     guid: 6c9d739626f555144ba87373a0d0b1b0
   - enabled: 1
     path: Assets/Diplom/Scenes/Level 3.unity
-    guid: 264f8c0e70e753946af645e97e6dae9a
+    guid: 20e58f2994e89d94caddfb3c234823b5
   - enabled: 1
     path: Assets/Diplom/Scenes/TestScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab

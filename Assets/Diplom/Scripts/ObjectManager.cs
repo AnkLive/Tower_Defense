@@ -9,6 +9,7 @@ public class ObjectManager : MonoBehaviour
     public event Action isWinAction;
     [SerializeField, HideInInspector] public List<GameObject> _allEnemiesList = new List<GameObject>();
     [SerializeField, HideInInspector] public List<GameObject> _allTowersList = new List<GameObject>();
+    [field: SerializeField] public List<GameObject> _spawnPointList { get; set; } = new List<GameObject>();
     public ParticleSystem _explosionEffect;
     public AudioSource _explosionSound;
     bool isLastWaveBool = false;
@@ -39,16 +40,7 @@ public class ObjectManager : MonoBehaviour
             exp.Play();
             Destroy(exp.gameObject, 3f);
         }
-        if (isLastWaveBool) {
-            if (_allEnemiesList.Count == 0) 
-            {
-                Debug.Log("2");
-                isWinAction?.Invoke();
-                isLastWaveBool = false;
-                EnemySpawn.isLastWaveAction -= isLastWave;
-                Health.isDiedAction -= HealthCheck;
-            }
-        }
+        CheckLastWave();
     }
 
     private void CheckNullObjList() 
@@ -63,12 +55,31 @@ public class ObjectManager : MonoBehaviour
         CheckNullObjList();
         if (_allEnemiesList.Count == 0) 
         {
-            Debug.Log("1");
             isWinAction?.Invoke();
             isLastWaveBool = false;
             EnemySpawn.isLastWaveAction -= isLastWave;
             Health.isDiedAction -= HealthCheck;
         }
         
+    }
+
+    private void CheckLastWave() 
+    {
+        int value = 0;
+        foreach (var item in _spawnPointList)
+        {
+            if (item.gameObject.GetComponent<WaveManager>()._wavesList.Count == item.gameObject.GetComponent<EnemySpawn>()._numberOWave) 
+            {
+                value++;
+            }
+        }
+        if (value == _spawnPointList.Count) 
+        {
+            isLastWave(true);
+        }
+        else 
+        {
+           isLastWave(false);
+        }
     }
 }
