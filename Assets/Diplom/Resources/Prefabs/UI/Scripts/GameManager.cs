@@ -52,11 +52,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
         SetText(_currentHealth, _healthText);
         _isGame = CheckHealth();
 
-        if (_isGame) 
-        {
-            StopGame(true);
-        }
-        else 
+        if (!_isGame) 
         {
             isDied();
             StopGame(true);
@@ -105,6 +101,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
         isGameOverAction?.Invoke(true);
         menu.SetScreenVisibility(gameOverPanel);
         menu.SetScreenInvisibility(UIPanel);
+        Time.timeScale = 1f;
     }
 
     public void isWin() 
@@ -115,6 +112,7 @@ public class GameManager : MonoBehaviour, IEventSubscription
         menu.SetScreenVisibility(winPanel);
         menu.SetScreenInvisibility(UIPanel);
         SavingGameResults();
+        Time.timeScale = 1f;
     }
 
     public void SavingGameResults() => save.TOTAL_SCORE += ResultGameScore(_currentEnergy, _currentHealth, _score);

@@ -12,7 +12,7 @@ public class EnemySpawn : MonoBehaviour
     [field: SerializeField, HideInInspector] public WaveManager _waveManager { get; set; }
     private List<Wave> _waveList = new List<Wave>();
     private float _timeStamp;
-    private int _numberOWave = 0;
+    public int _numberOWave = 0;
     private bool _startNextWave = true;
 
     private void Awake() 
@@ -62,6 +62,7 @@ public class EnemySpawn : MonoBehaviour
                 _spawn.transform.position.y + 1f,
                 _spawn.transform.position.z
             );
+            obj.transform.rotation = transform.rotation;
             _numberOfEnemy++;
             yield return new WaitForSeconds(seconds);
         }

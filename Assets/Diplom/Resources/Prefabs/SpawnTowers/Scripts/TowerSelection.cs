@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TowerSelection : MonoBehaviour
 {
@@ -23,22 +22,22 @@ public class TowerSelection : MonoBehaviour
 
     void Update()
     {
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        for (var i = 0; i < Input.touchCount; ++i) 
         {
-            ray = _camera.ScreenPointToRay(Input.mousePosition);
-            
-            if (Input.GetMouseButtonDown(0))
-            {
+             if (Input.GetTouch(i).phase == TouchPhase.Began) 
+             {
+                 
+                 Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
                 if (Physics.Raycast(ray, out hit))
                 {
                     if (!gameManager._isPause || isPauseButtonSelected) {
-                    if (hit.collider.CompareTag("TowerSpawnPoint"))
-                    {
-                        ValueChanged();
-                        getSpawnPointObj?.Invoke(hit.collider.gameObject.transform.Find("SpawnPoint").gameObject);
-                        SetControllerValue(true);
-                        change.ChangeSprite();
-                    }
+                        if (hit.collider.CompareTag("TowerSpawnPoint"))
+                        {
+                            ValueChanged();
+                            getSpawnPointObj?.Invoke(hit.collider.gameObject.transform.Find("SpawnPoint").gameObject);
+                            SetControllerValue(true);
+                            change.ChangeSprite();
+                        }
                     }
                 }
             }

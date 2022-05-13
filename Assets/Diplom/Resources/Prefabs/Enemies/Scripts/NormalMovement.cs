@@ -7,8 +7,10 @@ public class NormalMovement : Movement
     public override float _speed { get => speed; set => speed = value; }
     public override float _speedDirection { get => speedDirection; set => speedDirection = value; }
 
-    public void Start() => base.GetComponentData();
-
+    public void Start() 
+    { 
+        base.GetComponentData();
+    }
     public void OnCollisionEnter(Collision collision) 
     {
 

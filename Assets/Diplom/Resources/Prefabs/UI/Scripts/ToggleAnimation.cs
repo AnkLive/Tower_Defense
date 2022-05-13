@@ -11,11 +11,11 @@ public class ToggleAnimation : MonoBehaviour
 
     private void Start() 
     {
-        _anim.SetBool("toggle", _toggle.isOn);
         _toggle.onValueChanged.AddListener(delegate 
         {
             ToggleValueChanged(_toggle);
         });
+        _anim.SetBool("toggle", _toggle.isOn);
     }
 
     public void ToggleAnim() 
@@ -28,7 +28,12 @@ public class ToggleAnimation : MonoBehaviour
         _anim.SetBool("toggle", _toggle.isOn);
     }
 
-    void ToggleValueChanged(Toggle change)
+    public void SetToggleState() 
+    {
+        _anim.SetBool("toggle", _toggle.isOn);
+    }
+
+    public void ToggleValueChanged(Toggle change)
     {
         _settings.SaveData();
         _anim.SetTrigger("anim");
