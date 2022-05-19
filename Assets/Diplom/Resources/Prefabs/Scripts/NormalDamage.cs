@@ -14,12 +14,11 @@ public class NormalDamage : Damage
     public override Tracking _tracking { get => tracking; set => tracking = value; }
     public override AudioSource _shotSound { get => shotSound; set => shotSound = value; }
     
-    private void Awake() 
+    private void Start() 
     {
         base.Subscribe();
+        UpdateTimeStamp();
     }
-
-    private void Start() => UpdateTimeStamp();
 
     public override void IsDamage(GameObject TrackingObj)
     {

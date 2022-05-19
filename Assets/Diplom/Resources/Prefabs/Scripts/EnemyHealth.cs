@@ -31,7 +31,7 @@ public class EnemyHealth : Health
     public int _rewardForDestruction { get => rewardForDestruction; set => rewardForDestruction = value; }
     public int _scoreForDestruction { get => scoreForDestruction; set => scoreForDestruction = value; }
 
-    private void Awake()
+    private void Start()
     {
         _currentHealth = _amountOfHealth;
 

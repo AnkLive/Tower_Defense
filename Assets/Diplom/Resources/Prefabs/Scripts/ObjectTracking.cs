@@ -24,7 +24,7 @@ public class ObjectTracking : Tracking
     public override List<ObjRotation> _objList { get => objList; set => objList = value; }
     public override List<GameObject> _objTracking { get => objTracking; set => objTracking = value; }
 
-    private void Awake() => base.Subscribe();
+    private void Start() => base.Subscribe();
 
     private void Update() => base.checkListTracking();
 
