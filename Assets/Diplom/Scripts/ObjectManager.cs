@@ -7,8 +7,8 @@ public class ObjectManager : MonoBehaviour
     public static event Action<GameObject> isRemoveObjAction;
     public event Action<int, int> isDiedObjAction;
     public event Action isWinAction;
-    [SerializeField, HideInInspector] public List<GameObject> _allEnemiesList = new List<GameObject>();
-    [SerializeField, HideInInspector] public List<GameObject> _allTowersList = new List<GameObject>();
+    [SerializeField, HideInInspector] public List<GameObject> _allEnemiesList;
+    [SerializeField, HideInInspector] public List<GameObject> _allTowersList;
     [field: SerializeField] public List<GameObject> _spawnPointList { get; set; } = new List<GameObject>();
     public ParticleSystem _explosionEffect;
     public AudioSource _explosionSound;
@@ -16,8 +16,15 @@ public class ObjectManager : MonoBehaviour
 
     private void Start() 
     {
+        _allEnemiesList = new List<GameObject>();
+        _allTowersList = new List<GameObject>();
         EnemySpawn.isLastWaveAction += isLastWave;
         Health.isDiedAction += HealthCheck;
+    }
+
+    private void OnDisable() {
+        EnemySpawn.isLastWaveAction -= isLastWave;
+        Health.isDiedAction -= HealthCheck;
     }
 
     public void AddListObj(List<GameObject> list, GameObject obj) => list.Add(obj);
@@ -27,10 +34,10 @@ public class ObjectManager : MonoBehaviour
         if (obj.GetComponent<Health>()._isDied)
         {
             isRemoveObjAction?.Invoke(obj);
+            Destroy(obj);
             isDiedObjAction?.Invoke(obj.GetComponent<EnemyHealth>()._rewardForDestruction, obj.GetComponent<EnemyHealth>()._scoreForDestruction);
             _allEnemiesList.Remove(obj);
             _allTowersList.Remove(obj);
-            Destroy(obj);
             if (PlayerPrefs.GetInt("sound") == 1) 
             {
                 _explosionSound.Play();

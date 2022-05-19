@@ -29,7 +29,7 @@ public class TowerHealth : Health
 
     public int _price { get => price; set => price = value; }
 
-    private void Awake()
+    private void Start()
     {
         _currentHealth = _amountOfHealth;
 

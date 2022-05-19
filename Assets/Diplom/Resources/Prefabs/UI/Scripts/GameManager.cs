@@ -28,17 +28,21 @@ public class GameManager : MonoBehaviour, IEventSubscription
 
     public Toggle pauseToggle;
 
-    private void Awake() => DestroyObjects.isPlayerHealthAction += SetHealth;
-
     private void Start() 
     {
-        _isPause = false;
+        DestroyObjects.isPlayerHealthAction += SetHealth;
+        StopGame(true);
         _objectManager.isWinAction += isWin;
         Subscribe();
         _currentHealth += _health;
         _currentEnergy += _energy;
         SetText(_currentHealth, _healthText);
         SetText(_currentEnergy, _energyText);
+    }
+
+    private void OnDisable() {
+        DestroyObjects.isPlayerHealthAction -= SetHealth;
+        Unsubscribe();
     }
 
     public void SetText(float value, Text textField) => textField.text = value.ToString();
@@ -71,8 +75,6 @@ public class GameManager : MonoBehaviour, IEventSubscription
     private bool CheckHealth() => _currentHealth <= 0 ? false : true;
 
     public bool CheckEnergy(float value) => _currentEnergy >= value ? true : false;
-
-    private void OnDisable() => Unsubscribe();
 
     public void Subscribe() => _objectManager.isDiedObjAction += SetEnergyAndScore;
 

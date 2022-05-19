@@ -15,7 +15,7 @@ public class EnemySpawn : MonoBehaviour
     public int _numberOWave = 0;
     private bool _startNextWave = true;
 
-    private void Awake() 
+    private void Start() 
     {
         _waveList = _waveManager._wavesList;
     }

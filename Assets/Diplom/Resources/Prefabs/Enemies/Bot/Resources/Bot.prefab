@@ -104,9 +104,8 @@ MonoBehaviour:
   sliderBottomImage: {fileID: 8623032258976634150}
   isShields: 0
   hitEffect: {fileID: 603129778167773546}
-  rewardForDestruction: 5
+  rewardForDestruction: 10
   scoreForDestruction: 100
-  explosionSound: {fileID: 2919724659008543215}
 --- !u!82 &2919724659008543215
 AudioSource:
   m_ObjectHideFlags: 0

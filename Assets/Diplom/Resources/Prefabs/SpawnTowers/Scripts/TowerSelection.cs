@@ -16,7 +16,8 @@ public class TowerSelection : MonoBehaviour
 
     public bool isPauseButtonSelected;
 
-    private void Start() {
+    private void Start() 
+    {
         change = gameObject.GetComponent<PauseIconChange>();
     }
 
@@ -26,10 +27,10 @@ public class TowerSelection : MonoBehaviour
         {
              if (Input.GetTouch(i).phase == TouchPhase.Began) 
              {
-                 
-                 Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
+                Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
                 if (Physics.Raycast(ray, out hit))
                 {
+                    Debug.Log(hit.collider.tag);
                     if (!gameManager._isPause || isPauseButtonSelected) {
                         if (hit.collider.CompareTag("TowerSpawnPoint"))
                         {
