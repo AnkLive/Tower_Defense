@@ -190,6 +190,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerSelectionPoint (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
 --- !u!1 &12140941
@@ -4078,6 +4083,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerSelectionPoint (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
 --- !u!1 &228119177
@@ -4812,6 +4822,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerSelectionPoint (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
 --- !u!1 &268643013
@@ -4961,6 +4976,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerSelectionPoint (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
@@ -5146,6 +5166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerSelectionPoint (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
@@ -5433,6 +5458,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerSelectionPoint (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
@@ -6906,6 +6936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerSelectionPoint (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
@@ -9838,6 +9873,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerSelectionPoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
 --- !u!1 &736978976
@@ -10526,6 +10566,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerSelectionPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
@@ -16942,6 +16987,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerSelectionPoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
 --- !u!1 &1212537628
@@ -17944,6 +17994,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerSelectionPoint (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
 --- !u!1 &1291308058
@@ -18824,6 +18879,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerSelectionPoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
@@ -25771,6 +25831,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerSelectionPoint (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
 --- !u!1 &1932860533
@@ -27164,7 +27229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021569937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 0, z: -15}
+  m_LocalPosition: {x: 40, y: 0, z: -20}
   m_LocalScale: {x: 15, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -28406,6 +28471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerSelectionPoint (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194619165380502031, guid: 061bef732868ba447a53ab6801f15062,
+        type: 3}
+      propertyPath: m_TagString
+      value: TowerSpawnPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061bef732868ba447a53ab6801f15062, type: 3}
